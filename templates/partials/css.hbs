@@ -1,0 +1,46 @@
+{{!< default}}
+{{!-- 
+/**
+	* (Site name here)
+	* Developed by Engagement Lab, 2016
+	* ==============
+	* 
+	* Document includes partial 
+	* ==========
+	*/
+--}}
+
+<!-- DOCS START -->
+
+<!-- Favicons -->
+<link rel="shortcut icon" href="/images/favicons/favicon.ico">
+<!-- For third-generation iPad with high-resolution Retina display: -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicons/favicon_144.png">
+<!-- For iPhone with high-resolution Retina display: -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicons/favicon_114.png">
+<!-- For first- and second-generation iPad: -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicons/favicon_72.png">
+<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+<link rel="apple-touch-icon-precomposed" href="/images/favicons/favicon_57.png">
+
+{{#ifeq environment "development"}}
+
+	{{!-- DEVELOPMENT --}}
+	
+	{{!-- Bootstrap core CSS --}}
+	<link href="styles/bootstrap.min.css" rel="stylesheet">
+
+	{{!-- Core Site CSS --}}
+	<link href="styles/core.css" rel="stylesheet">
+
+	{{!-- Bower plugins --}}
+
+{{else}}
+
+	{{!-- PRODUCTION --}}
+	{{!-- Suite core styling --}}
+	<link href="https://res.cloudinary.com/engagement-lab-home/raw/upload/site/styles/core.css" rel="stylesheet">
+	{{!-- Module styling --}}
+	<link href="{{cdnAsset product='repo-name' env=environment type='css' }}" rel="stylesheet">
+
+{{/ifeq}}

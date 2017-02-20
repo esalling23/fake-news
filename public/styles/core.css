@@ -1,0 +1,32 @@
+.hidden {
+  visibility: hidden; }
+
+.body {
+  background-color: #000;
+  color: #fff;
+  font-family: "HalisLight"; }
+
+@media (max-width: 480px) {
+  .desktop-only {
+    display: none; } }
+
+@media only screen and (min-width: 1025px) {
+  .mobile-only {
+    display: none; } }
+
+.buffer {
+  margin-top: 5%; }
+
+.home #new-game {
+  height: 80px;
+  width: 160px;
+  border: black 3px solid; }
+
+.home .game .article {
+  height: 80px;
+  border: 3px black solid;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+  color: white; }

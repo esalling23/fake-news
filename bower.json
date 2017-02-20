@@ -1,0 +1,22 @@
+{
+  "name": "fake-news",
+  "description": "",
+  "main": "app.js",
+  "version": "0.0.1",
+  "authors": [
+    "Johnny Richardson <johnny@elab.emerson.edu>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/engagementgamelab/uncertainty-dictionary",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.4"
+  }
+}

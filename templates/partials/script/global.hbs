@@ -1,0 +1,120 @@
+{{!< default}}
+{{!-- 
+/**
+ * Uncertainty Project
+ * Developed by Engagement Lab, 2016
+ * ==============
+ * 
+ * Script include for global logic
+ * ==========
+ */
+--}}
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+
+		var articles = {};
+		var maxArticles = 3;
+		var day;
+		var actions;
+
+		$('#new-game').click(function() {
+			newGame();
+		});
+
+		function newGame() {
+
+				// Set variables
+				day = 1;
+				actions = 0;
+				articles.articles = [];
+
+				// Generate articles
+				for (i = 0; i <= 3; i ++) {
+					generateArticles(articles.articles);
+				}
+				console.log(articles, " articles");
+
+
+				_.each(articles.articles, function(article){
+					$('.article-feed').append('<div class="article">' + 
+						article
+						+ '</div>')
+				});
+
+				// TODO: workout handlebars?
+				templateLoader("#article-template", articles, ".article-feed", "append");
+
+				$('.game').show();
+			
+		}
+
+		function generateArticles(array) {
+
+				var article = {};
+				article.facts = [];
+
+				// is this topic interesting? 
+				article.interest = Math.floor((Math.random() * 10) + 1);
+
+				// Random # facts
+				var factsNum = Math.floor((Math.random() * 4) + 1);
+
+				// For each fact, give it a source
+				for (i = 0; i < factsNum; i ++ ) {
+					var fact = {};
+
+					// Give source biase (1: true, 0: false)
+					fact.source = { bias: Math.floor((Math.random() * 10) + 1) };
+
+					if (fact.source.bias <= 5) {
+						// Set the bias to popular or not
+						fact.source.popular = Math.floor((Math.random() * 10) + 1);
+					}
+
+					article.facts.push(fact);
+				}
+				// console.log(article.facts, " the facts");
+
+				// add article to array
+				array.push(article);
+
+		}
+
+
+		// Handlebars Templating 
+		function templateLoader(id, data, template, command) {
+		  // Grab the template script
+		  var theTemplateScript = $("#article-template").html();
+
+		  // Compile the template
+		  var theTemplate = Handlebars.compile(theTemplateScript);
+		  console.log (theTemplate);
+
+		  // Define our data object
+		  var context = {
+		  	data
+		  };
+		  console.log(context);
+
+		  // Pass our data to the template
+		  var theCompiledHtml = theTemplate(context);
+		  console.log(theCompiledHtml);
+
+		  // Add the compiled html to the page
+		  if (command === "append") {
+		  	console.log("appending");
+		  	$(template).append(theCompiledHtml);
+		  } else if (command === "html") {
+		  	$(template).html(theCompiledHtml);
+		  }
+		  
+
+		};
+
+
+
+	});
+	
+</script>

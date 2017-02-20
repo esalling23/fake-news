@@ -1,0 +1,1905 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"files",
+				"filesArr"
+			],
+			[
+				"l",
+				"log"
+			],
+			[
+				"file",
+				"filesArr"
+			],
+			[
+				"arrs",
+				"arrSites"
+			],
+			[
+				"conf",
+				"configData"
+			],
+			[
+				"site",
+				"siteConfig"
+			],
+			[
+				"sites",
+				"sitesArg"
+			],
+			[
+				"mo",
+				"moduleHelpers"
+			],
+			[
+				"core",
+				"coreHelpers"
+			],
+			[
+				"cor",
+				"coreHelpers"
+			],
+			[
+				"unde",
+				"undefined"
+			],
+			[
+				"mod",
+				"moduleHelpers"
+			],
+			[
+				"hbs",
+				"hbsHelpers"
+			],
+			[
+				"engage",
+				"engagement-lab-home"
+			],
+			[
+				"log",
+				"logger"
+			],
+			[
+				"lg",
+				"logger"
+			],
+			[
+				"ar",
+				"argv"
+			],
+			[
+				"grt",
+				"grunt"
+			],
+			[
+				"op",
+				"options"
+			],
+			[
+				"js",
+				"jsArr"
+			],
+			[
+				"com",
+				"compile"
+			],
+			[
+				"ene",
+				"emerging-citizens"
+			],
+			[
+				"t",
+				"title"
+			],
+			[
+				"gru",
+				"gruntJobsConfig"
+			],
+			[
+				"si",
+				"siteDir"
+			],
+			[
+				"sign",
+				"singleDomain"
+			],
+			[
+				"single",
+				"singleDomain"
+			],
+			[
+				"htpt",
+				"https"
+			],
+			[
+				"ski",
+				"skipVersion"
+			],
+			[
+				"res",
+				"resultCPI"
+			],
+			[
+				"co",
+				"console"
+			],
+			[
+				"regi",
+				"register_form"
+			],
+			[
+				"communit",
+				"commmunityplanit"
+			],
+			[
+				"commun",
+				"commnuityplanit"
+			],
+			[
+				"gr",
+				"gruntJobsConfig"
+			],
+			[
+				"pro",
+				"production"
+			],
+			[
+				"se",
+				"serverStart"
+			],
+			[
+				"ser",
+				"serverStart"
+			],
+			[
+				"ignore",
+				"ignoreFilter"
+			],
+			[
+				"watc",
+				"watchFilter"
+			],
+			[
+				"ignor",
+				"ignoreFilter"
+			],
+			[
+				"ap",
+				"appServer"
+			],
+			[
+				"vir",
+				"virtualServer"
+			],
+			[
+				"modu",
+				"moduleRoot"
+			],
+			[
+				"serv",
+				"serverLaunch"
+			],
+			[
+				"sit",
+				"sitesArg"
+			],
+			[
+				"dev",
+				"devTasks"
+			],
+			[
+				"FRa",
+				"FrameworkMiddleware"
+			],
+			[
+				"Fr",
+				"FrameworkMiddleware"
+			],
+			[
+				"keys",
+				"keystoneInst"
+			],
+			[
+				"tasks",
+				"tasksMapped"
+			],
+			[
+				"app",
+				"appInstance"
+			],
+			[
+				"conne",
+				"connection"
+			],
+			[
+				"sla",
+				"slackUsers"
+			],
+			[
+				"membe",
+				"members"
+			],
+			[
+				"sk",
+				"skipCount"
+			],
+			[
+				"defer",
+				"deferCount"
+			],
+			[
+				"upda",
+				"updateCount"
+			],
+			[
+				"upd",
+				"update"
+			],
+			[
+				"err",
+				"errmsg"
+			],
+			[
+				"all",
+				"allDatabases"
+			],
+			[
+				"mong",
+				"mongoConnection"
+			],
+			[
+				"style",
+				"styles"
+			],
+			[
+				"node",
+				"node_modules"
+			],
+			[
+				"S",
+				"SCRIPT_DIR"
+			],
+			[
+				"SERVER",
+				"serverPort"
+			],
+			[
+				"ke",
+				"keystoneInst"
+			],
+			[
+				"_key",
+				"_keystoneInst"
+			],
+			[
+				"slack",
+				"_slackApiInst"
+			],
+			[
+				"key",
+				"keystoneApp"
+			],
+			[
+				"cof",
+				"configData"
+			],
+			[
+				"sitero",
+				"siteRoot"
+			],
+			[
+				"mongoose",
+				"mongooseInst"
+			],
+			[
+				"arr",
+				"arrEvents"
+			],
+			[
+				"arre",
+				"arrEventsCapped"
+			],
+			[
+				"progr",
+				"programDescription"
+			],
+			[
+				"CMAP",
+				"Cmap"
+			],
+			[
+				"mongo",
+				"mongooseOpened"
+			],
+			[
+				"kets",
+				"keystoneInst"
+			],
+			[
+				"Inv",
+				"investigator"
+			],
+			[
+				"keysto",
+				"keystone"
+			],
+			[
+				"set",
+				"setGlobalConfig"
+			],
+			[
+				"keystone",
+				"keystoneConfig"
+			],
+			[
+				"to",
+				"toString"
+			],
+			[
+				"_",
+				"_helpers"
+			],
+			[
+				"pla",
+				"pluralize"
+			],
+			[
+				"cha",
+				"charAt"
+			],
+			[
+				"cmap",
+				"cmapQuery"
+			],
+			[
+				"even",
+				"eventEmitter"
+			],
+			[
+				"cmp",
+				"cmpHost"
+			],
+			[
+				"el",
+				"elabHost"
+			],
+			[
+				"pu",
+				"publications"
+			],
+			[
+				"publ",
+				"publications"
+			],
+			[
+				"pub",
+				"publicationsCats"
+			],
+			[
+				"sub",
+				"subLinks"
+			],
+			[
+				"art",
+				"articleJson"
+			],
+			[
+				"arti",
+				"articleInd"
+			],
+			[
+				"projec",
+				"projectImages"
+			],
+			[
+				"re",
+				"research"
+			],
+			[
+				"proje",
+				"projectImages"
+			],
+			[
+				"doc",
+				"document"
+			],
+			[
+				"dco",
+				"document"
+			],
+			[
+				"fea",
+				"featured_glider"
+			],
+			[
+				"glid",
+				"gliderDom"
+			],
+			[
+				"taks",
+				"task-interval"
+			],
+			[
+				"ge",
+				"getAll"
+			],
+			[
+				"cus",
+				"customTabs"
+			],
+			[
+				"heade",
+				"header"
+			],
+			[
+				"tab",
+				"tabHeaders"
+			],
+			[
+				"Proje",
+				"ProjectTabs"
+			],
+			[
+				"do",
+				"documentName"
+			],
+			[
+				"model",
+				"model_name"
+			],
+			[
+				"ma",
+				"margin-right"
+			],
+			[
+				"proe",
+				"projectImages"
+			],
+			[
+				"user",
+				"userName"
+			],
+			[
+				"acc",
+				"accolade"
+			],
+			[
+				"slc",
+				"slackMsg"
+			],
+			[
+				"up",
+				"updatedBy"
+			],
+			[
+				"slac",
+				"slack"
+			],
+			[
+				"fi",
+				"function"
+			],
+			[
+				"mdo",
+				"modelName"
+			],
+			[
+				"slakc",
+				"slackUser"
+			],
+			[
+				"publi",
+				"publications"
+			],
+			[
+				"font-",
+				"font-style"
+			],
+			[
+				"paddin",
+				"padding-bottom"
+			],
+			[
+				"css",
+				"cssType"
+			],
+			[
+				"mim",
+				"mimeType"
+			],
+			[
+				"f",
+				"filetype"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/config.json",
+			"settings":
+			{
+				"buffer_size": 199,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/package.json",
+			"settings":
+			{
+				"buffer_size": 489,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 62 files for \"Boston Civic Media Website\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/public/js/custom.js:\n    1  /**\n    2:  * Boston Civic Media Website\n    3   * Developed by Engagement Lab, 2016\n    4   * ==============\n\n/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/routes/views/about.js:\n    1  /**\n    2:  * Boston Civic Media Website\n    3   * Developed by Engagement Lab, 2016\n    4   * ==============\n\n/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/templates/partials/css.hbs:\n    2  {{!-- \n    3  /**\n    4: 	* Boston Civic Media Website\n    5  	* Developed by Engagement Lab, 2015\n    6  	* ==============\n\n3 matches across 3 files\n\n\nSearching 62 files for \"Boston Civic Media Website\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/public/js/custom.js:\n    1  /**\n    2:  * Boston Civic Media Website\n    3   * Developed by Engagement Lab, 2016\n    4   * ==============\n\n/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/routes/views/about.js:\n    1  /**\n    2:  * Boston Civic Media Website\n    3   * Developed by Engagement Lab, 2016\n    4   * ==============\n\n/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/templates/partials/css.hbs:\n    2  {{!-- \n    3  /**\n    4: 	* Boston Civic Media Website\n    5  	* Developed by Engagement Lab, 2015\n    6  	* ==============\n\n3 matches across 3 files\n\n\nSearching 62 files for \"Developed by Engagement Lab, 2015\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/templates/partials/css.hbs:\n    3  /**\n    4  	* The Uncertainty Dictionary\n    5: 	* Developed by Engagement Lab, 2015\n    6  	* ==============\n    7  	* \n\n1 match in 1 file\n\n\nSearching 124 files for \"Boston Civic Media Website\" (case sensitive)\n\n0 matches\n\nSearching 125 files for \"Boston Civic Media\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/templates/layouts/base.hbs:\n    6  	<head>\n    7  		<meta charset=\"utf-8\">\n    8: 		<title>Boston Civic Media</title>\n    9: 		<meta name=\"description\" content=\"Boston Civic Media is a faculty-led network that aims to advance the transdisciplinary domain of civic media research and pedagogy in the Greater Boston Area.\">\n   10  		<meta name=\"author\" content=\"Engagement Lab\">\n   11  		<!-- Mobile Meta -->\n\n/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/templates/partials/nav.hbs:\n    6  	    		<a href=\"/\">\n    7  		    		<div class=\"logo-container\">\n    8: 		    			<img id=\"logo_img\" src=\"/images/logos/logo_color_small.png\" alt=\"Boston Civic Media\"> <p>Boston Civic Media</p>\n    9  		    		</div>\n   10  		    	</a>\n\n/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/templates/views/index.hbs:\n   10  				{{!-- Connecting the dots between academia, government, and civil society organizations in Boston to advance civic media. --}}</div>\n   11  				<div class=\"main-description\">{{missionStatements.[1]}}\n   12: 				{{!-- Boston Civic Media is a faculty-led network that aims to advance the transdisciplinary domain of civic media research and pedagogy in the Greater Boston Area. This initiative shares knowledge, promotes engaged research, and builds relationships among academics, nonprofits, community-based organizations, government leaders, practitioners, and students. There are plenty of ways to get involved. --}}</div>\n   13  			</div>\n   14  		</div>\n\n<untitled 309>:\n    ERROR: Unable to open file\n\n/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/templates/layouts/base.hbs:\n    6  	<head>\n    7  		<meta charset=\"utf-8\">\n    8: 		<title>Boston Civic Media</title>\n    9: 		<meta name=\"description\" content=\"Boston Civic Media is a faculty-led network that aims to advance the transdisciplinary domain of civic media research and pedagogy in the Greater Boston Area.\">\n   10  		<meta name=\"author\" content=\"Engagement Lab\">\n   11  		<!-- Mobile Meta -->\n\n/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/templates/partials/nav.hbs:\n    6  	    		<a href=\"/\">\n    7  		    		<div class=\"logo-container\">\n    8: 		    			<img id=\"logo_img\" src=\"/images/logos/logo_color_small.png\" alt=\"Boston Civic Media\"> <p>Boston Civic Media</p>\n    9  		    		</div>\n   10  		    	</a>\n\n/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/templates/views/index.hbs:\n   10  				{{!-- Connecting the dots between academia, government, and civil society organizations in Boston to advance civic media. --}}</div>\n   11  				<div class=\"main-description\">{{missionStatements.[1]}}\n   12: 				{{!-- Boston Civic Media is a faculty-led network that aims to advance the transdisciplinary domain of civic media research and pedagogy in the Greater Boston Area. This initiative shares knowledge, promotes engaged research, and builds relationships among academics, nonprofits, community-based organizations, government leaders, practitioners, and students. There are plenty of ways to get involved. --}}</div>\n   13  			</div>\n   14  		</div>\n\n10 matches across 6 files\n",
+			"settings":
+			{
+				"buffer_size": 5021,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "sublimelinter",
+		"selected_items":
+		[
+			[
+				"sublimelinter",
+				"SublimeLinter: Choose Gutter Theme"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"jsli",
+				"JSLint"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"beautif",
+				"Javascript Beautify"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"markd",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"sas",
+				"SassBeautify"
+			],
+			[
+				"package contr",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"c",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"theme",
+				"Colorsublime: Browse Themes"
+			],
+			[
+				"packae",
+				"Package Control: Disable Package"
+			],
+			[
+				"omnisharp",
+				"OmniSharpSublime: Remove From Project"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"jso",
+				"JSON Reindent: reindent file or selection"
+			],
+			[
+				"json",
+				"JSON Reindent: reindent file or selection"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"pscka",
+				"Package Control: Install Package"
+			],
+			[
+				"color",
+				"Colorsublime: Install Theme"
+			]
+		],
+		"width": 475.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/Johnny/Documents/Projects/uncertainty-dictionary",
+		"/Users/Johnny/Documents/Projects/uncertainty-dictionary/grunt",
+		"/Users/Johnny/Documents/Projects/uncertainty-dictionary/models"
+	],
+	"file_history":
+	[
+		"/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/templates/layouts/base.hbs",
+		"/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/public/js/custom.js",
+		"/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/templates/views/index.hbs",
+		"/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/templates/partials/nav.hbs",
+		"/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/templates/partials/css.hbs",
+		"/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/routes/views/about.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/ecosystem.json",
+		"/Users/Johnny/Documents/Projects/EL-Website/boston-civic-media.json",
+		"/Users/Johnny/Documents/Projects/EL-Website/grunt/execute.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/jobs/cdn.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/bot/node_modules/keystone/lib/core/mount.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/package.json",
+		"/Users/Johnny/Documents/Projects/EL-Website/grunt/nodemon.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/routes/views/index.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/grunt/uglify.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/factory.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/app.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/grunt/test.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/grunt/watch.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/routes/index.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/grunt/node-inspector.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/grunt/concurrent.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/docs/code/Project.js.html",
+		"/Users/Johnny/Documents/Projects/EL-Website/grunt/notify.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/package.json",
+		"/Users/Johnny/Documents/Projects/EL-Website/test/routes.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/test/boot.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/.travis.yml",
+		"/Users/Johnny/Documents/Projects/EL-Website/README.md",
+		"/Users/Johnny/Documents/Projects/EL-Website/server.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/Gruntfile.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/emerging-citizens.json",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/html/unlockinghealth.html",
+		"/Users/Johnny/Documents/Projects/EL-Website/public/js/global.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/.gitignore",
+		"/Users/Johnny/Documents/Projects/EL-Website/nodemon.json",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/public/js/custom.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/node_modules/boston-civic-media/grunt/uglify.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/docs/INSTALLING.md",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/partials/footer.hbs",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/views/jobs.hbs",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/models/Job.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/routes/views/jobs.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/views/projects/project.hbs",
+		"/Users/Johnny/Documents/Projects/EL-Website/.nvmrc",
+		"/Users/Johnny/Documents/Projects/EL-Website/templates/helpers/index.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/config.json",
+		"/Users/Johnny/Documents/Projects/EL-Website/grunt/environments.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/public/fonts/icons/font-awesome/css/font-awesome.css",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/config.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/grunt/cdn_upload.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/current/sites/elab/node_modules/keystone/lib/core/mount.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/current/.env",
+		"/Users/Johnny/Documents/Projects/EL-Website/current/node_modules/engagement-lab-home",
+		"/Users/Johnny/Downloads/logs/npm-debug.log",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/node_modules/app-root-path/lib/app-root-path.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/grunt/forever.js",
+		"/Users/Johnny/Downloads/logs/npm-debug-install.log",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/routes/views/communityplanit.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/models/CPIContent.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/public/static/riskhorizon/js/init.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/middleware.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/views/communityplanit.hbs",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/routes/api/communityplanit.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/public/fonts/icons/fontello/css/fontello.css",
+		"/Users/Johnny/Documents/Projects/EL-Website/public/fonts/fonts.css",
+		"/Users/Johnny/Documents/Projects/EL-Website/grunt/deploy.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/html/riskhorizon.html",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/grunt/mongobin.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/jobs/news.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/partials/script/sections.hbs",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/partials/script/development.hbs",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/node_modules/keystone/fields/types/cloudinaryimage/CloudinaryImageType.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/public/static/uh/js/webgl.min.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/public/static/uh/js/webgl.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/node_modules/keystone/fields/types/cloudinaryimages/CloudinaryImagesType.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/node_modules/emerging-citizens/node_modules/keystone/fields/types/cloudinaryimages/CloudinaryImagesType.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/models/CPIPartner.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/models/CPIRegistration.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/jobs/cron.js",
+		"/Users/Johnny/Downloads/jqueryform-82d670/form.html",
+		"/Users/Johnny/Documents/Projects/EL-Website/grunt/sftp.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/routes/views/about.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/grunt/periodic.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/bot/grunt/mongobin.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/bot/package.json",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/bot/app.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/models/Person.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/docs/code/Person.js.html",
+		"/Users/Johnny/Documents/Projects/EL-Website/docs/code/Publication.js.html",
+		"/Users/Johnny/Documents/Projects/EL-Website/docs/code/Resource.js.html",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/models/Program.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/models/Publication.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/emerging-citizens/routes/middleware.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/emerging-citizens/routes/index.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/emerging-citizens/app.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/bot/routes/index.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/grunt/concat.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/emerging-citizens/config.json",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/emerging-citizens/package.json",
+		"/Users/Johnny/Documents/Projects/EL-Website/.env",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/node_modules/mongoose/lib/index.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/jobs/readme.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/grunt/mongobin.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/node_modules/keystone/lib/core/mount.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/node_modules/mongoose/lib/index.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/bot/node_modules/keystone/lib/core/connect.js",
+		"/Users/Johnny/Documents/Projects/keystone-slacker/package.json",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/models/Resource.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/grunt/confirm",
+		"/Users/Johnny/Documents/Projects/keystone-slacker/app.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/node_modules/keystone-slacker/app.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/routes/middleware.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/node_modules/helmet/node_modules/frameguard/index.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/bot/routes/views/index.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/bot/templates/views/index.hbs",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/bot/templates/partials/script/sections.hbs",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/bot/templates/partials/script/development.hbs",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/public/static/riskhorizon/index.html",
+		"/Users/Johnny/Documents/Projects/riskhorizon2/server/indexUnityWebPlayer.html",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/routes/views/html/riskhorizon.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/bot/models/Device.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/bot/templates/partials/css.hbs",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/bot/node_modules/keystone/index.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/bot/node_modules/keystone/lib/updates.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/bot/node_modules/keystone/lib/view.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/bot/updates/0.0.1-admins.js",
+		"/Users/Johnny/Documents/Projects/EL-Website/sites/bot/config.json"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 106.0,
+		"where_history":
+		[
+			"<open folders>,<current file>,/Users/Johnny/Documents/Projects/Uncertainty-Dictionary",
+			"<open folders>",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*",
+			"/Users/Johnny/Documents/Projects/EL-Website/",
+			"/Users/Johnny/Documents/Projects/EL-Website/, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/",
+			"/Users/Johnny/Documents/Projects/EL-Website/current/sites/elab/node_modules/keystone",
+			"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/node_modules/keystone",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -/Users/Johnny/Documents/Projects/EL-Website/node_modules/*",
+			"/Users/Johnny/Documents/Projects/EL-Website/",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*//Users/Johnny/Documents/Projects/EL-Website/node_modules/*",
+			"/Users/Johnny/Documents/Projects/EL-Website/, *.js, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website/cmp/node_modules/keystone, *.js, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website/, *-/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.js, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website/, *.js, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website/, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/node_modules/keystone, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.js, -*.min.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.hbs",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.scss, *.css, -*.min.css",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.scss, *.css, *.min.css",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.scss, *.css",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website/node_modules/keystone ,*.js",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.js",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.scsss",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.js, *.hbs",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.js",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.scss, *.css",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.scss, *.css",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website/node_modules/keystone, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website/node_modules/keystone, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.s'css",
+			"/Users/Johnny/Documents/Projects/EL-Website/node_modules/keystone, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.css",
+			"/Users/Johnny/Documents/Projects/EL-Website/node_modules/keystone, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.hbs",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*",
+			"/Users/Johnny/Documents/Projects/EL-Website/",
+			"/Users/Johnny/Documents/Projects/EL-Website/, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/, *.hbs",
+			"/Users/Johnny/Documents/Projects/EL-Website/",
+			"/Users/Johnny/Documents/Projects/EL-Website/, *.hbs",
+			"/Users/Johnny/Documents/Projects/EL-Website/node_modules/keystone/, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/, /Users/Johnny/Documents/Projects/EL-Website/node_modules/",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*",
+			"/Users/Johnny/Documents/Projects/sydjs-site/, -*/Users/Johnny/Documents/Projects/sydjs-site/node_modules/*",
+			"/Users/Johnny/Documents/Projects/sydjs-site/",
+			"/Users/Johnny/Documents/Projects/EL-Website/",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/node_modules/*",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/node_modules",
+			"/Users/Johnny/Documents/Projects/EL-Website",
+			"/Users/Johnny/Documents/Projects/EL-Website/models",
+			"/Users/Johnny/Documents/Projects/EL-Website/routes",
+			"/Users/Johnny/Documents/Projects/EL-Website/views",
+			"/Users/Johnny/Documents/Projects/EL-Website/views, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website, *.scss, *.css",
+			"/Users/Johnny/Documents/Projects/EL-Website, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website",
+			"/Users/Johnny/Documents/Projects/EL-Website, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website",
+			"/Users/Johnny/Documents/Projects/EL-Website-test",
+			"/Users/Johnny/Documents/Projects/EL-Website-test, *.json",
+			"/Users/Johnny/Documents/Projects/EL-Website, *.js,<open folders>",
+			"/Users/Johnny/Documents/Projects/EL-Website, *.js",
+			"/Users/Johnny/Documents/Projects/WorldBank-RBF/WorldBank-RBF/Assets, *.cs,/Users/Johnny/Documents/Projects/egl-homepage",
+			"/Users/Johnny/Documents/Projects/WorldBank-RBF/WorldBank-RBF/Assets, *.cs",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"Boston Civic Media",
+			"Boston Civic Media Website",
+			"Developed by Engagement Lab, 2015",
+			"Boston Civic Media Website",
+			"favicon.ico",
+			"],\n",
+			".fil",
+			"Types.TextArray",
+			"dbName",
+			"setting DB URI to",
+			"keystone.list('Resource')",
+			"eystone.list('Resource')",
+			"Resource",
+			"Types.Relationship",
+			"Types.Embed",
+			"node-sass",
+			"emerging-citizens",
+			"logger.info",
+			"log.info",
+			"console.log",
+			"imageLoaded",
+			"production.js",
+			"  staging: {\n    options: {\n      host: '159.203.174.12',\n      username: 'node',\n      password: 'password',\n      deploy_path: '/srv/emerging-citizens',\n      after_deploy: 'npm link'\n    }\n  }\n",
+			"cdn_",
+			"' ",
+			"\\\" ",
+			"font-awesome",
+			"fontawesome-webfont",
+			"'static'",
+			"staging",
+			"console.log('host: ",
+			"host: ",
+			"keystone",
+			"module",
+			"siteRoot",
+			"`",
+			"url('/fonts/icons/font-awesome/fonts/",
+			"url('/fonts/icons/fontello/fonts/",
+			"site/fonts/webfonts/",
+			"site/fonts/3",
+			"url('/fonts/webfonts/",
+			"write",
+			"tasks",
+			"static/riskhorizon",
+			"css",
+			"res.",
+			"http",
+			"https",
+			"cloudinary secure",
+			"Partner",
+			"CPIRegistration",
+			"api",
+			"Directory",
+			"dump",
+			"backupdata",
+			"_.reject",
+			"\",\n",
+			",\n",
+			"'",
+			"slack.post",
+			"'))",
+			"mongooseInst",
+			"'mongo'",
+			"dbName",
+			".mount",
+			"prototype.createConnection",
+			".createConnection",
+			"mongo",
+			".connect",
+			"console.log",
+			"_slackApiInst",
+			"_keystoneInst",
+			".unity",
+			"css",
+			"prefixModel",
+			"updates",
+			"framework",
+			"MongooseThenable",
+			"err",
+			"try",
+			"'mongoose'",
+			"mongo",
+			"opened",
+			"})",
+			"applyUpdate",
+			"return done();",
+			"applyUpdates",
+			"auto update",
+			"auto ",
+			"auto update",
+			"auto",
+			"About",
+			"keystone.js",
+			"];\n",
+			"/favicon.ico",
+			"jQuery.",
+			".mobile",
+			"glide",
+			"imageLoaded",
+			"page",
+			"output",
+			"*",
+			"'",
+			"mountSubSite",
+			"directory",
+			"marked",
+			"	\n",
+			"siteInst",
+			"}",
+			"evh",
+			"people_glider",
+			".embed-container",
+			"'/';",
+			"app",
+			"'",
+			"keystone.mount('/', keystone, function() {\n		//put your app's static content and error handling middleware here and start your server\n\n	});\n",
+			"()",
+			"// ensure keystone nav has been initialised",
+			".routes",
+			"adminApp",
+			"/keystone",
+			"static/uh",
+			"		\n",
+			"Articles and Chapters",
+			"embed-container",
+			"echo",
+			"onMount",
+			"keystone.init({\n	\n	'name': 'Engagement Lab',\n	'brand': 'Engagement Lab',\n	\n	'sass': 'public',\n	\n	'static': 'public',\n	'favicon': 'public/favicons/favicon.ico',\n	'views': 'templates/views',\n	'view engine': 'hbs',\n	\n	'custom engine': handlebars.create({\n		layoutsDir: 'templates/layouts',\n		partialsDir: 'templates/partials',\n		defaultLayout: 'base',\n		helpers: new require('./templates/helpers')(),\n		extname: '.hbs'\n	}).engine,\n	\n	'mongo': process.env.MONGO_URI,\n\n	'auto update': true,\n	'session': true,\n\n	'auth': true,\n	'user model': 'User'\n	\n});"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"The Uncertainty Dictionary",
+			"Developed by Engagement Lab, 2016",
+			"The Uncertainty Dictionary",
+			"logger.log",
+			"logger.info",
+			"log.info",
+			"",
+			"url('https://res.cloudinary.com/engagement-lab-home/raw/upload/v1458145228/site/fonts/",
+			"site/fonts/",
+			"url('https://res.cloudinary.com/engagement-lab-home/raw/upload/v1458145228/site/fonts/webfonts/",
+			"https://res.cloudinary.com/engagement-lab-home/raw/upload/v1458145228/site/fonts/webfonts/",
+			"arrTasks",
+			"CPIPartner",
+			"CPIContent",
+			"CPIRegistration",
+			"\"",
+			"slack.Post",
+			"Device",
+			"console.log('",
+			"\"",
+			"mountSiteModule",
+			"virtual",
+			"\"",
+			"/static/uh",
+			"--}}",
+			"{{!--",
+			"src=\"static/uh/js/",
+			"src=\"static/uh/images/",
+			"href=\"static/uh/fonts/",
+			"href=\"static/uh/css/",
+			"custom_name",
+			"'",
+			" featured_content",
+			" --}}",
+			" --))",
+			"{{!-- ",
+			"href=\"public/",
+			"<link href=\"public/",
+			"@include",
+			"> people/person",
+			"person",
+			"",
+			"background",
+			"@mixin gradient-",
+			"",
+			" ",
+			"$amt",
+			"project.",
+			"vpos",
+			"hpos",
+			"projectData",
+			"/fonts/icons/fontello/fonts/",
+			"/fonts/icons/font-awesome/fonts/",
+			"/fonts/webfonts/",
+			"'",
+			"Publication",
+			"$font-family",
+			"@include button-size",
+			", $",
+			"@mixin",
+			"",
+			"Academics",
+			"CaptionImage",
+			"Person",
+			"Persob",
+			"Resource",
+			"Program",
+			"Programs",
+			"Category",
+			"Program",
+			"ProjectCategory",
+			"programs",
+			"Resource",
+			"Article",
+			"src=\"/images",
+			"src=\"/",
+			"href=\"/",
+			"Project",
+			"},",
+			"\"},",
+			"}",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/config.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 199,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								102,
+								102
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/Johnny/Documents/Projects/Uncertainty-Dictionary/package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 489,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								224,
+								224
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Theme - Coffee/icons/Langs/npm JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5021,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										168,
+										194
+									],
+									[
+										365,
+										391
+									],
+									[
+										581,
+										607
+									],
+									[
+										873,
+										899
+									],
+									[
+										1070,
+										1096
+									],
+									[
+										1286,
+										1312
+									],
+									[
+										1629,
+										1662
+									],
+									[
+										2012,
+										2030
+									],
+									[
+										2082,
+										2100
+									],
+									[
+										2565,
+										2583
+									],
+									[
+										2589,
+										2607
+									],
+									[
+										2965,
+										2983
+									],
+									[
+										3601,
+										3619
+									],
+									[
+										3671,
+										3689
+									],
+									[
+										4154,
+										4172
+									],
+									[
+										4178,
+										4196
+									],
+									[
+										4554,
+										4572
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								1802,
+								1802
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 5,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ 	].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1284.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 98.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.variable_get":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "uncertainty-dictionary.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"unlocki",
+				"EL-Website/sites/elab/templates/html/unlockinghealth.html"
+			],
+			[
+				"packag",
+				"EL-Website/package.json"
+			],
+			[
+				"project.hbs",
+				"EL-Website/sites/elab/templates/views/projects/project.hbs"
+			],
+			[
+				"production.",
+				"EL-Website/sites/elab/templates/partials/script/production.hbs"
+			],
+			[
+				"factory",
+				"EL-Website/sites/factory.js"
+			],
+			[
+				"custom.scs",
+				"EL-Website/public/styles/custom.scss"
+			],
+			[
+				"tama",
+				"EL-Website/routes/views/tamagagement.js"
+			],
+			[
+				"develop",
+				"EL-Website/templates/partials/script/development.hbs"
+			],
+			[
+				"project.",
+				"EL-Website/templates/views/research/project.hbs"
+			],
+			[
+				".env",
+				"EL-Website/.env"
+			],
+			[
+				"news",
+				"EL-Website/jobs/news.js"
+			],
+			[
+				"new",
+				"EL-Website/routes/views/news.js"
+			],
+			[
+				"news.",
+				"EL-Website/templates/views/news.hbs"
+			],
+			[
+				"featured_p",
+				"EL-Website/templates/partials/index/featured_project.hbs"
+			],
+			[
+				"recent",
+				"EL-Website/templates/partials/index/recent_event.hbs"
+			],
+			[
+				"featured",
+				"EL-Website/templates/partials/index/featured_project.hbs"
+			],
+			[
+				"index.hbs",
+				"EL-Website/templates/views/index.hbs"
+			],
+			[
+				"project.js",
+				"EL-Website/routes/views/research/project.js"
+			],
+			[
+				"person.",
+				"EL-Website/templates/views/person.hbs"
+			],
+			[
+				"people",
+				"EL-Website/templates/views/people.hbs"
+			],
+			[
+				"bio",
+				"EL-Website/templates/partials/people/bio.hbs"
+			],
+			[
+				"partner_ic",
+				"EL-Website/templates/partials/about/partner_icon.hbs"
+			],
+			[
+				"about.h",
+				"EL-Website/templates/views/about.hbs"
+			],
+			[
+				"sections",
+				"EL-Website/templates/partials/script/sections.hbs"
+			],
+			[
+				"custom.sc",
+				"EL-Website/public/styles/custom.scss"
+			],
+			[
+				"secti",
+				"EL-Website/templates/partials/script/sections.hbs"
+			],
+			[
+				"section",
+				"EL-Website/templates/partials/script/sections.hbs"
+			],
+			[
+				"project.hs",
+				"EL-Website/templates/views/research/project.hbs"
+			],
+			[
+				"proejc",
+				"EL-Website/routes/views/research/project.js"
+			],
+			[
+				"news.js",
+				"EL-Website/jobs/news.js"
+			],
+			[
+				"projec",
+				"EL-Website/models/Project.js"
+			],
+			[
+				"bio.",
+				"EL-Website/templates/partials/people/bio.hbs"
+			],
+			[
+				"roject.js",
+				"EL-Website/routes/views/research/project.js"
+			],
+			[
+				".e",
+				"EL-Website/.env"
+			],
+			[
+				"pro",
+				"EL-Website/routes/views/research/project.js"
+			],
+			[
+				"gruntf",
+				"EL-Website/Gruntfile.js"
+			],
+			[
+				"custom.scss",
+				"EL-Website/public/styles/custom.scss"
+			],
+			[
+				"custom.js",
+				"EL-Website/public/js/custom.js"
+			],
+			[
+				"sectio",
+				"EL-Website/templates/partials/script/sections.hbs"
+			],
+			[
+				"reso",
+				"EL-Website/models/Resource.js"
+			],
+			[
+				"css",
+				"EL-Website/templates/partials/css.hbs"
+			],
+			[
+				"gruntfi",
+				"EL-Website/Gruntfile.js"
+			],
+			[
+				"grunt",
+				"EL-Website/Gruntfile.js"
+			],
+			[
+				"font.cs",
+				"EL-Website/public/fonts/fonts.css"
+			],
+			[
+				"css.",
+				"EL-Website/templates/partials/css.hbs"
+			],
+			[
+				"glide",
+				"EL-Website/public/styles/custom/glide.theme.scss"
+			],
+			[
+				"peopel.js",
+				"EL-Website/routes/views/people.js"
+			],
+			[
+				"about.",
+				"EL-Website/templates/views/about.hbs"
+			],
+			[
+				"footer",
+				"EL-Website/templates/partials/footer.hbs"
+			],
+			[
+				"glide.",
+				"EL-Website/public/styles/custom/glide.theme.scss"
+			],
+			[
+				"project",
+				"EL-Website/routes/views/research/project.js"
+			],
+			[
+				"base.hb",
+				"EL-Website/templates/layouts/base.hbs"
+			],
+			[
+				"footer.",
+				"EL-Website/templates/partials/footer.hbs"
+			],
+			[
+				"proje",
+				"EL-Website/routes/views/research/project.js"
+			],
+			[
+				"sections.",
+				"EL-Website/templates/partials/script/sections.hbs"
+			],
+			[
+				"team_mm",
+				"EL-Website/templates/partials/team_member.hbs"
+			],
+			[
+				"404.",
+				"EL-Website/templates/views/errors/404.hbs"
+			],
+			[
+				"subdictory.",
+				"EL-Website/routes/views/subdirectory.js"
+			],
+			[
+				"fields.js",
+				"EL-Website/node_modules/keystone/admin/src/fields.js"
+			],
+			[
+				"custom-boot",
+				"egl-homepage/css/custom-boostrap.css"
+			],
+			[
+				"genera",
+				"Scripts/Editor/GenerateBuilds.cs"
+			],
+			[
+				"import",
+				"Scripts/Editor/ImportTextures.cs"
+			],
+			[
+				"citiesmana",
+				"Scripts/UI/Map/CitiesManager.cs"
+			],
+			[
+				"generat",
+				"Scripts/Editor/GenerateBuilds.cs"
+			],
+			[
+				"indicatorsme",
+				"Scripts/UI/Scenario/IndicatorsMessage.cs"
+			],
+			[
+				"scenariochatmes",
+				"Scripts/UI/Scenario/v2/ScenarioChatMessage.cs"
+			],
+			[
+				"dialo",
+				"Scripts/DialogManager.cs"
+			],
+			[
+				"supervis",
+				"Scripts/UI/Scenario/v2/SupervisorChatScreen.cs"
+			],
+			[
+				"scenariomana",
+				"Scripts/UI/Scenario/ScenarioManager.cs"
+			],
+			[
+				"materi",
+				"Scripts/Utilities/MaterialsManager.cs"
+			],
+			[
+				"tutor",
+				"WorldBank-API/content/tutorial.yml"
+			],
+			[
+				"canvast",
+				"Scripts/UI/Notebook/CanvasToggle.cs"
+			],
+			[
+				"networkmana",
+				"Scripts/Utilities/Network/NetworkManager.cs"
+			],
+			[
+				"parallaxlaayer",
+				"Scripts/Parallax/Layers/ParallaxLayerManager.cs"
+			],
+			[
+				"dataman",
+				"Scripts/Utilities/DataManager.cs"
+			],
+			[
+				"anima",
+				"Scripts/Animation/AnimatedQuadTexture.cs"
+			],
+			[
+				"models",
+				"Assets/Scripts/Models.cs"
+			],
+			[
+				"datama",
+				"Assets/Scripts/Utilities/DataManager.cs"
+			],
+			[
+				"parallaxlayerlight",
+				"Assets/Scripts/Lighting/ParallaxLayerLightController.cs"
+			],
+			[
+				"gener",
+				"Assets/Scripts/Editor/GenerateBuilds.cs"
+			],
+			[
+				"tutorialsc",
+				"Assets/Scripts/UI/TutorialScreen.cs"
+			],
+			[
+				"tutori",
+				"WorldBank-API/content/tutorial.yml"
+			],
+			[
+				"tutorialscreen.cs",
+				"Assets/Scripts/UI/TutorialScreen.cs"
+			],
+			[
+				"importte",
+				"Assets/Scripts/Editor/ImportTextures.cs"
+			],
+			[
+				"planselec",
+				"Assets/Scripts/UI/PlanSelection/PlanSelectionScreen.cs"
+			],
+			[
+				"materials",
+				"Assets/Scripts/Utilities/MaterialsManager.cs"
+			],
+			[
+				"generatebui",
+				"Assets/Scripts/Editor/GenerateBuilds.cs"
+			],
+			[
+				"tut",
+				"WorldBank-API/content/tutorial.yml"
+			],
+			[
+				"api.sj",
+				"Assets/Resources/api.json"
+			],
+			[
+				"importt",
+				"Assets/Scripts/Editor/ImportTextures.cs"
+			],
+			[
+				"editorobjectpool",
+				"Assets/Scripts/Utilities/Pooling/EditorObjectPool.cs"
+			],
+			[
+				"objectpool.cs",
+				"Assets/Scripts/Utilities/Pooling/ObjectPool.cs"
+			],
+			[
+				"parallaxlayer",
+				"Assets/Scripts/Parallax/Layers/ParallaxLayer.cs"
+			],
+			[
+				"canvas",
+				"Assets/Scripts/UI/Notebook/CanvasToggle.cs"
+			],
+			[
+				"arallaxlayermana",
+				"Assets/Scripts/Parallax/Layers/ParallaxLayerManager.cs"
+			],
+			[
+				"reim",
+				"Assets/Scripts/Editor/ReimportFolder.js"
+			],
+			[
+				"reimport",
+				"Assets/Scripts/Editor/ReimportFolder.cs"
+			],
+			[
+				"cityinfobox",
+				"Assets/Scripts/UI/Map/CityInfoBoxButton.cs"
+			],
+			[
+				"cityinfoboxbutt",
+				"Assets/Scripts/UI/Map/CityInfoBoxButton.cs"
+			],
+			[
+				"materialsmana",
+				"Assets/Scripts/Utilities/MaterialsManager.cs"
+			],
+			[
+				"texture.cs",
+				"Assets/Scripts/Editor/ImportTextures.cs"
+			],
+			[
+				"parallaxnpc.cs",
+				"Assets/Scripts/Parallax/Layers/ParallaxNpc.cs"
+			],
+			[
+				"parallaxnpc",
+				"Assets/Resources/Prefabs/ParallaxNpc.prefab"
+			],
+			[
+				"tuto",
+				"WorldBank-API/content/tutorial.yml"
+			],
+			[
+				"dialogma",
+				"Assets/Scripts/DialogManager.cs"
+			],
+			[
+				"scenema",
+				"Assets/Scripts/SceneManager.cs"
+			],
+			[
+				"menusman",
+				"Assets/Scripts/UI/Menus/MenusManager.cs"
+			],
+			[
+				"datamana",
+				"Assets/Scripts/Utilities/DataManager.cs"
+			],
+			[
+				"generateb",
+				"Assets/Scripts/Editor/GenerateBuilds.cs"
+			],
+			[
+				"tutorial",
+				"Assets/Scripts/UI/TutorialScreen.cs"
+			],
+			[
+				"api",
+				"Assets/Resources/api.json"
+			],
+			[
+				"animatedquad",
+				"Assets/Scripts/Animation/AnimatedQuadTexture.cs"
+			],
+			[
+				"materialsmanager",
+				"Assets/Scripts/Utilities/MaterialsManager.cs"
+			],
+			[
+				"parallaxlayerna",
+				"Assets/Scripts/Parallax/Layers/ParallaxLayerManager.cs"
+			],
+			[
+				"modelseria",
+				"Assets/Scripts/Utilities/JsonSerializable/ModelSerializer.cs"
+			],
+			[
+				"parallaxlayermana",
+				"Assets/Scripts/Parallax/Layers/ParallaxLayerManager.cs"
+			],
+			[
+				"phasesele",
+				"Assets/Scripts/UI/Scenario/v2/PhaseSelectionScreen.cs"
+			],
+			[
+				"api.jso",
+				"Assets/Resources/api.json"
+			],
+			[
+				"models.cs",
+				"Assets/Scripts/Models.cs"
+			],
+			[
+				"textur.cs",
+				"Assets/Scripts/Editor/ImportTextures.cs"
+			],
+			[
+				"generatebuilds",
+				"Assets/Scripts/Editor/GenerateBuilds.cs"
+			],
+			[
+				"texture",
+				"Assets/Scripts/Utilities/JsonSerializable/Window/TextureLoader.cs"
+			],
+			[
+				"tutoria",
+				"WorldBank-API/content/tutorial.yml"
+			],
+			[
+				"dialogmana",
+				"Assets/Scripts/DialogManager.cs"
+			],
+			[
+				"indicatorscanvas",
+				"Assets/Scripts/UI/Notebook/IndicatorsCanvas.cs"
+			],
+			[
+				"scenemana",
+				"Assets/Scripts/SceneManager.cs"
+			],
+			[
+				"menusmana",
+				"Assets/Scripts/UI/Menus/MenusManager.cs"
+			],
+			[
+				"screensizese",
+				"Assets/Scripts/UI/Menus/ScreenSizeHandler.cs"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 335.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

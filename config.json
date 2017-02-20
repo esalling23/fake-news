@@ -1,0 +1,9 @@
+{
+	"name": "Fake News",
+	"database": "fake-news",
+	"subdomain": "fake",
+	"allowed_domains": ["uncertainty.io"],
+	"admin_nav": { 
+									"index": ["Index"]
+								}
+}

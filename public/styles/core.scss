@@ -1,0 +1,74 @@
+@import "core/variables";
+@import "core/mixins";
+@import "core/functions";
+
+
+// Use for any elements hidden initilly
+.hidden {
+	visibility: hidden;
+}
+
+// Body
+.body {
+  background-color: #000;
+  color: #fff;
+  font-family: "HalisLight";
+}
+
+.desktop-only {
+	// Hide for mobile
+	@include mobile-only {
+		display: none;
+	}
+}
+.mobile-only {
+	// Hide for desktop
+	@include desktop-and-up {
+		display: none;
+	}
+}
+.buffer {
+		margin-top: 5%;	
+}
+
+.home {
+
+	#new-game {
+		height: 80px;
+		width: 160px;
+		border: black 3px solid;
+
+	}
+
+	.game {
+
+
+
+		.article {
+
+			height: 80px;
+			border: 3px black solid;
+			width: 90%;
+			margin: 0 auto;
+			position: relative;
+			display: block;
+			color: white;
+
+			.truth {
+
+
+			}
+
+			.interest {
+
+
+			}
+
+		}
+	}
+
+	
+
+}
+
+
