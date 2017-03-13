@@ -35,21 +35,8 @@ exports = module.exports = function(req, res) {
             if (err) throw err;
 
             locals.index = resultIndex;
-
-            var queryCategory = Category.model.find({}, {}, {
-                sort: {
-                    'createdAt': -1
-                }
-            });
-
-            queryCategory.exec(function(err, resultCats) {
-                if (err) throw err;
-
-                locals.categories = resultCats;
                 
-                next();
-
-            });
+            next();
 
         });
     });

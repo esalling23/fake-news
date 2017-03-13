@@ -29,21 +29,22 @@ var GameSession = new keystone.List('GameSession', {
  */
 GameSession.add({
 
-  accessCode: { type: String, required: true, initial: true, hidden: true },
-  gameType: { type: String, required: true, initial: true, hidden:true },
-
-  dateCreated: { type: Date, noedit: true }
+  accessCode: { type: String, required: true, initial: true, hidden: true }
+  // dateCreated: { type: Date, noedit: true }
 
 });
 
+// Store all hashtag submissions/votes (not visible in admin UI)
+// GameSession.schema.add({ game: Object });
 
-GameSession.schema.pre('save', function(next) {
+
+// GameSession.schema.pre('save', function(next) {
   
-  this.dateCreated = new Date();
+//   this.dateCreated = new Date();
 
-  next();
+//   next();
 
-});
+// });
 
 /**
  * Registration

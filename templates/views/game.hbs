@@ -10,37 +10,43 @@
 */
 --}}
 
-<div class="game" style="display:none;">
+<div class="game">
 
-		<div class="row status-bar">
+<h1 style="color:white">{{gameId}}<h1>
 
-			<div id="day"></div>
+		<div class="row create">
 
-			<div class="actions">
+			<section class="row" id="article-slide">
+				<ul style="height:100%;">
 
-				<div class="one"></div>
-				<div class="two"></div>
-				<div class="three"></div>
+			{{#each articles}}
+				<li class="item article" >
+					<div class="pane{{@index}}">
 
-			</div>
+						{{!-- TODO: thumbnail slider --}}
+						{{#each thumbnails}}
+							{{> thumbnail this}}
+						{{/each}}
 
-			<div class="paper">
-				<div class="article-spot"></div>
-				<div class="article-spot"></div>
-				<div class="article-spot"></div>
-				<div class="article-spot"></div>
+						{{!-- TODO: headline slider? --}}
+						{{#each headlines}}
+							{{> headline this}}
+						{{/each}}
+					</div>
 
+				</li>
+			
+			{{/each}}
+			</ul>
+			</section>
+				
+			<div class="row buttons">
+					<input id="meaty" data-keep_enabled="true" data-event="meaties" class="submit" type="submit" name="submit" value="meatlover" data-package=''>
+					<input id="vegan" data-keep_enabled="true" data-event="vegan" class="submit" type="submit" name="submit" value="vegan" data-package=''>
 			</div>
 			
-		</div> <!-- .status-bar -->
-
-		<div class="row article-feed">
 		
 
-			<div class="article" id="one"></div>
-			<div class="article" id="two"></div>
-			<div class="article" id="three"></div>
-			
-		</div> <!-- .article-feed -->
-
+				
+		</div> 
 	</div> <!-- .game -->

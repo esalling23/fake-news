@@ -13,6 +13,10 @@
 
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
+var Thumbnail = require('./Thumbnail');
+var Headline = require('./Headline');
+
+
 
 /**
  * Article model
@@ -34,8 +38,18 @@ var Article = new keystone.List('Article',
 Article.add({
 
 	name: { type: String, label: 'Name', required: true, initial: true },
-
-	// facts: { type: }
+	thumbnails: { 
+		type: Types.Relationship, 
+		label: 'Thumbnail Images', 
+		ref: 'Thumbnail', 
+		many: true
+	},
+	headlines: { 
+		type: Types.Relationship, 
+		label: 'Headlines', 
+		ref: 'Headline', 
+		many: true
+	},
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 
 });

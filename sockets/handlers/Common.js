@@ -14,7 +14,8 @@
 var Common = function (nsp, socket) {
     var currentSpace = nsp,
         currentSocket = socket, 
-        Session = require('learning-games-core').SessionManager;
+        appRoot = require('app-root-path')
+        Session = require(appRoot + '/lib/SessionManager');
 
     // Expose handler methods for events
     this.handler = {
@@ -28,8 +29,6 @@ var Common = function (nsp, socket) {
 
 
         'game:start': function(package) {
-
-            console.log(package, " Common.js");
 
             Session.Get(package.gameId).
             StartGame(currentSpace);
@@ -47,6 +46,20 @@ var Common = function (nsp, socket) {
 
             Session.Get(package.gameId).
             DisplaySurvey(currentSpace);
+
+        },
+
+        'send:vegans': function(package) {
+
+            Session.Get(package.gameId).
+            Share(package.article, 'vegans');
+
+        },
+
+        'send:meaties': function(package) {
+
+            Session.Get(package.gameId).
+            Share(package.article, 'meaties');
 
         },
 

@@ -31,6 +31,12 @@
 		margin-top: 5%;	
 }
 
+.option {
+	&.active {
+		outline: 3px yellow solid;
+	}
+}
+
 .home {
 
 	#new-game {

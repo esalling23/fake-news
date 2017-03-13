@@ -45,10 +45,13 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function(app) {
 
-    // Views
+    // Home Page
     app.get('/', routes.views.index);
-    app.get('/:category_id', routes.views.category);
 
+    // Game
+    app.get('/game', routes.views.game);
+
+    //Create Game
     app.post('/api/create', keystone.middleware.api, routes.api.gamesession.create);
     
     // NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
