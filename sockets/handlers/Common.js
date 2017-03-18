@@ -51,12 +51,16 @@ var Common = function (nsp, socket) {
 
         'send:vegans': function(package) {
 
+            console.log(package, package.gameId);
+
             Session.Get(package.gameId).
             Share(package.article, 'vegans');
 
         },
 
         'send:meaties': function(package) {
+
+            console.log(package, package.gameId)
 
             Session.Get(package.gameId).
             Share(package.article, 'meaties');

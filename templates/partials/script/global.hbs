@@ -18,20 +18,7 @@
 
 	$(document).ready(function() {
 
-		
-
-		var articles = {};
-		var activeOptions = {};
-		var maxArticles = 3;
-		var day;
-		var actions;
-		var gameId = '{{gameId}}';
-
-		// Open socket connection
-
-
-		// All possible socket event IDs
-  // TODO: Change based on game type?
+	// All possible socket event IDs
 	var eventIds = [
 	
 	'connect',
@@ -43,84 +30,6 @@
 
 	];
 
-	// SWIPING LOGIC
-	$('#article-slide').jTinder({
-		onDislike: function (item) {
-				FindActiveOptions();
-				socket.emit('send:meaties', { article: activeOptions, gameId: '{{gameId}}'});
-    },
-    onLike: function (item) {
-	    	FindActiveOptions();
-	    	socket.emit('send:vegans', { article: activeOptions, gameId: '{{gameId}}'});
-    },
-    animationRevertSpeed: 200,
-    animationSpeed: 400,
-    threshold: 1,
-    likeSelector: '#vegan',
-    dislikeSelector: '#meatlover'
-  });
-	// If a player chooses to send to vegans
-  $('#vegan').click(function() {
-  	// var pkg = getFormData($(this));
-  	$('#article-slide').jTinder('like');
-  });
-
-  // function SendToVegans(pkg) {
-  // 	socket.emit('send:vegans', pkg);
-  // }
-  // If a player chooses to trash an item
-  $('#meaty').click(function() {
-  	$('#article-slide').jTinder('dislike');
-  	
-  });
-
-  // function SendToMeaties(pkg) {
-  // 	console.log(pkg);
-  // 	socket.emit('send:meaties', pkg);
-  	
-  // }
-
-  // Choosing Thumbnail and Headline
-  $('.option').click(function(){
-
-  	if ($(this).hasClass('headline') && $('.article').find('.option.active.headline')) {
-  		$('.article').find('.option.active.headline').removeClass('active');
-  	} 
-  	else if ($(this).hasClass('thumbnail') && $('.article').find('.option.active.thumbnail')) 
-  	{
-  		$('.article').find('.option.active.thumbnail').removeClass('active');
-  	}
-
-  	$(this).addClass('active');
-  	// var optionData = $(this).id();
-  });
-
-  $('.option.active').click(function(){
-  	$(this).removeClass('active');
-  });
-
-  function FindActiveOptions() {
-
-  	activeOptions = { headline: {}, thumbnail: {} };
-
-  	// Find the active option ID's
-  	activeOptions.headline.id = $('.article').find('.headline.option.active').attr('id');
-  	activeOptions.thumbnail.id = $('.article').find('.thumbnail.option.active').attr('id');
-
-  	// Find data attributes of thumbnail
-  	activeOptions.thumbnail.bias = $('.article').find('.thumbnail.option.active').data('bias');
-  	activeOptions.thumbnail.status = $('.article').find('.thumbnail.option.active').data('status');
-
-  	// Find data attributes of headlines
-  	activeOptions.headline.bias = $('.article').find('.headline.option.active').data('bias');
-  	activeOptions.headline.status = $('.article').find('.headline.option.active').data('status');
-
-  	if (!activeOptions.headline.id || !activeOptions.thumbnail.id) {
-  		return;
-  	}
-
-  	// return activeOptions;
-  }
 
 	/* 
 	 Associate provided data object with current game ID - Credit to Johnny Richardson
@@ -189,9 +98,9 @@
         });
 
     });
-	}
+	};
 
-	// 
+	// Start the game
 	$(document).on('click', '.form .submit', function(evt) {
 					    
 	    var event = $(this).data().event;
@@ -199,12 +108,6 @@
 
 	    console.log(pkg, " form submitted packge");
 
-
-
-	    // Emit event to socket
-	    // socket.emit(event, emitData(pkg));
-
-	    // if ($(this).id('game-start')){
 	    	$.post( 
 			  	"/api/create/",
 					pkg,
@@ -224,60 +127,18 @@
 					  window.location = data;
 					}
 				);
-	    // }
-
-	    // // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom
-	    // if($(this).data().autohide) {
-	    //     new TimelineLite()
-	    //     .to('#' + $('#submitted').data('hide'), .5, {scale:0, autoAlpha:0, display:'none'})
-	    //     .from($('#submitted'), .5, {scale:0, autoAlpha:0});
-	    // }
-
-	    // // Disable form button unless explicitly prevented, and show loading...
-	    // if(!$(this).data().keep_enabled) {
-     //    $(evt.currentTarget).attr('disabled', 'disabled');
-     //    loadToggle(true);
-	    // }
 
 	});
 
 
-		// $('#new-game').click(function() {
-		// 	var pkg = getFormData($(this));
-		// 	socket.emit('game:start', emitData(pkg));
-		// });
+		// Open Socket connection
+		socket = io('//{{host}}', {
+		 	path: '/fake-news', 
+		 	reconnection: true,
+		 	'reconnectionDelay': 500,
+		 	'maxReconnectionAttempts':Infinity
+		 });
 
-		// Handlebars Templating 
-		function templateLoader(id, data, template, command) {
-		  // Grab the template script
-		  var theTemplateScript = $("#article-template").html();
-
-		  // Compile the template
-		  var theTemplate = Handlebars.compile(theTemplateScript);
-		  console.log (theTemplate);
-
-		  // Define our data object
-		  var context = {
-		  	data
-		  };
-		  console.log(context);
-
-		  // Pass our data to the template
-		  var theCompiledHtml = theTemplate(context);
-		  console.log(theCompiledHtml);
-
-		  // Add the compiled html to the page
-		  if (command === "append") {
-		  	console.log("appending");
-		  	$(template).append(theCompiledHtml);
-		  } else if (command === "html") {
-		  	$(template).html(theCompiledHtml);
-		  }
-		  
-
-		};
-
-		 socket = io('//{{host}}', {path: '/fake-news', reconnection: true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
     registerEvents();
 
     socketEvents = function(eventId, eventData) {
@@ -290,7 +151,14 @@
 
 	        break;
 		  }
+
 		};
+
+		{{#ifeq section 'game'}}
+
+			{{> script/game_logic }}
+
+		{{/ifeq}}
 
 
 

@@ -36,7 +36,7 @@ Headline.add({
 	name: { type: String, label: 'Headline', required: true, initial: true },
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 }, 'Stats', {
-	status: { type: Types.Select, label: 'Status', options: 'Left, Right, Nuetral'},
+	status: { type: Types.Select, label: 'Status', options: 'Meaty, Vegan, Nuetral'},
 	bias: { type: Types.Select, label: 'bias', options: 'High, Low, Medium'}, 
 	truth: { type: Types.Select, label: 'truth', options: 'Fact, Fiction, Alternative Fact'}, 
 	hookLvl: { type: Types.Select, label: 'Hook Level', options: '1, 2, 3'}

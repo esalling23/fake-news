@@ -35,8 +35,8 @@ exports = module.exports = function(req, res) {
     // Init locals
     locals.gameId = 'TEST';
 
-    locals.viewType = 'group';
-    locals.section = 'newgame';
+    // locals.viewType = 'group';
+    locals.section = 'game';
 
 
 // 
@@ -55,6 +55,8 @@ exports = module.exports = function(req, res) {
             locals.articles = articles;
             locals.thumbnails = articles.thumbnails;
             locals.headlines = articles.headlines;
+
+            console.log(locals.headlines, locals.thumnails);
             
             queryGame.exec(function (err, game) {
                 locals.game = game;

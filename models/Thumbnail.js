@@ -39,7 +39,7 @@ Thumbnail.add({
 }, 'stats', {
 	status: { type: Types.Select, label: 'Status', options: 'Meaty, Vegan, Nuetral'}, 
 	bias: { type: Types.Select, label: 'bias', options: 'In Favor, Against'}, 
-	catch: { type: Types.Select, label: 'Eye-Catching Level', options: '1, 2, 3' }
+	eyeCatch: { type: Types.Select, label: 'Eye-Catching Level', options: '1, 2, 3' }
 });
 
 /**

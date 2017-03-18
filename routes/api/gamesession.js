@@ -27,15 +27,12 @@ var Game = require(appRoot + '/lib/GameManager'),
  */
 exports.create = function(req, res) {
 
-     var data;
-     // console.log(req.body, " body")
-     data = req.body;
-    
+    var data;
+    data = req.body;
 
     // Save this session to memory for faster retrieval (deleted when game ends)
     Session.Create('TEST', new Game());
 
     res.send('/game');
         
-
 };

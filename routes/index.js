@@ -51,7 +51,7 @@ exports = module.exports = function(app) {
     // Game
     app.get('/game', routes.views.game);
 
-    //Create Game
+    // Create Game
     app.post('/api/create', keystone.middleware.api, routes.api.gamesession.create);
     
     // NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
