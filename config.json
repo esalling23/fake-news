@@ -4,6 +4,8 @@
 	"subdomain": "fake",
 	"allowed_domains": ["uncertainty.io"],
 	"admin_nav": { 
-									"index": ["Index"]
+									"Home Page": ["Index"], 
+									"Game Content": ["Article", "Headline", "Thumbnail", "Comment"], 
+									"Game Config": ["GameConfig"]
 								}
 }

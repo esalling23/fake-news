@@ -12,15 +12,15 @@
 
 <div class="game">
 
-<h1 style="color:white">{{gameId}}<h1>
+<h1 style="color:white">{{gameId}}</h1>
 
-		<div class="row create">
+		<div class="row create ACTIVE" data-stage="game:create">
 
 			<section class="row" id="article-slide">
 				<ul style="height:100%;">
 
 			{{#each articles}}
-				<li class="item article" >
+				<li class="item article" id="{{article_key}}">
 					<div class="pane{{@index}}">
 
 						{{!-- TODO: thumbnail slider --}}
@@ -44,9 +44,10 @@
 					<input id="meaty" data-keep_enabled="true" data-event="meaties" class="submit" type="submit" name="submit" value="meatlover" data-package=''>
 					<input id="vegan" data-keep_enabled="true" data-event="vegan" class="submit" type="submit" name="submit" value="vegan" data-package=''>
 			</div>
-			
-		
 
-				
-		</div> 
+		</div> <!-- .create -->
+
+		<div class="row share" data-stage="game:comments" style="display:none;">
+		</div> <!-- .share -->
+
 	</div> <!-- .game -->

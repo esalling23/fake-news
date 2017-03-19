@@ -20,6 +20,7 @@ var keystone = require('keystone'),
     appRoot = require('app-root-path');
     
 var Game = require(appRoot + '/lib/GameManager'),
+		GameSession = keystone.list('GameSession'),
     Session = require(appRoot + '/lib/SessionManager');
 
 /**
@@ -28,10 +29,14 @@ var Game = require(appRoot + '/lib/GameManager'),
 exports.create = function(req, res) {
 
     var data;
+    var session;
+
     data = req.body;
 
+    session = new GameSession.model();
+
     // Save this session to memory for faster retrieval (deleted when game ends)
-    Session.Create('TEST', new Game());
+    Session.Create('TEST', new Game(session));
 
     res.send('/game');
         

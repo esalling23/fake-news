@@ -26,7 +26,10 @@
 	'game:start', 
 
 	'send:vegans',
-	'send:meaties'
+	'send:meaties',
+
+	'game:create',
+	'game:comments'
 
 	];
 
@@ -112,7 +115,7 @@
 			  	"/api/create/",
 					pkg,
 					function( data ) {
-						data.accessCode = '{{gameCode}}';
+						data.gameId = 'TEST';
 
 						if(data.error_code !== undefined) {
 
@@ -124,6 +127,7 @@
 							return;
 						}
 
+						socket.emit("game:start", 'TEST');
 					  window.location = data;
 					}
 				);
@@ -148,6 +152,30 @@
 	        case 'connect':
 
 		        console.log('connected');
+
+	        break;
+
+	        case 'game:comments':
+
+	        	let data = eventData.data;
+
+	        	console.log("DATA: ", data)
+
+	        	$('.ACTIVE').removeClass('ACTIVE');
+	        	$("[data-stage='game:comments']").html(eventData.html).addClass('ACTIVE');
+
+	        	_.each(data.comments, function(comment) {
+	        		$('#comment-feed').append(
+	        			'<div class="comment">' + comment.text + '</div>'
+	        		)
+	        	});
+	        	// $('#article-post #article-image').append(
+	        	// 	'<img src="{{{cloudinaryUrl data.article.thumbnail.url width=100 height=100 quality=80}}}">'
+	        	// );
+
+	        	$('#article-post #article-title').text(
+	        		data.article.headline.title
+	        	);
 
 	        break;
 		  }

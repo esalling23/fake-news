@@ -30,7 +30,9 @@ var Common = function (nsp, socket) {
 
         'game:start': function(package) {
 
-            Session.Get(package.gameId).
+            console.log(currentSpace, " is the space");
+
+            Session.Get(package).
             StartGame(currentSpace);
 
         },
@@ -51,16 +53,12 @@ var Common = function (nsp, socket) {
 
         'send:vegans': function(package) {
 
-            console.log(package, package.gameId);
-
             Session.Get(package.gameId).
             Share(package.article, 'vegans');
 
         },
 
         'send:meaties': function(package) {
-
-            console.log(package, package.gameId)
 
             Session.Get(package.gameId).
             Share(package.article, 'meaties');

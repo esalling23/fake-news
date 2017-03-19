@@ -69,6 +69,10 @@
 
   	activeOptions = { headline: {}, thumbnail: {} };
 
+  	// Find headline text and thumbnail image
+  	activeOptions.headline.title = $('.article').find('.headline.option.active').html();
+  	activeOptions.thumbnail.url = $('.article').find('.thumbnail.option.active img').attr('src');
+
   	// Find the active option ID's
   	activeOptions.headline.id = $('.article').find('.headline.option.active').attr('id');
   	activeOptions.thumbnail.id = $('.article').find('.thumbnail.option.active').attr('id');
@@ -76,10 +80,12 @@
   	// Find data attributes of thumbnail
   	activeOptions.thumbnail.bias = $('.article').find('.thumbnail.option.active').data('bias');
   	activeOptions.thumbnail.status = $('.article').find('.thumbnail.option.active').data('status');
+  	activeOptions.thumbnail.catch = $('.article').find('.thumbnail.option.active').data('catch');
 
   	// Find data attributes of headlines
   	activeOptions.headline.bias = $('.article').find('.headline.option.active').data('bias');
   	activeOptions.headline.status = $('.article').find('.headline.option.active').data('status');
+  	activeOptions.headline.hook = $('.article').find('.headline.option.active').data('hook');
 
   	if (!activeOptions.headline.id || !activeOptions.thumbnail.id) {
   		return;

@@ -50,6 +50,12 @@ Article.add({
 		ref: 'Headline', 
 		many: true
 	},
+	comments: {
+		type: Types.Relationship, 
+		label: 'Comments', 
+		ref: 'Comment', 
+		many: true
+	},
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 
 });

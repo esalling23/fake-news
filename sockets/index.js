@@ -1,4 +1,4 @@
-module.exports = function(app) {
+module.exports = function(app, socket) {
 
   var io = require('socket.io')(app, {path: '/fake-news/'});
 
@@ -7,7 +7,7 @@ module.exports = function(app) {
 
   io.on('connection', function (socket) {
 
-    console.log("Player connection", socket.id)
+    console.log("Player connection", socket.id);
 
     // Create event handlers for this socket
     var eventHandlers = {

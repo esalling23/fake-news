@@ -21,6 +21,7 @@ var keystone = require('keystone'),
     GameSession = keystone.list('GameSession'),
     GameConfig = keystone.list('GameConfig'),
     Article = keystone.list('Article'),
+    Comment = keystone.list('Comment'),
     _ = require('underscore');
 
 var GameManager = require(appRoot + '/lib/GameManager'),
@@ -49,16 +50,18 @@ exports = module.exports = function(req, res) {
          var queryArticles = Article.model.find({}, {}, {})
          .populate('thumbnails headlines');
 
+         var queryComments = Comment.model.find({}, {}, {});
+
         // Get game config and articles
         queryArticles.exec(function (err, articles) { 
 
             locals.articles = articles;
             locals.thumbnails = articles.thumbnails;
             locals.headlines = articles.headlines;
+            // locals.comments = articles.comments;
 
-            console.log(locals.headlines, locals.thumnails);
-            
             queryGame.exec(function (err, game) {
+                
                 locals.game = game;
                 
                 next(err);
