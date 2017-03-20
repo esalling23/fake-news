@@ -24,7 +24,8 @@ var Headline = new keystone.List('Headline',
 		label: 'Headlines',
 		singular: 'Headline',
 		track: true,
-		autokey: { path: 'headline_key', from: 'name', unique: true },
+		autokey: { path: 'headline_key', from: 'name', unique: true }, 
+		map: { name: 'headlineText' }
 	});
 
 /**
@@ -33,7 +34,8 @@ var Headline = new keystone.List('Headline',
  */
 Headline.add({
 
-	name: { type: String, label: 'Headline', required: true, initial: true },
+	name: { type: String, label: 'Name', hidden: true },
+	headlineText: { type: Types.Text, label: 'Headline Text', required: true, initial: true },
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 }, 'Stats', {
 	status: { type: Types.Select, label: 'Status', options: 'Meaty, Vegan, Nuetral'},

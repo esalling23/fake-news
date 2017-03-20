@@ -1,0 +1,102 @@
+{{!< default}}
+{{!-- 
+/**
+ * Uncertainty Project
+ * Developed by Engagement Lab, 2016
+ * ==============
+ * 
+ * Script include for global logic
+ * ==========
+ */
+--}}
+
+
+var articles = {};
+var activeOptions = {};
+var maxArticles = 3;
+var day;
+var actions;
+var gameId = '{{gameId}}';
+
+{{!-- // SWIPING LOGIC
+$('#article-slide').jTinder({
+	onDislike: function (item) {
+			
+  },
+  onLike: function (item) {
+    	
+  },
+  animationRevertSpeed: 200,
+  animationSpeed: 400,
+  threshold: 1,
+  likeSelector: '#vegan',
+  dislikeSelector: '#meatlover'
+}); --}}
+
+// If a player chooses to send to vegans
+$('#vegan').click(function() {
+console.log("click");
+	{{!-- $('#article-slide').jTinder('like'); --}}
+	FindActiveOptions();
+	socket.emit('send:vegans', { article: activeOptions, gameId: gameId});
+});
+
+// If a player chooses to trash an item
+$('#meaty').click(function() {
+	{{!-- $('#article-slide').jTinder('dislike'); --}}
+	FindActiveOptions();
+	socket.emit('send:meaties', { article: activeOptions, gameId: gameId});
+	
+});
+
+// Choosing Thumbnail and Headline
+$('.option').click(function(){
+
+console.log("clicked option");
+
+	if ($(this).hasClass('headline') && $('.article').find('.option.active.headline')) {
+		$('.article').find('.option.active.headline').removeClass('active');
+	} 
+	else if ($(this).hasClass('thumbnail') && $('.article').find('.option.active.thumbnail')) 
+	{
+		$('.article').find('.option.active.thumbnail').removeClass('active');
+	}
+
+	$(this).addClass('active');
+});
+
+$('.option.active').click(function(){
+	$(this).removeClass('active');
+});
+
+function FindActiveOptions() {
+
+	activeOptions = { headline: {}, thumbnail: {} };
+
+	// Find headline text and thumbnail image
+	activeOptions.headline.title = $('.article').find('.headline.option.active').html();
+	activeOptions.thumbnail.url = $('.article').find('.thumbnail.option.active img').attr('src');
+
+	// Find the active option ID's
+	activeOptions.headline.id = $('.article').find('.headline.option.active').attr('id');
+	activeOptions.thumbnail.id = $('.article').find('.thumbnail.option.active').attr('id');
+
+	// Find data attributes of thumbnail
+	activeOptions.thumbnail.bias = $('.article').find('.thumbnail.option.active').data('bias');
+	activeOptions.thumbnail.status = $('.article').find('.thumbnail.option.active').data('status');
+	activeOptions.thumbnail.catch = $('.article').find('.thumbnail.option.active').data('catch');
+
+	// Find data attributes of headlines
+	activeOptions.headline.bias = $('.article').find('.headline.option.active').data('bias');
+	activeOptions.headline.status = $('.article').find('.headline.option.active').data('status');
+	activeOptions.headline.hook = $('.article').find('.headline.option.active').data('hook');
+
+	if (!activeOptions.headline.id || !activeOptions.thumbnail.id) {
+		return;
+	}
+
+	// return activeOptions;
+}
+
+
+	

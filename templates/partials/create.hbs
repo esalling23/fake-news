@@ -1,0 +1,31 @@
+<section class="row" id="article-slide">
+	<ul style="height:100%;">
+	{{#each this}}
+	<div class="event">Breaking: {{this.name}}</div>
+
+		<li class="item article" id="{{article_key}}">
+			<div class="pane{{@index}}">
+
+				<div class="instructions">Choose an image and a headline to represent the news</div>
+
+				{{!-- TODO: thumbnail slider --}}
+				{{#each thumbnails}}
+					{{> thumbnail this}}
+				{{/each}}
+
+				{{!-- TODO: headline slider? --}}
+				{{#each headlines}}
+					{{> headline this}}
+				{{/each}}
+			</div>
+
+		</li>
+
+	{{/each}}
+	</ul>
+</section>
+	
+<div class="row buttons">
+		<input id="meaty" data-keep_enabled="true" data-event="meaties" class="submit" type="submit" name="submit" value="meatlover" data-package=''>
+		<input id="vegan" data-keep_enabled="true" data-event="vegan" class="submit" type="submit" name="submit" value="vegan" data-package=''>
+</div>

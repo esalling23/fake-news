@@ -1,7 +1,7 @@
 {
   "name": "fake-news",
-  "description": "EL Web Suite Starter Module",
-  "version": "0.0.3",
+  "description": "Fake News",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/esalling23/fake-news.git"
@@ -10,6 +10,7 @@
   "dependencies": {
     "app-module-path": "^1.0.6",
     "app-root-path": "^1.0.0",
+    "connect-mongostore": "^0.1.4",
     "express": "^4.13.3",
     "json-fs-store": "^1.0.0",
     "keystone": "0.3.15",

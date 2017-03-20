@@ -4,6 +4,22 @@ $mq-tablet-portrait		: 768px !default;
 $mq-tablet-landscape	: 1024px !default;
 $mq-desktop				: 1382px !default;
 
+// Animation
+
+// Comment falling
+@keyframes comment-fall {
+  from {
+    top: 0px;
+
+    display:none;
+  }
+  to {
+    // top: 100%;
+    top: 100%;
+    display:block;
+  }
+}
+
 // Both portrait and landscape
 @mixin mobile-only {
 	@media (max-width : $mq-mobile-landscape) {

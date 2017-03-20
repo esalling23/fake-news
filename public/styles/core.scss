@@ -8,6 +8,12 @@
 	visibility: hidden;
 }
 
+html, body, .page-wrapper {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
 // Body
 .body {
   background-color: #000;
@@ -37,6 +43,12 @@
 	}
 }
 
+.thumbnail {
+	width: 180px;
+	
+}
+
+
 .home {
 
 	#new-game {
@@ -46,9 +58,115 @@
 
 	}
 
+}
+
+#gameContent {
+
+	width: 425px;
+	height:100%;
+	margin: 0 auto;
+
+	.game, .create, .share {
+		height: 100%;
+	}
+
 	.game {
+		text-align: center;
+
+		.create {
+
+			#article-slide {
+				height: 80%;
+			}
+
+			.buttons {
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+
+				input {
+					background-color:white;
+					color: black;
+				}
+			}
 
 
+		}
+
+		.share {
+
+			#article-image {
+				height: 120px;
+			}
+
+			#article-title {
+				height: 120px;
+				padding-top: 20px;
+				text-align: left;
+				font-size: 20px;
+				.thumbnail {
+					height: 120px;
+				}
+				img {
+					height: 120px;
+				}
+			}
+
+			.comment {
+				background-color:white;
+				color: black;
+				position: absolute;
+				bottom: 50%;
+				width: 425px;
+				margin: 0 auto;
+
+				&.bad {
+					border: 4px red solid;
+				}
+				&.good {
+					border: 4px green solid;
+				}
+
+			}
+
+			.profile-image {
+				width: 60px;
+				height: 60px;
+				display: inline-block;
+
+				img {
+					display: inline-block;
+				}
+			}
+
+			.comment-body {
+				text-align: left;
+			}
+
+			.comment-text {
+				display: inline-block;
+				height:60px;
+			}
+
+			.profile-name {
+				font-weight: bold;
+			}
+
+			#article-post {
+				height: 20%;
+			}
+			#comment-feed {
+				height: 70%;
+				margin-top:10%;
+			}
+		}
+
+		.share {
+		}
+
+		.thumbnail {
+			margin: 0 auto;
+		}
 
 		.article {
 
@@ -60,21 +178,14 @@
 			display: block;
 			color: white;
 
-			.truth {
-
-
-			}
-
-			.interest {
-
-
-			}
+			
 
 		}
 	}
 
+}
+
 	
 
-}
 
 

@@ -37,10 +37,16 @@
 
 {{else}}
 
+	{{!-- Bootstrap core CSS --}}
+	<link href="styles/bootstrap.min.css" rel="stylesheet">
+
+	{{!-- Core Site CSS --}}
+	<link href="styles/core.css" rel="stylesheet">
+
 	{{!-- PRODUCTION --}}
 	{{!-- Suite core styling --}}
-	<link href="https://res.cloudinary.com/engagement-lab-home/raw/upload/site/styles/core.css" rel="stylesheet">
-	{{!-- Module styling --}}
+{{!-- 	<link href="https://res.cloudinary.com/engagement-lab-home/raw/upload/site/styles/core.css" rel="stylesheet">
+	Module styling
 	<link href="{{cdnAsset product='repo-name' env=environment type='css' }}" rel="stylesheet">
-
+ --}}
 {{/ifeq}}

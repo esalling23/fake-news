@@ -12,42 +12,15 @@
 
 <div class="game">
 
-<h1 style="color:white">{{gameId}}</h1>
+	<h1 style="color:white">{{gameId}}</h1>
 
-		<div class="row create ACTIVE" data-stage="game:create">
+	<button class="btn submit" data-event="game:newArticle" data-package='{"code": "TEST", "name": "player"}' id="game-newArticle">Start</button>
 
-			<section class="row" id="article-slide">
-				<ul style="height:100%;">
-
-			{{#each articles}}
-				<li class="item article" id="{{article_key}}">
-					<div class="pane{{@index}}">
-
-						{{!-- TODO: thumbnail slider --}}
-						{{#each thumbnails}}
-							{{> thumbnail this}}
-						{{/each}}
-
-						{{!-- TODO: headline slider? --}}
-						{{#each headlines}}
-							{{> headline this}}
-						{{/each}}
-					</div>
-
-				</li>
-			
-			{{/each}}
-			</ul>
-			</section>
-				
-			<div class="row buttons">
-					<input id="meaty" data-keep_enabled="true" data-event="meaties" class="submit" type="submit" name="submit" value="meatlover" data-package=''>
-					<input id="vegan" data-keep_enabled="true" data-event="vegan" class="submit" type="submit" name="submit" value="vegan" data-package=''>
-			</div>
-
+		<div class="row create" data-stage="game:newArticle" id="create">
 		</div> <!-- .create -->
 
-		<div class="row share" data-stage="game:comments" style="display:none;">
+		<div class="row share" data-stage="game:comments" style="display:none;" id="comments">
 		</div> <!-- .share -->
 
-	</div> <!-- .game -->
+</div> <!-- .game -->
+

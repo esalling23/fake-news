@@ -33,10 +33,11 @@ var Comment = new keystone.List('Comment',
  */
 Comment.add({
 
-	name: { type: String, label: 'Comment Name', required: true, initial: true },
+	name: { type: String, label: 'Comment Name', hidden: true },
 	username: { type: Types.TextArray, label: 'List of Possible Usernames' },
 	image: { type: Types.CloudinaryImage, label: 'Icon' },
-	comment: { type: Types.Markdown, label: 'Comment Text' },
+	comments: { type: Types.TextArray, label: 'Comment Varieties' },
+	status: { type: Types.Select, label: 'status', options: 'good, bad, nuetral' },
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 
 });

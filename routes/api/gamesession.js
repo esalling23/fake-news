@@ -20,7 +20,7 @@ var keystone = require('keystone'),
     appRoot = require('app-root-path');
     
 var Game = require(appRoot + '/lib/GameManager'),
-		GameSession = keystone.list('GameSession'),
+	GameSession = keystone.list('GameSession'),
     Session = require(appRoot + '/lib/SessionManager');
 
 /**

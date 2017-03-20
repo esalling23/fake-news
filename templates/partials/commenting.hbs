@@ -1,21 +1,36 @@
-<div id="article-post">
+<div id="article-post" class="row">
 
-{{{jsonPrint this.article.thumbnail}}}
-
-	<div id="article-image">
-		<div class="thumbnail option" id="{{thumbnail_key}}">
-			<img src="{{this.article.thumbnail.url}}" />
+	<div id="article-image" class="col-sm-6">
+		<div class="thumbnail">
+			<img src="{{this.thumbnail.url}}"/>
 		</div>
 	</div>
 
-	<div id="article-title">{{this.article.headline.title}}</div>
+	<div id="article-title" class="col-sm-6">{{this.headline.title}}</div>
 
 </div>
 
 <div id="comment-feed">
 
+	{{#each this.comments}}
 
 
+		<div class="comment row {{#ifeq this.status 'bad'}}bad{{else}}good{{/ifeq}}" style="display:none;">
 
+			<div class="profile-image col-sm-3 thumbnail">
+				<img src="{{this.image.url}}"/>
+			</div>
+
+			<div class="comment-body col-sm-9">
+
+				<div class="profile-name">{{this.username}}</div>
+
+				<div class="comment-text">{{this.text}}</div>
+
+			</div>
+
+		</div>
+
+	{{/each}}
 
 </div>

@@ -38,8 +38,6 @@ exports = module.exports = function(req, res) {
 
     // locals.viewType = 'group';
     locals.section = 'game';
-
-
 // 
     view.on('init', function(next) {
 

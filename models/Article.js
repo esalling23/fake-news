@@ -37,7 +37,7 @@ var Article = new keystone.List('Article',
  */
 Article.add({
 
-	name: { type: String, label: 'Name', required: true, initial: true },
+	name: { type: String, label: 'Event', required: true, initial: true },
 	thumbnails: { 
 		type: Types.Relationship, 
 		label: 'Thumbnail Images', 

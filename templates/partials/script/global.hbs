@@ -15,8 +15,11 @@
 		var socket;
 		var socketEvents;
 		var gameCode;
+		var data;
+		var bottom;
+		var commentLimit
 
-	$(document).ready(function() {
+$(document).ready(function() {
 
 	// All possible socket event IDs
 	var eventIds = [
@@ -126,11 +129,22 @@
 							
 							return;
 						}
-
-						socket.emit("game:start", 'TEST');
 					  window.location = data;
-					}
-				);
+					  socket.emit("game:start", 'TEST');
+
+					});
+
+	});
+
+	// Start the game
+	$(document).on('click', 'button#game-newArticle', function(evt) {
+					    
+	    var event = $(this).data().event;
+	    var pkg = getFormData($(this));
+
+	    console.log(pkg, " form submitted packge");
+
+	    socket.emit('game:newArticle', 'TEST');
 
 	});
 
@@ -153,43 +167,95 @@
 
 		        console.log('connected');
 
-	        break;
+		        break;
 
 	        case 'game:comments':
 
-	        	let data = eventData.data;
+	        	commentLimit = 0;
+
+	        	data = eventData.data;
+
+	        	bottom = 0;
 
 	        	console.log("DATA: ", data)
 
-	        	$('.ACTIVE').removeClass('ACTIVE');
-	        	$("[data-stage='game:comments']").html(eventData.html).addClass('ACTIVE');
+	        	$('.ACTIVE').removeClass('ACTIVE').hide();
+	        	$("[data-stage='game:comments']").html(eventData.html).addClass('ACTIVE').show();
 
-	        	_.each(data.comments, function(comment) {
-	        		$('#comment-feed').append(
-	        			'<div class="comment">' + comment.text + '</div>'
-	        		)
+	        	$('.comment:not(.set)').on('click', function(){
+
+	        		$(this).hide();
+
 	        	});
-	        	// $('#article-post #article-image').append(
-	        	// 	'<img src="{{{cloudinaryUrl data.article.thumbnail.url width=100 height=100 quality=80}}}">'
-	        	// );
 
-	        	$('#article-post #article-title').text(
-	        		data.article.headline.title
-	        	);
 
-	        break;
+        		_.each($('.comment'), function(comment, i){
+        		// 	commentLimit = $('.comment.set').length;
+      				// bottom = 100*commentLimit;
+      				// console.log(bottom, " bottom");
+      				// console.log(commentLimit, " comments so far set");
+
+	        		setTimeout(function () {
+
+	        		// 	commentLimit = $('.comment.set').length;
+	      				// bottom = 100*commentLimit;
+	      				// console.log(bottom, " + bottom");
+	      				// console.log(commentLimit, " comments so far set");
+
+	        			$(comment).show(function() {
+
+	        				$(this).animate({ 
+	        					bottom: bottom + "px" 
+	        				}, 4000, 'linear', function(){
+		        				console.log("animation finished");
+		        			// 	$(this).addClass('set');
+		        			// 	commentLimit = $('.comment.set').length;
+			      				// bottom = 100*commentLimit;
+			      				// console.log(bottom, " + bottom");
+			      				// console.log(commentLimit, " comments so far set");
+
+			      				// send jquery event to re-animate to new bottom. 
+
+		        			});
+
+	        			});
+
+					    }, 2000 * i );
+      				
+
+	        	});
+
+	        	
+
+		        break;
+
+		      case 'game:create':
+
+	        	data = eventData.data;
+
+	        	console.log("DATA: ", data)
+
+	        	$('.ACTIVE').removeClass('ACTIVE').hide();
+	        	$("#create").html(eventData.html).addClass('ACTIVE').show();
+
+						{{> script/create_logic }}
+
+
+		        break;
+
+	        default:
+
+	          console.warn('No handler found for event "' + eventId + '" in socketEvents.');
+
+	          break;
 		  }
 
 		};
 
-		{{#ifeq section 'game'}}
-
-			{{> script/game_logic }}
-
-		{{/ifeq}}
+		
 
 
 
-	});
+});
 	
 </script>

@@ -4,10 +4,10 @@
   "main": "app.js",
   "version": "0.0.1",
   "authors": [
-    "Johnny Richardson <johnny@elab.emerson.edu>"
+    "Erica Salling <erica@elab.emerson.edu>"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/engagementgamelab/uncertainty-dictionary",
+  "homepage": "https://github.com/esalling23/fake-news",
   "moduleType": [],
   "ignore": [
     "**/.*",
