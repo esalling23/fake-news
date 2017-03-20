@@ -8,12 +8,13 @@
 
 	<div id="article-title" class="col-sm-6">{{this.headline.title}}</div>
 
+	<div class="article-stats">Shares: <span class="counter" data-count="{{this.points}}" id="shares">0</span></div>
+
 </div>
 
 <div id="comment-feed">
 
 	{{#each this.comments}}
-
 
 		<div class="comment row {{#ifeq this.status 'bad'}}bad{{else}}good{{/ifeq}}" style="display:none;">
 
@@ -29,8 +30,19 @@
 
 			</div>
 
+			<div class="comment-stats">Likes: <span data-count="{{../this.points}}" id="likes" class="counter">0</span></div>
+
 		</div>
 
 	{{/each}}
+
+</div>
+
+<div class="modal" id="round-score" style="display:none;">
+
+	<h1>Nice work! Your post got a total of <span id="post-score"></span> shares!</h1>
+
+
+	<button class="btn submit" data-event="game:newArticle" data-package='{"code": "TEST", "name": "player"}' id="game-newArticle">again, again!</button>
 
 </div>

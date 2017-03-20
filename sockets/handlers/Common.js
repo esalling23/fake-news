@@ -72,8 +72,15 @@ var Common = function (nsp, socket) {
 
         'comment:remove': function(package) {
 
-            Session.Get(package).
+            Session.Get(package.gameId).
             CommentUpdate(currentSpace);
+
+        },
+
+        'comments:end': function(package) {
+
+            Session.Get(package.gameId).
+            PostScore(package.points, currentSpace);
 
         },
 

@@ -32,7 +32,10 @@ $(document).ready(function() {
 	'send:meaties',
 
 	'game:create',
-	'game:comments'
+	'game:comments', 
+
+	'post:score',
+	'comments:end'
 
 	];
 
@@ -106,6 +109,7 @@ $(document).ready(function() {
     });
 	};
 
+
 	// Start the game
 	$(document).on('click', '.form .submit', function(evt) {
 					    
@@ -171,36 +175,128 @@ $(document).ready(function() {
 
 	        case 'game:comments':
 
+		        var gameId = '{{gameId}}';
+
 	        	commentLimit = 0;
 
 	        	data = eventData.data;
 
+
+
+						var checkComments = function() {
+
+							console.log("fuckery")
+
+							// var postScore = 0;
+							commentLength = $('.comment.falling').length;
+
+							if ( commentLimit >= 4 || commentLength == 0 ) {
+
+								let commentPoints = 0;
+
+								_.each($('.comment.set'), function(t){
+
+									if ($(t).hasClass('good')){
+										commentPoints += 1;
+									} else if ($(t).hasClass('bad')) {
+										commentPoints -= 1;
+									}
+
+									console.log(commentPoints);
+
+								});
+
+								console.log("four comments. lets go");
+
+								socket.emit('comments:end', { points: commentPoints, gameId: gameId });
+
+							} else {
+
+							}
+						}
+      				
+
 	        	bottom = 0;
 
-	        	console.log("DATA: ", data)
+	        	console.log("DATA: ", data);
 
 	        	$('.ACTIVE').removeClass('ACTIVE').hide();
 	        	$("[data-stage='game:comments']").html(eventData.html).addClass('ACTIVE').show();
 
-	        	$('.comment:not(.set)').on('click', function(){
+	        	$('#shares').html(data.points);
 
-	        		$(this).hide();
+	        	var commentLength = $('.comment').length;
+
+	        	$('.comment').on('click', function(){
+
+	        		if ($(this).hasClass('set')){
+
+	        		} else {
+	        			console.log("click");
+
+		        		$(this).hide();
+		        		$(this).stop();
+	        		}
+	        		
 
 	        	});
 
 
-        		_.each($('.comment'), function(comment, i){
-        		// 	commentLimit = $('.comment.set').length;
-      				// bottom = 100*commentLimit;
-      				// console.log(bottom, " bottom");
-      				// console.log(commentLimit, " comments so far set");
+	        	// When comment lands, reset animation 
+	        	$('.comment:not(.set)').on('newBottom', function() {
+
+		        		commentLimit = $('.comment.set').length;
+	      				bottom = 100*commentLimit;
+
+	      				_.each($('.comment:not(.set)'), function(t) {
+	      					$(t).stop();
+	      					checkComments();
+
+
+	      					$(t).show(function() {
+
+		      					$(t).animate({ 
+		        					bottom: bottom + "px" 
+		        				}, 4000, 'linear', function(){
+		        					$(this).addClass('set');
+											commentLimit = $('.comment.set').length;
+				      				bottom = 100*commentLimit;
+				      				console.log(bottom, " + bottom");
+				      				console.log(commentLimit, " comments so far set");
+
+				      				$(this).removeClass('falling');
+				      				checkComments();
+
+				      				// send jquery event to re-animate to new bottom. 
+				      				$(".comment:not(.set)").trigger( "newBottom" );
+			        			});
+		      				});
+
+	      				});
+
+	        	});
+
+	        	//for each comment, set stagger for animation
+        		_.each($('.comment'), function(comment, i) {
+
+        			$(comment).addClass('falling');
+
+        			commentLimit = $('.comment.set').length;
+      				bottom = 100*commentLimit;
+      				console.log(bottom, " bottom");
+      				console.log(commentLimit, " comments so far set");
+
+      				checkComments();
+
 
 	        		setTimeout(function () {
 
-	        		// 	commentLimit = $('.comment.set').length;
-	      				// bottom = 100*commentLimit;
-	      				// console.log(bottom, " + bottom");
-	      				// console.log(commentLimit, " comments so far set");
+	        			checkComments();
+
+	        			commentLimit = $('.comment.set').length;
+	      				bottom = 100*commentLimit;
+	      				console.log(bottom, " + bottom");
+	      				console.log(commentLimit, " comments so far set");
 
 	        			$(comment).show(function() {
 
@@ -208,24 +304,58 @@ $(document).ready(function() {
 	        					bottom: bottom + "px" 
 	        				}, 4000, 'linear', function(){
 		        				console.log("animation finished");
-		        			// 	$(this).addClass('set');
-		        			// 	commentLimit = $('.comment.set').length;
-			      				// bottom = 100*commentLimit;
-			      				// console.log(bottom, " + bottom");
-			      				// console.log(commentLimit, " comments so far set");
+		        				$(this).addClass('set');
+		        				commentLimit = $('.comment.set').length;
+			      				bottom = 100*commentLimit;
+
+			      				$(this).removeClass('falling');
+
+			      				checkComments();
 
 			      				// send jquery event to re-animate to new bottom. 
+			      				$(".comment:not(.set)").trigger( "newBottom" );
 
 		        			});
 
 	        			});
 
 					    }, 2000 * i );
-      				
-
 	        	});
 
-	        	
+
+
+
+
+
+	        	// var counter = function() {
+
+	        		$('.counter').each(function() {
+
+							  var $this = $(this),
+							      countTo = $this.attr('data-count');
+							  
+							  $({ countNum: $this.text()}).animate({
+							    countNum: countTo
+							  },
+
+							  {
+
+							    duration: 8000,
+							    easing:'linear',
+							    step: function() {
+							      $this.text(Math.floor(this.countNum));
+							    },
+							    complete: function() {
+							      $this.text(this.countNum);
+							      //alert('finished');
+							    }
+
+							  });  
+							  
+							});
+
+	        	// }
+
 
 		        break;
 
@@ -240,6 +370,18 @@ $(document).ready(function() {
 
 						{{> script/create_logic }}
 
+
+		        break;
+
+					case 'post:score':
+
+	        	data = eventData;
+
+	        	console.log("DATA: ", data);
+
+	        	$('#post-score').html(data.points);
+
+	        	$('#round-score').show();
 
 		        break;
 

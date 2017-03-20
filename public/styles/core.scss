@@ -73,6 +73,17 @@ html, body, .page-wrapper {
 	.game {
 		text-align: center;
 
+		.modal {
+			height: 100%;
+			width:100%;
+			background-color:black;
+			color: white;
+			margin: 0 auto;
+			z-index: 1000;
+			position: absolute;
+			top: 0px;
+		}
+
 		.create {
 
 			#article-slide {
@@ -127,6 +138,10 @@ html, body, .page-wrapper {
 					border: 4px green solid;
 				}
 
+				&.set {
+
+				}
+
 			}
 
 			.profile-image {
@@ -154,6 +169,8 @@ html, body, .page-wrapper {
 
 			#article-post {
 				height: 20%;
+				background-color:white;
+				color: black;
 			}
 			#comment-feed {
 				height: 70%;
