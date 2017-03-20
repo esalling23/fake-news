@@ -1,3 +1,6 @@
+<div class="instructions">Swipe away the bad comments (outlined in red) before they stack up!</div>
+
+
 <div id="article-post" class="row">
 
 	<div id="article-image" class="col-sm-6">
@@ -8,7 +11,7 @@
 
 	<div id="article-title" class="col-sm-6">{{this.headline.title}}</div>
 
-	<div class="article-stats">Shares: <span class="counter" data-count="{{this.points}}" id="shares">0</span></div>
+	<div class="article-stats">Shares: <span class="upVote counter" data-count="{{this.points}}" id="shares">0</span></div>
 
 </div>
 
@@ -16,7 +19,7 @@
 
 	{{#each this.comments}}
 
-		<div class="comment row {{#ifeq this.status 'bad'}}bad{{else}}good{{/ifeq}}" style="display:none;">
+		<div class="comment commentRe row {{#ifeq this.status 'bad'}}bad{{else}}good{{/ifeq}}" style="display:none;">
 
 			<div class="profile-image col-sm-3 thumbnail">
 				<img src="{{this.image.url}}"/>
@@ -30,7 +33,7 @@
 
 			</div>
 
-			<div class="comment-stats">Likes: <span data-count="{{../this.points}}" id="likes" class="counter">0</span></div>
+			<div class="comment-stats">Likes: <span data-count="{{../this.points}}" id="likes" class="upVote counter">0</span></div>
 
 		</div>
 

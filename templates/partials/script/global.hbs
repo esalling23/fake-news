@@ -181,28 +181,31 @@ $(document).ready(function() {
 
 	        	data = eventData.data;
 
-
-
 						var checkComments = function() {
 
-							console.log("fuckery")
-
 							// var postScore = 0;
-							commentLength = $('.comment.falling').length;
+							var commentFalling = $('.comment.falling').length;
+							console.log(commentFalling, " number falling");
 
-							if ( commentLimit >= 4 || commentLength == 0 ) {
+							// var commentLength = $('.commentRe').length;
+
+							if ( commentLimit >= 4 || commentFalling == '0' ) {
 
 								let commentPoints = 0;
 
 								_.each($('.comment.set'), function(t){
 
+									console.log($(t).find('.comment-stats span').text());
+
 									if ($(t).hasClass('good')){
-										commentPoints += 1;
+										commentPoints += parseInt($(t).find('.comment-stats span').text());
 									} else if ($(t).hasClass('bad')) {
-										commentPoints -= 1;
+										commentPoints -= parseInt($(t).find('.comment-stats span').text());
 									}
 
-									console.log(commentPoints);
+									commentPoints += parseInt($('.article-stats span').text());
+
+									console.log(commentPoints, ' are this comment\'s points');
 
 								});
 
@@ -225,7 +228,7 @@ $(document).ready(function() {
 
 	        	$('#shares').html(data.points);
 
-	        	var commentLength = $('.comment').length;
+	        	
 
 	        	$('.comment').on('click', function(){
 
@@ -234,6 +237,7 @@ $(document).ready(function() {
 	        		} else {
 	        			console.log("click");
 
+		        		$(this).removeClass('falling');
 		        		$(this).hide();
 		        		$(this).stop();
 	        		}
@@ -243,12 +247,12 @@ $(document).ready(function() {
 
 
 	        	// When comment lands, reset animation 
-	        	$('.comment:not(.set)').on('newBottom', function() {
+	        	$('.comment.falling').on('newBottom', function() {
 
 		        		commentLimit = $('.comment.set').length;
 	      				bottom = 100*commentLimit;
 
-	      				_.each($('.comment:not(.set)'), function(t) {
+	      				_.each($('.comment.falling'), function(t) {
 	      					$(t).stop();
 	      					checkComments();
 
@@ -277,43 +281,44 @@ $(document).ready(function() {
 	        	});
 
 	        	//for each comment, set stagger for animation
-        		_.each($('.comment'), function(comment, i) {
-
-        			$(comment).addClass('falling');
+        		_.each($('.commentRe'), function(comment, i) {
 
         			commentLimit = $('.comment.set').length;
       				bottom = 100*commentLimit;
       				console.log(bottom, " bottom");
       				console.log(commentLimit, " comments so far set");
 
-      				checkComments();
 
 
 	        		setTimeout(function () {
 
-	        			checkComments();
-
-	        			commentLimit = $('.comment.set').length;
-	      				bottom = 100*commentLimit;
-	      				console.log(bottom, " + bottom");
-	      				console.log(commentLimit, " comments so far set");
-
 	        			$(comment).show(function() {
+
+	        				$(comment).addClass('falling');
+	        				$(comment).removeClass('commentRe');
+
+		        			commentLimit = $('.comment.set').length;
+		      				bottom = 100*commentLimit;
+		      				console.log(bottom, " + bottom");
+		      				console.log(commentLimit, " comments so far set");
+
+		      				checkComments();
 
 	        				$(this).animate({ 
 	        					bottom: bottom + "px" 
 	        				}, 4000, 'linear', function(){
+
 		        				console.log("animation finished");
 		        				$(this).addClass('set');
-		        				commentLimit = $('.comment.set').length;
-			      				bottom = 100*commentLimit;
-
 			      				$(this).removeClass('falling');
+
+			      				commentLimit = $('.comment.set').length;
+			      				bottom = 100*commentLimit;
 
 			      				checkComments();
 
 			      				// send jquery event to re-animate to new bottom. 
-			      				$(".comment:not(.set)").trigger( "newBottom" );
+			      				$(".comment.falling").trigger( "newBottom" );
 
 		        			});
 
@@ -323,13 +328,9 @@ $(document).ready(function() {
 	        	});
 
 
-
-
-
-
 	        	// var counter = function() {
 
-	        		$('.counter').each(function() {
+	        		$('.counter.upVote').each(function() {
 
 							  var $this = $(this),
 							      countTo = $this.attr('data-count');
@@ -347,7 +348,6 @@ $(document).ready(function() {
 							    },
 							    complete: function() {
 							      $this.text(this.countNum);
-							      //alert('finished');
 							    }
 
 							  });  
@@ -364,6 +364,8 @@ $(document).ready(function() {
 	        	data = eventData.data;
 
 	        	console.log("DATA: ", data)
+
+	        	$('.pre').hide();
 
 	        	$('.ACTIVE').removeClass('ACTIVE').hide();
 	        	$("#create").html(eventData.html).addClass('ACTIVE').show();

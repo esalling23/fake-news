@@ -48,9 +48,9 @@
     },
 
     "production" : {
-      "user": "erica",
+      "user": "node",
       "host": "174.138.71.140",
-      "repo": "git@github.com:esalling23/fake-news.git",
+      "repo": "https://github.com/esalling23/fake-news.git",
       "ref": "origin/master",
       "path": "/srv/fake-news",
       "pre-deploy-local" : "echo 'NPM linking repo-name and restarting app.';",

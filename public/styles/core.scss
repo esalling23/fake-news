@@ -51,6 +51,8 @@ html, body, .page-wrapper {
 
 .home {
 
+	text-align:center;
+
 	#new-game {
 		height: 80px;
 		width: 160px;
@@ -85,6 +87,16 @@ html, body, .page-wrapper {
 		}
 
 		.create {
+			font-size: 20px;
+
+			.event {
+				font-size: 28px;
+			}
+
+			.instructions {
+				margin-bottom: 20px;
+
+			}
 
 			#article-slide {
 				height: 80%;
