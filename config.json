@@ -1,7 +1,6 @@
 {
 	"name": "Fake News",
 	"database": "fake-news",
-	"subdomain": "fake",
 	"allowed_domains": ["fake-news-me.com"],
 	"admin_nav": { 
 									"Home Page": ["Index"], 
