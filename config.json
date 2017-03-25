@@ -1,7 +1,6 @@
 {
 	"name": "Fake News",
 	"database": "fake-news",
-	"allowed_domains": ["fake-news-me.com"],
 	"admin_nav": { 
 									"Home Page": ["Index"], 
 									"Game Content": ["Article", "Headline", "Thumbnail", "Comment"], 
