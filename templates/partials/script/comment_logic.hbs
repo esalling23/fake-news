@@ -1,0 +1,192 @@
+{{!< default}}
+{{!-- 
+/**
+ * Uncertainty Project
+ * Developed by Engagement Lab, 2016
+ * ==============
+ * 
+ * Script include for global logic
+ * ==========
+ */
+--}}
+
+
+var event;
+var gameId = '{{gameId}}';
+
+// Comment Logic
+
+var checkComments = function() {
+
+	// var postScore = 0;
+	var commentFalling = $('.comment.falling').length;
+	console.log(commentFalling, " number falling");
+
+	// var commentLength = $('.commentRe').length;
+
+	if ( commentLimit >= 4 || commentFalling == '0' ) {
+
+		let commentPoints = 0;
+
+		_.each($('.comment.set'), function(t){
+
+			console.log($(t).find('.comment-stats span').text());
+
+			if ($(t).hasClass('good')){
+				commentPoints += parseInt($(t).find('.comment-stats span').text());
+			} else if ($(t).hasClass('bad')) {
+				commentPoints -= parseInt($(t).find('.comment-stats span').text());
+			}
+
+			commentPoints += parseInt($('.article-stats span').text());
+
+			console.log(commentPoints, ' are this comment\'s points');
+
+		});
+
+		console.log("four comments. lets go");
+
+		socket.emit('comments:end', { points: commentPoints, gameId: gameId });
+
+	} else {
+
+	}
+}
+	
+
+bottom = 0;
+
+console.log("DATA: ", data);
+
+$('.ACTIVE').removeClass('ACTIVE').hide();
+$("[data-stage='game:comments']").html(eventData.html).addClass('ACTIVE').show();
+
+$('#shares').html(data.points);
+
+
+
+$('.comment').on('click', function(){
+
+	if ($(this).hasClass('set')){
+
+	} else {
+		console.log("click");
+
+		$(this).removeClass('falling');
+		$(this).hide();
+		$(this).stop();
+	}
+	
+
+});
+
+
+// When comment lands, reset animation 
+$('.comment.falling').on('newBottom', function() {
+
+		commentLimit = $('.comment.set').length;
+		bottom = 100*commentLimit;
+
+		_.each($('.comment.falling'), function(t) {
+			$(t).stop();
+			checkComments();
+
+
+			$(t).show(function() {
+
+				$(t).animate({ 
+					bottom: bottom + "px" 
+				}, 4000, 'linear', function(){
+					$(this).addClass('set');
+					commentLimit = $('.comment.set').length;
+  				bottom = 100*commentLimit;
+  				console.log(bottom, " + bottom");
+  				console.log(commentLimit, " comments so far set");
+
+  				$(this).removeClass('falling');
+  				checkComments();
+
+  				// send jquery event to re-animate to new bottom. 
+  				$(".comment:not(.set)").trigger( "newBottom" );
+  			});
+			});
+
+		});
+
+});
+
+//for each comment, set stagger for animation
+_.each($('.commentRe'), function(comment, i) {
+
+	commentLimit = $('.comment.set').length;
+	bottom = 100*commentLimit;
+	console.log(bottom, " bottom");
+	console.log(commentLimit, " comments so far set");
+
+
+
+	setTimeout(function () {
+
+		$(comment).show(function() {
+
+			$(comment).addClass('falling');
+			$(comment).removeClass('commentRe');
+
+			commentLimit = $('.comment.set').length;
+			bottom = 100*commentLimit;
+			console.log(bottom, " + bottom");
+			console.log(commentLimit, " comments so far set");
+
+			checkComments();
+
+			$(this).animate({ 
+				bottom: bottom + "px" 
+			}, 4000, 'linear', function(){
+
+				console.log("animation finished");
+				$(this).addClass('set');
+				$(this).removeClass('falling');
+
+				commentLimit = $('.comment.set').length;
+				bottom = 100*commentLimit;
+
+				checkComments();
+
+				// send jquery event to re-animate to new bottom. 
+				$(".comment.falling").trigger( "newBottom" );
+
+			});
+
+		});
+
+  }, 2000 * i );
+});
+
+
+$('.counter.upVote').each(function() {
+
+  var $this = $(this),
+      countTo = $this.attr('data-count');
+  
+  $({ countNum: $this.text()}).animate({
+    countNum: countTo
+  },
+
+  {
+
+    duration: 8000,
+    easing:'linear',
+    step: function() {
+      $this.text(Math.floor(this.countNum));
+    },
+    complete: function() {
+      $this.text(this.countNum);
+    }
+
+  });  
+  
+});
+
+
+
+	
