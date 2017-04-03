@@ -48,8 +48,10 @@
 
 			<!-- page-wrapper end -->
 			{{#ifeq env "development"}}
+			<!-- DEVELOPMENT -->
 				{{> script/development section=section subSection=sub_section}}
 			{{else}}
+			<!-- PRODUCTION -->
 				{{> script/production section=section}}
 			{{/ifeq}}
 

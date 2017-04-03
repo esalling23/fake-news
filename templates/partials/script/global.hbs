@@ -18,6 +18,7 @@
 		var data;
 		var bottom;
 		var commentLimit
+		var score;
 
 $(document).ready(function() {
 
@@ -28,14 +29,11 @@ $(document).ready(function() {
 	'disconnect',
 	'game:start', 
 
-	'send:vegans',
-	'send:meaties',
-
-	'game:create',
+	'game:newEvent',
 	'game:comments', 
 
-	'post:score',
-	'comments:end'
+	'comments:end', 
+	'comment:update'
 
 	];
 
@@ -141,17 +139,16 @@ $(document).ready(function() {
 	});
 
 	// Start the game
-	$(document).on('click', 'button#game-newArticle', function(evt) {
+	$(document).on('click', 'button#game-newEvent', function(evt) {
 					    
 	    var event = $(this).data().event;
 	    var pkg = getFormData($(this));
 
 	    console.log(pkg, " form submitted packge");
 
-	    socket.emit('game:newArticle', 'TEST');
+	    socket.emit('game:newEvent', 'TEST');
 
 	});
-
 
 		// Open Socket connection
 		socket = io('//{{host}}', {
@@ -173,215 +170,62 @@ $(document).ready(function() {
 
 		        break;
 
-	        case 'game:comments':
+		      case 'game:newEvent': 
 
-		        var gameId = '{{gameId}}';
+		      	score = 0;
 
-	        	commentLimit = 0;
+			      var gameId = '{{gameId}}';
 
-	        	data = eventData.data;
-
-						var checkComments = function() {
-
-							// var postScore = 0;
-							var commentFalling = $('.comment.falling').length;
-							console.log(commentFalling, " number falling");
-
-							// var commentLength = $('.commentRe').length;
-
-							if ( commentLimit >= 4 || commentFalling == '0' ) {
-
-								let commentPoints = 0;
-
-								_.each($('.comment.set'), function(t){
-
-									console.log($(t).find('.comment-stats span').text());
-
-									if ($(t).hasClass('good')){
-										commentPoints += parseInt($(t).find('.comment-stats span').text());
-									} else if ($(t).hasClass('bad')) {
-										commentPoints -= parseInt($(t).find('.comment-stats span').text());
-									}
-
-									commentPoints += parseInt($('.article-stats span').text());
-
-									console.log(commentPoints, ' are this comment\'s points');
-
-								});
-
-								console.log("four comments. lets go");
-
-								socket.emit('comments:end', { points: commentPoints, gameId: gameId });
-
-							} else {
-
-							}
-						}
-      				
-
-	        	bottom = 0;
-
-	        	console.log("DATA: ", data);
-
-	        	$('.ACTIVE').removeClass('ACTIVE').hide();
-	        	$("[data-stage='game:comments']").html(eventData.html).addClass('ACTIVE').show();
-
-	        	$('#shares').html(data.points);
-
-	        	
-
-	        	$('.comment').on('click', function(){
-
-	        		if ($(this).hasClass('set')){
-
-	        		} else {
-	        			console.log("click");
-
-		        		$(this).removeClass('falling');
-		        		$(this).hide();
-		        		$(this).stop();
-	        		}
-	        		
-
-	        	});
-
-
-	        	// When comment lands, reset animation 
-	        	$('.comment.falling').on('newBottom', function() {
-
-		        		commentLimit = $('.comment.set').length;
-	      				bottom = 100*commentLimit;
-
-	      				_.each($('.comment.falling'), function(t) {
-	      					$(t).stop();
-	      					checkComments();
-
-
-	      					$(t).show(function() {
-
-		      					$(t).animate({ 
-		        					bottom: bottom + "px" 
-		        				}, 4000, 'linear', function(){
-		        					$(this).addClass('set');
-											commentLimit = $('.comment.set').length;
-				      				bottom = 100*commentLimit;
-				      				console.log(bottom, " + bottom");
-				      				console.log(commentLimit, " comments so far set");
-
-				      				$(this).removeClass('falling');
-				      				checkComments();
-
-				      				// send jquery event to re-animate to new bottom. 
-				      				$(".comment:not(.set)").trigger( "newBottom" );
-			        			});
-		      				});
-
-	      				});
-
-	        	});
-
-	        	//for each comment, set stagger for animation
-        		_.each($('.commentRe'), function(comment, i) {
-
-        			commentLimit = $('.comment.set').length;
-      				bottom = 100*commentLimit;
-      				console.log(bottom, " bottom");
-      				console.log(commentLimit, " comments so far set");
-
-
-
-	        		setTimeout(function () {
-
-	        			$(comment).show(function() {
-
-	        				$(comment).addClass('falling');
-	        				$(comment).removeClass('commentRe');
-
-		        			commentLimit = $('.comment.set').length;
-		      				bottom = 100*commentLimit;
-		      				console.log(bottom, " + bottom");
-		      				console.log(commentLimit, " comments so far set");
-
-		      				checkComments();
-
-	        				$(this).animate({ 
-	        					bottom: bottom + "px" 
-	        				}, 4000, 'linear', function(){
-
-		        				console.log("animation finished");
-		        				$(this).addClass('set');
-			      				$(this).removeClass('falling');
-
-			      				commentLimit = $('.comment.set').length;
-			      				bottom = 100*commentLimit;
-
-			      				checkComments();
-
-			      				// send jquery event to re-animate to new bottom. 
-			      				$(".comment.falling").trigger( "newBottom" );
-
-		        			});
-
-	        			});
-
-					    }, 2000 * i );
-	        	});
-
-
-	        	// var counter = function() {
-
-	        		$('.counter.upVote').each(function() {
-
-							  var $this = $(this),
-							      countTo = $this.attr('data-count');
-							  
-							  $({ countNum: $this.text()}).animate({
-							    countNum: countTo
-							  },
-
-							  {
-
-							    duration: 8000,
-							    easing:'linear',
-							    step: function() {
-							      $this.text(Math.floor(this.countNum));
-							    },
-							    complete: function() {
-							      $this.text(this.countNum);
-							    }
-
-							  });  
-							  
-							});
-
-	        	// }
-
-
-		        break;
-
-		      case 'game:create':
-
-	        	data = eventData.data;
+		      	data = eventData.data;
 
 	        	console.log("DATA: ", data)
 
 	        	$('.pre').hide();
 
 	        	$('.ACTIVE').removeClass('ACTIVE').hide();
-	        	$("#create").html(eventData.html).addClass('ACTIVE').show();
+	        	$("#event").html(eventData.html).addClass('ACTIVE').show();
 
-						{{> script/create_logic }}
+	        		setTimeout(function () {
 
+									$('#new-event').animate({ 
+										height: '100px'
+									}, 2000, 'linear', function(){
+
+										console.log("animation finished");
+
+										$(document).trigger("event:comments");					
+
+									});
+
+						  }, 2000);
+
+						  {{> script/falling_logic}}
+
+		      	break;
+
+	        case 'comment:update':
+
+		        console.log(eventData.msg);
 
 		        break;
 
-					case 'post:score':
+		      case 'score:update':
+
+		        console.log(eventData);
+
+		        score -= eventData;
+
+		        console.log(score, " is the player score");
+
+		        break;
+
+					case 'event:score':
 
 	        	data = eventData;
 
 	        	console.log("DATA: ", data);
 
-	        	$('#post-score').html(data.points);
+	        	$('#twisted-number').html(data.points);
 
 	        	$('#round-score').show();
 

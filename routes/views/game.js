@@ -20,7 +20,7 @@ var keystone = require('keystone'),
     randomstring = require('randomstring'),
     GameSession = keystone.list('GameSession'),
     GameConfig = keystone.list('GameConfig'),
-    Article = keystone.list('Article'),
+    CurrentEvent = keystone.list('CurrentEvent'),
     Comment = keystone.list('Comment'),
     _ = require('underscore');
 
@@ -45,18 +45,15 @@ exports = module.exports = function(req, res) {
                                     'enabled':true
                                     // 'gameType':new RegExp('^'+locals.whichGame+'$', "i")
                                     });
-         var queryArticles = Article.model.find({}, {}, {})
-         .populate('thumbnails headlines');
+         // var queryCurrentEvents = CurrentEvent.model.find({}, {}, {}).populate('articles');
 
          var queryComments = Comment.model.find({}, {}, {});
 
-        // Get game config and articles
-        queryArticles.exec(function (err, articles) { 
+        // Get game config and CurrentEvents
+        // queryCurrentEvents.exec(function (err, CurrentEvents) { 
 
-            locals.articles = articles;
-            locals.thumbnails = articles.thumbnails;
-            locals.headlines = articles.headlines;
-            // locals.comments = articles.comments;
+        //     locals.CurrentEvents = CurrentEvents;
+
 
             queryGame.exec(function (err, game) {
                 
@@ -65,7 +62,7 @@ exports = module.exports = function(req, res) {
                 next(err);
             });
 
-        });
+        // });
 
     });
 

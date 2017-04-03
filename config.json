@@ -3,7 +3,7 @@
 	"database": "fake-news",
 	"admin_nav": { 
 									"Home Page": ["Index"], 
-									"Game Content": ["Article", "Headline", "Thumbnail", "Comment"], 
+									"Game Content": ["Comment"], 
 									"Game Config": ["GameConfig"]
 								}
 }

@@ -35,10 +35,17 @@ var Common = function (nsp, socket) {
 
         },
 
-        'game:newArticle': function(package) {
+        'game:newEvent': function(package) {
 
             Session.Get(package).
-            NewArticle(currentSpace);
+            NewEvent(currentSpace);
+
+        },
+
+        'game:comments': function(package) {
+
+            Session.Get(package).
+            Comments(currentSpace);
 
         },
 
@@ -49,38 +56,24 @@ var Common = function (nsp, socket) {
 
         },
 
-        'game:show_survey': function(package) {
+        'comment:update': function(package) {
 
             Session.Get(package.gameId).
-            DisplaySurvey(currentSpace);
+            CommentUpdate(currentSpace, package.comment);
 
         },
 
-        'send:vegans': function(package) {
+        'comments:landed': function(package) {
 
             Session.Get(package.gameId).
-            Share(package.article, 'vegans');
-
-        },
-
-        'send:meaties': function(package) {
-
-            Session.Get(package.gameId).
-            Share(package.article, 'meaties');
-
-        },
-
-        'comment:remove': function(package) {
-
-            Session.Get(package.gameId).
-            CommentUpdate(currentSpace);
+            CheckComments(currentSpace, package.comment);
 
         },
 
         'comments:end': function(package) {
 
             Session.Get(package.gameId).
-            PostScore(package.points, currentSpace);
+            EventScore(currentSpace);
 
         },
 

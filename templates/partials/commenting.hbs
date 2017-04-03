@@ -1,35 +1,34 @@
-<div class="instructions">Swipe away the bad comments (outlined in red) before they stack up!</div>
-
-
+<div class="instructions">Swipe away twisted headlines before they stack up!</div>
+{{!-- 
 <div id="article-post" class="row">
 
 	<div id="article-image" class="col-sm-6">
 		<div class="thumbnail">
-			<img src="{{this.thumbnail.url}}"/>
+			<img src="{{this.thumbnail}}"/>
 		</div>
 	</div>
 
-	<div id="article-title" class="col-sm-6">{{this.headline.title}}</div>
+	<div id="article-title" class="col-sm-6">{{this.headline}}</div>
 
 	<div class="article-stats">Shares: <span class="upVote counter" data-count="{{this.points}}" id="shares">0</span></div>
 
-</div>
+</div> --}}
 
 <div id="comment-feed">
 
-	{{#each this.comments}}
+	{{#each articles}}
 
-		<div class="comment commentRe row {{#ifeq this.status 'bad'}}bad{{else}}good{{/ifeq}}" style="display:none;">
+		<div class="comment sticky row" style="display:none;" id="{{this.key}}">
 
 			<div class="profile-image col-sm-3 thumbnail">
-				<img src="{{this.image.url}}"/>
+				<img src="{{this.thumbnail.url}}"/>
 			</div>
 
 			<div class="comment-body col-sm-9">
 
 				<div class="profile-name">{{this.username}}</div>
 
-				<div class="comment-text">{{this.text}}</div>
+				<div class="comment-text">{{this.name}}</div>
 
 			</div>
 
@@ -43,9 +42,9 @@
 
 <div class="modal" id="round-score" style="display:none;">
 
-	<h1>Nice work! Your post got a total of <span id="post-score"></span> shares!</h1>
+	<h1>Nice work! You defended the truth from <span id="twisted-killer"></span> twisted articles!</h1>
+	<h1>Uh Oh! You managed to let <span id="twisted-number"></span> twisted articles through! Better luck next time!</h1>
 
-
-	<button class="btn submit" data-event="game:newArticle" data-package='{"code": "TEST", "name": "player"}' id="game-newArticle">again, again!</button>
+	<button class="btn submit" data-event="game:newEvent" data-package='{"code": "TEST", "name": "player"}' id="game-newEvent">again, again!</button>
 
 </div>

@@ -1,9 +1,9 @@
 /**
  * (Site name here) 
  * 
- * Event page Model
- * @module Event
- * @class Event
+ * CurrentEvent page Model
+ * @module CurrentEvent
+ * @class CurrentEvent
  * @author Johnny Richardson
  * 
  * For field docs: http://keystonejs.com/docs/database/
@@ -15,36 +15,34 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * Event model
+ * CurrentEvent model
  * @constructor
  * See: http://keystonejs.com/docs/database/#lists-options
  */
-var Event = new keystone.List('Event', 
+var CurrentEvent = new keystone.List('CurrentEvent', 
 	{
-		label: 'Events',
-		singular: 'Event',
+		label: 'Current Events',
+		singular: 'Current Event',
 		track: true,
 		autokey: { path: 'key', from: 'name', unique: true },
 	});
 
 /**
  * Model Fields
- * @main Event
+ * @main CurrentEvent
  */
-Event.add({
+CurrentEvent.add({
 
-	name: { type: String, label: 'Event Name', required: true, initial: true },
+	name: { type: String, label: 'Current Event Name', required: true, initial: true },
 	thumbnail: { 
 		type: Types.CloudinaryImage, 
 		label: 'Thumbnail Image'
 	},
-	headlines: { 
-		type: Types.TextArray, 
-		label: 'Headlines'
-	},
-	comments: {
-		type: Types.TextArray, 
-		label: 'Comments'
+	articles: { 
+		type: Types.Relationship, 
+		label: 'Articles', 
+		ref: 'Article', 
+		many: true
 	},
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 
@@ -53,6 +51,6 @@ Event.add({
 /**
  * Model Registration
  */
-Event.defaultSort = '-createdAt';
-Event.defaultColumns = 'name, updatedAt';
-Event.register();
+CurrentEvent.defaultSort = '-createdAt';
+CurrentEvent.defaultColumns = 'name, updatedAt';
+CurrentEvent.register();
