@@ -36,7 +36,9 @@ var Article = new keystone.List('Article',
 Article.add({
 
 	name: { type: String, label: 'Headline', required: true, initial: true },
+	newspaper: { type: String, label: 'Newspaper', required: true, initial: true },
 	thumbnail: { type: Types.CloudinaryImage, label: 'Thumbnail Image' },
+	status: { type: Types.Select, label: 'Article Stance', options: 'Neutral, Positive, Negative' },
 	twisted: { type: Number, hidden: true, default: 0 },
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 

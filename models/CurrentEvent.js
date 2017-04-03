@@ -34,6 +34,7 @@ var CurrentEvent = new keystone.List('CurrentEvent',
 CurrentEvent.add({
 
 	name: { type: String, label: 'Current Event Name', required: true, initial: true },
+	text: { type: Types.Markdown, label: 'Short Description', required: true, initial: true },
 	thumbnail: { 
 		type: Types.CloudinaryImage, 
 		label: 'Thumbnail Image'
@@ -45,6 +46,12 @@ CurrentEvent.add({
 		many: true
 	},
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
+
+}, 'Goals', {
+
+	neutral: { type: Types.Markdown, label: 'Neutral Goal Text' }, 
+	posSide: { type: Types.Markdown, label: 'Positive Goal Text' }, 
+	negSide: { type: Types.Markdown, label: 'Negative Goal Text' }
 
 });
 

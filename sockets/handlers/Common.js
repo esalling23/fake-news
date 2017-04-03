@@ -56,17 +56,10 @@ var Common = function (nsp, socket) {
 
         },
 
-        'comment:update': function(package) {
+        'comment:share': function(package) {
 
             Session.Get(package.gameId).
-            CommentUpdate(currentSpace, package.comment);
-
-        },
-
-        'comments:landed': function(package) {
-
-            Session.Get(package.gameId).
-            CheckComments(currentSpace, package.comment);
+            CheckComment(currentSpace, package.comment);
 
         },
 

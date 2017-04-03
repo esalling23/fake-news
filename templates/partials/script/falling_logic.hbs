@@ -17,148 +17,62 @@ var bottom;
 var commentStack;
 var commentFalling;
 
-	$(document).on('event:comments', function() {
+$(document).on('event:comments', function() {
 
-		bottom = 0;
-		// Call comments animation logic	
-		StartComments();	
+	$('#comment-feed').css('bottom', $('.feed-wrap').height);
+	$('#comment-feed').css('height', $('.comment').length*80 + 'px')
 
-		commentLimit = $('.comment.stuck').length;
+	var bottom = 0;
 
+	_.each($('.comment'), function(comment){
 
-	});
-
-
-	// When comment lands, reset animation 
-	$(document).on('newBottom', function() {
-
-			console.log("get a new bottom");
-
-			checkComments();
-
-			_.each($('.comment.falling'), function(t) {
-
-				$(t).stop();
-				checkComments();
-
-				$(t).animate({ 
-					bottom: bottom + "px" 
-				}, 4000, 'linear', function(){
-
-					$(this).addClass('stuck');
-					$(this).removeClass('falling');
-					checkComments();
-
-					var data = $(this).attr('id');
-
-					console.log(data + " this comment has landed")
-
-					socket.emit('comments:landed', { gameId: gameId, comment: data });
-
-					// send jquery event to re-animate to new bottom. 
-					$(document).trigger("newBottom");
-
-				});
-
-			});
+		$(comment).css('bottom', bottom);
+		bottom += 80;
 
 	});
 
-	// Comment Logic
+	// Call comments animation logic	
+	StartCommentFeed();	
 
-	$('.comment').on('click', function(){
+});
 
-		if ($(this).hasClass('stuck')){
-			return;
+var StartCommentFeed = function(){
 
-		} else {
+	$('#comment-feed').show(function(){
+		{{!-- $(this).css('display', 'table-cell'); --}}
+	});
 
-			console.log("click");
+	var $items = $("#comment-feed .comment");
+	$('#comment-feed').animate({
+    bottom: '-700px'
+  }, 30000, 'linear', function() {
 
-			$(this).removeClass('falling');
-			$(this).stop();
-			$(this).hide();
+  	console.log("round over");
 
-			var data = $(this).attr('id');
-			
-			socket.emit('comment:update', { gameId: gameId, comment: data });
-			
-		}
+  	socket.emit('comments:end', { gameId: gameId, data: data });
+
+  });
+
+}
+
+// Comment Logic
+
+$('.comment .share-btn').on('click', function(){
+
+	if ($(this).parent().hasClass('shared')){
+
+		return;
+
+	} else {
+
+		$(this).parent().addClass('shared');
+		$(this).prop("disabled",true);
+
+		var data = $(this).parent().attr('id');
 		
-
-	});
-
-	var checkComments = function() {
-
-		// var postScore = 0;
-		var commentFalling = $('.comment.falling').length;
-		console.log(commentFalling, " number falling");
-
-		var commentRemain = $('.sticky').length;
-		var commentStack = $('.stuck').length;
-
-		if ( commentStack >= 4 || commentFalling == '0' ) {
-
-			console.log("four comments. lets go");
-
-			var data = {
-				event: $('.event.ACTIVE').attr('id'),
-
-			}
-
-			socket.emit('comments:end', { gameId: gameId, data: data });
-
-		} else {
-
-			console.log(commentStack);
-
-		}
+		socket.emit('comment:share', { gameId: gameId, comment: data });
+		
 	}
+	
 
-	var StartComments = function() {
-
-		_.each($('.comment.sticky'), function(comment, i) {
-
-			checkComments();
-
-			var spot = ((Math.random * 10) + 1);
-
-
-
-			setTimeout(function () {
-
-				$(comment).show(function() {
-
-					$(comment).addClass('falling');
-					$(comment).removeClass('sticky');
-
-					checkComments();
-
-					$(this).animate({ 
-						bottom: bottom + "px" 
-					}, 4000, 'linear', function(){
-
-						console.log("animation finished");
-						$(this).addClass('stuck');
-						$(this).removeClass('falling');
-
-						checkComments();
-
-						var data = $(this).attr('id');
-
-						console.log(data + " this comment has landed")
-
-						socket.emit('comments:landed', { gameId: gameId, comment:data });
-
-						// send jquery event to re-animate to new bottom. 
-						$(document).trigger("newBottom");
-
-					});
-
-				});
-
-		  }, 3000 * i );
-
-		});
-
-	}
+});

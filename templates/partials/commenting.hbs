@@ -1,43 +1,29 @@
-<div class="instructions">Swipe away twisted headlines before they stack up!</div>
-{{!-- 
-<div id="article-post" class="row">
+<div class="feed-wrap" style="display:none">
+	<div id="comment-feed">
 
-	<div id="article-image" class="col-sm-6">
-		<div class="thumbnail">
-			<img src="{{this.thumbnail}}"/>
-		</div>
+		{{#each articles}}
+
+			<div class="comment" id="{{this.key}}">
+
+				<div class="profile-image col-sm-3 thumbnail">
+					<img src="{{this.thumbnail.url}}"/>
+				</div>
+
+				<div class="comment-body col-sm-9">
+
+					<div class="profile-name">{{this.newspaper}}</div>
+
+					<div class="comment-text">{{this.name}}</div>
+
+				</div>
+
+				<button class="btn submit share-btn">SHARE</button>
+
+			</div>
+
+		{{/each}}
+
 	</div>
-
-	<div id="article-title" class="col-sm-6">{{this.headline}}</div>
-
-	<div class="article-stats">Shares: <span class="upVote counter" data-count="{{this.points}}" id="shares">0</span></div>
-
-</div> --}}
-
-<div id="comment-feed">
-
-	{{#each articles}}
-
-		<div class="comment sticky row" style="display:none;" id="{{this.key}}">
-
-			<div class="profile-image col-sm-3 thumbnail">
-				<img src="{{this.thumbnail.url}}"/>
-			</div>
-
-			<div class="comment-body col-sm-9">
-
-				<div class="profile-name">{{this.username}}</div>
-
-				<div class="comment-text">{{this.name}}</div>
-
-			</div>
-
-			<div class="comment-stats">Likes: <span data-count="{{../this.points}}" id="likes" class="upVote counter">0</span></div>
-
-		</div>
-
-	{{/each}}
-
 </div>
 
 <div class="modal" id="round-score" style="display:none;">

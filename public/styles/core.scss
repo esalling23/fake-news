@@ -81,12 +81,21 @@ html, body, .page-wrapper {
 			top: 0px;
 		}
 
+		// Round event
 		.event {
 			font-size: 20px;
 
+			.header {
+				background-color: black;
+				color: white;
+				z-index: 1000;
+			}
+
 			#new-event {
 				height:100%;
-				width: 100%;
+				width: 425px;
+				position:absolute;
+				z-index: 1000;
 				background-color:white;
 				color: black;
 				text-align:center;
@@ -97,19 +106,48 @@ html, body, .page-wrapper {
 
 			}
 
+			.feed-wrap {
+				height: calc(100% - 20px);
+				margin-top: 80px;
+				overflow: hidden;
+				position:relative;
+			}
+
+			#comment-feed {
+				display:none;
+				overflow: scroll;
+				position: absolute;
+				background: white;
+		    height: 100%;
+		    width: 425px;
+		    bottom: 700px;
+				vertical-align: bottom;
+			}
+
 			.comment {
 				background-color:white;
 				color: black;
 				position: absolute;
-				bottom: 50%;
+				display:block;
 				width: 425px;
 				margin: 0 auto;
-				height: 50px;
-				font-size: 12px;
+				height: 80px;
+				font-size: 14px;
+				z-index:1;
+				border: 3px gray solid;
 
+				.share-btn {
+
+
+
+					&:disabled {
+						background-color: black;
+					}
+				}
 			}
 
 			.thumbnail {
+				float: left;
 				img {
 					height: 40px;
 				}
@@ -131,7 +169,26 @@ html, body, .page-wrapper {
 			}
 
 
-		}
+		} // .event
+
+		// End of round review
+		.round {
+			.comment {
+				background-color:white;
+				color: black;
+				position: absolute;
+				display:block;
+				width: 425px;
+				margin: 0 auto;
+				height: 80px;
+				font-size: 14px;
+				z-index:1;
+				border: 3px gray solid;
+
+			}
+		} // .round
+
+
 	}
 
 }

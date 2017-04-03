@@ -1,11 +1,22 @@
-<section class="row" id="new-event">
+<div class="header">
+{{{jsonPrint goal}}}
+	<div class="instructions">{{{goal.html}}}</div>
 
-	<div class="current-event">
+	<div class="round-goal"></div>
 
-		{{currentEvent.name}}
+	<section class="" id="new-event">
 
-	</div>
+		<div class="current-event">
 
-</section>
+			{{currentEvent.name}}
+
+			<br>
+
+			{{{currentEvent.text.html}}}
+
+		</div>
+
+	</section>
+</div>
 
 {{> commenting this=articles}}

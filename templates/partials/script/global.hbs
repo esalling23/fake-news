@@ -31,6 +31,9 @@ $(document).ready(function() {
 
 	'game:newEvent',
 	'game:comments', 
+	'game:update',
+
+	'event:score',
 
 	'comments:end', 
 	'comment:update'
@@ -150,6 +153,13 @@ $(document).ready(function() {
 
 	});
 
+	// On Window Resize
+
+
+
+
+
+
 		// Open Socket connection
 		socket = io('//{{host}}', {
 		 	path: '/fake-news', 
@@ -182,24 +192,26 @@ $(document).ready(function() {
 
 	        	$('.pre').hide();
 
-	        	$('.ACTIVE').removeClass('ACTIVE').hide();
-	        	$("#event").html(eventData.html).addClass('ACTIVE').show();
+	        	$("#event").html(eventData.html).show();
 
-	        		setTimeout(function () {
+		      	// Show the event and goal for 5 seconds, then animate tiny
+		      	setTimeout(function () {
 
-									$('#new-event').animate({ 
-										height: '100px'
-									}, 2000, 'linear', function(){
+								$('#new-event').animate({ 
+									height: '100px'
+								}, 2000, 'linear', function(){
 
-										console.log("animation finished");
+									$('.feed-wrap').show();
 
-										$(document).trigger("event:comments");					
+									console.log("animation finished");
 
-									});
+									$(document).trigger("event:comments");					
 
-						  }, 2000);
+								});
 
-						  {{> script/falling_logic}}
+					  }, 1000);
+
+					  {{> script/falling_logic}}
 
 		      	break;
 
@@ -209,13 +221,18 @@ $(document).ready(function() {
 
 		        break;
 
-		      case 'score:update':
+		      case 'game:update':
 
-		        console.log(eventData);
+		        console.log(eventData.article, " is what we are updating");
 
-		        score -= eventData;
+		        var commentId = '#' + eventData.article.key;
+		        console.log(commentId);
 
-		        console.log(score, " is the player score");
+		        for(var i = 0, len = eventData.article.twisted; i < len; i++) {
+
+		        	$(commentId).clone().appendTo('#comment-feed').css('bottom','70%').addClass('dup');
+
+		        }
 
 		        break;
 
@@ -224,6 +241,10 @@ $(document).ready(function() {
 	        	data = eventData;
 
 	        	console.log("DATA: ", data);
+
+	        	$('#event').hide();
+
+	        	$("#round").html(eventData.html).show();
 
 	        	$('#twisted-number').html(data.points);
 
