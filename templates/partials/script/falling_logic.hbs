@@ -110,8 +110,7 @@ var commentFalling;
 
 		} else {
 
-			bottom = 60 * commentStack;
-			console.log(bottom);
+			console.log(commentStack);
 
 		}
 	}
@@ -121,6 +120,10 @@ var commentFalling;
 		_.each($('.comment.sticky'), function(comment, i) {
 
 			checkComments();
+
+			var spot = ((Math.random * 10) + 1);
+
+
 
 			setTimeout(function () {
 
