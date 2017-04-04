@@ -20,14 +20,14 @@ var commentFalling;
 $(document).on('event:comments', function() {
 
 	$('#comment-feed').css('bottom', $('.feed-wrap').height);
-	$('#comment-feed').css('height', $('.comment').length*80 + 'px')
+	$('#comment-feed').css('height', $('.comment').length*200 + 'px')
 
 	var bottom = 0;
 
 	_.each($('.comment'), function(comment){
 
 		$(comment).css('bottom', bottom);
-		bottom += 80;
+		bottom += 200;
 
 	});
 
@@ -44,7 +44,7 @@ var StartCommentFeed = function(){
 
 	var $items = $("#comment-feed .comment");
 	$('#comment-feed').animate({
-    bottom: '-700px'
+    bottom: '-1000px'
   }, 30000, 'linear', function() {
 
   	console.log("round over");

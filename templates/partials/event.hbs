@@ -1,21 +1,24 @@
-<div class="header">
-	<div class="instructions">{{{goal.text}}}</div>
-
-	<div class="round-goal"></div>
-
-	<section class="" id="new-event">
+<div class="header" id="new-event">
 
 		<div class="current-event">
 
-			{{currentEvent.name}}
+			<div class="event-title">
+				<h3>
+				<strong>BREAKING:</strong>
+				{{currentEvent.name}}
+				</h3>
+			</div>
 
 			<br>
 
-			{{{currentEvent.text.html}}}
+			<div class="details"><h4>{{{currentEvent.text.html}}}</h4></div>
 
 		</div>
 
-	</section>
+		<div class="counter" data-count="0">15</div>
+
+		<div class="instructions">{{{goal.text}}}</div>
+
 </div>
 
 {{> commenting this=articles}}

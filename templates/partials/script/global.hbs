@@ -27,7 +27,10 @@ $(document).ready(function() {
 	
 	'connect',
 	'disconnect',
+
 	'game:start', 
+	'game:rules',
+	'game:end',
 
 	'game:newEvent',
 	'game:comments', 
@@ -37,7 +40,8 @@ $(document).ready(function() {
 	'event:score',
 
 	'comments:end', 
-	'comment:update'
+	'comment:update',
+	'comment:reaction'
 
 	];
 
@@ -136,11 +140,18 @@ $(document).ready(function() {
 							return;
 						}
 					  window.location = data;
+					  console.log("this is the rules")
 					  socket.emit("game:start", 'TEST');
 
 					});
 
 	});
+
+	setTimeout(function () {
+
+    $('.home .form').fadeIn();
+
+  }, 3000);
 
 	// Start the game
 	$(document).on('click', 'button#game-newEvent', function(evt) {
@@ -165,6 +176,8 @@ $(document).ready(function() {
 	    socket.emit('game:newRound', 'TEST');
 
 	});
+
+
 
 	// On Window Resize
 
@@ -191,6 +204,30 @@ $(document).ready(function() {
 
 		        console.log('connected');
 
+		       	_.each($('.screen'), function(item, index) {
+
+	      			$(item).attr('id', 'screen-' + index);
+
+	      			setTimeout(function () {
+
+		        			$(item).fadeIn(function(){
+
+		        				if ($(item).hasClass('last')){
+		        					console.log("last screen")
+		        				} else  {
+		        					setTimeout(function(){
+
+			        					$(item).fadeOut();
+
+			        				}, 5000);
+		        				}
+		        				
+		        			});
+
+	      				}, 6000 * index);
+
+	      		});
+
 		        break;
 
 		      case 'game:newEvent': 
@@ -205,24 +242,39 @@ $(document).ready(function() {
 
 	        	$('.pre').hide();
 
-	        	$("#event").html(eventData.html).show();
+	        	$("#event").html(eventData.html).fadeIn(function(){
+	        		// Start that timer!
+		        	$({ countNum: $('.header .counter').text() })
+						  .animate({ countNum: 0 },
+						  { 
+						    duration: 15000,
+						    easing:'linear',
+						    step: function() {
+						      $('.counter').text(Math.floor(this.countNum));
+						    },
+						    complete: function() {
+						      $('.counter').fadeOut();
+						    }
+						  });
 
-		      	// Show the event and goal for 5 seconds, then animate tiny
+	        	});
+
+		      	// Show the event and goal for 7 seconds, then animate tiny
 		      	setTimeout(function () {
 
+		      		$('.details').fadeOut();
+
 								$('#new-event').animate({ 
-									height: '100px'
+									height: '200px'
 								}, 2000, 'linear', function(){
 
 									$('.feed-wrap').show();
-
-									console.log("animation finished");
 
 									$(document).trigger("event:comments");					
 
 								});
 
-					  }, 1000);
+					  }, 15000);
 
 					  {{> script/falling_logic}}
 
@@ -236,16 +288,51 @@ $(document).ready(function() {
 
 		      case 'game:update':
 
-		        console.log(eventData.article, " is what we are updating");
+		      var gameId = '{{gameId}}'; 
 
-		        var commentId = '#' + eventData.article.key;
-		        console.log(commentId);
+		        var commentId = '#' + eventData.article;
 
-		        for(var i = 0, len = eventData.article.twisted; i < len; i++) {
+		        var count = (Math.random() * 5) + 2;
 
-		        	$(commentId).clone().appendTo('#comment-feed').css('bottom','70%').addClass('dup');
+		        for(var i = 0; i < count; i++){
 
+		        	console.log("dick");
+
+		        	var div = document.createElement('div');
+		        	$(div).appendTo($(commentId));
+
+			        if (eventData.reaction == 'likes') {
+			        	console.log("liked!")
+			        	$(div).addClass('reaction likes');
+			        } else if (eventData.reaction == 'angry') {
+			        	console.log("not liked!")
+				        $(div).addClass('reaction angry');
+			        }		        	
+		        	
 		        }
+
+		        var reaction = $(commentId + ' .reaction');
+		        console.log(reaction);
+
+		        _.each(reaction, function(icn, index) {
+
+		        	// Give each reaction a random position
+		        	var left = (Math.random() * 330) + 10;
+		        	var top = (Math.random() * 120) + 10;
+		        	$(icn).css('top', top + 'px');
+		        	$(icn).css('left', left + 'px');
+
+		        	// Fade those suckers in one at a time
+		        	setTimeout(function(){
+		        		$(icn).fadeIn();
+		        		$(icn).on('click', function() {
+		        			socket.emit('comment:reaction', { gameId: gameId, reaction: eventData.reaction });
+			        		$(this).hide();
+			        	});
+
+		        	}, 2000 * index);
+	        		
+		        });
 
 		        break;
 
@@ -272,15 +359,27 @@ $(document).ready(function() {
 									top: '-' + height + 'px'
 								}, 2000, 'linear', function(){
 
-									$('.round-modal').show();
+									$('#round-feed').hide();
+
+									$('.round-modal').fadeIn();
 
 									console.log("animation finished");
 
 								});
 
-					  }, 1000);
+					  }, 10000);
 
 		        break;
+
+		      case 'game:end':
+
+			      $('#round').hide();
+
+		      	$("#game-over").html(eventData.html).show();
+
+		      	$('.final-followers').text(eventData.data);
+
+		      	break;
 
 	        default:
 

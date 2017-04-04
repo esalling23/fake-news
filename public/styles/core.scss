@@ -63,8 +63,16 @@ html, body, .page-wrapper {
 	height:100%;
 	margin: 0 auto;
 
-	.game, .event, .share {
+	.game, .event, .round {
 		height: 100%;
+	}
+
+	.pre {
+
+		.screen {
+			display:none;
+
+		}
 	}
 
 	.game {
@@ -103,6 +111,7 @@ html, body, .page-wrapper {
 				background-color: black;
 				color: white;
 				z-index: 1000;
+				top: 0px;
 			}
 
 			#new-event {
@@ -115,9 +124,20 @@ html, body, .page-wrapper {
 				text-align:center;
 			}
 
+			.counter {
+				margin: 60px auto;
+				font-size: 34px;
+				line-height: 100px;
+				height: 100px;
+				width: 100px;
+				border: 2px black solid;
+				border-radius: 50px;
+			}
+
 			.instructions {
 				margin-bottom: 20px;
-
+				font-weight: bold;
+		    padding: 0px 20px;
 			}
 
 			.feed-wrap {
@@ -134,7 +154,8 @@ html, body, .page-wrapper {
 				background: white;
 		    height: 100%;
 		    width: 425px;
-		    bottom: 700px;
+		    bottom: 400px;
+		    padding-top: 10px;
 				vertical-align: bottom;
 			}
 
@@ -145,25 +166,52 @@ html, body, .page-wrapper {
 				display:block;
 				width: 425px;
 				margin: 0 auto;
-				height: 80px;
-				font-size: 14px;
+				height: 200px;
+				font-size: 20px;
+				overflow: hidden;
 				z-index:1;
 				border: 3px gray solid;
 
+				.reaction {
+					height: 60px;
+					width: 60px;
+					border-radius: 30px;
+					background-repeat: no-repeat;
+					background-size: contain;
+					position: absolute;
+					z-index: 2000;
+					background-color: white;
+				}
+
+				.angry {
+					background-image: url("https://res.cloudinary.com/esalling/image/upload/v1491283826/angry-face.gif");
+				}
+
+				.likes {
+					background-image: url("https://res.cloudinary.com/esalling/image/upload/v1491283825/like.gif");
+				}
 				.share-btn {
-
-
+					position: absolute;
+					bottom:0px;
+					z-index: 1000;
+					left: 20px;
+					bottom: 5px;
 
 					&:disabled {
 						background-color: black;
+
 					}
 				}
 			}
 
 			.thumbnail {
 				float: left;
+				height: 150px;
+				width: 150px;
 				img {
-					height: 40px;
+					height: 100%;
+					width: 100%
+
 				}
 			}
 
@@ -206,7 +254,7 @@ html, body, .page-wrapper {
 				display:block;
 				width: 425px;
 				margin: 0 auto;
-				height: 80px;
+				height: 150px;
 				font-size: 14px;
 				z-index:1;
 				border: 3px gray solid;
@@ -215,9 +263,9 @@ html, body, .page-wrapper {
 
 			.thumbnail {
 				float: left;
-				img {
-					height: 40px;
-				}
+				height: 100px;
+				width: 100px;
+
 			}
 		} // .round
 

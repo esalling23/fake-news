@@ -168,12 +168,9 @@ $('.counter.upVote').each(function() {
   var $this = $(this),
       countTo = $this.attr('data-count');
   
-  $({ countNum: $this.text()}).animate({
-    countNum: countTo
-  },
-
-  {
-
+  $({ countNum: $this.text()})
+  .animate({ countNum: countTo },
+  { 
     duration: 8000,
     easing:'linear',
     step: function() {
