@@ -1,8 +1,8 @@
-<div class="instructions">The news comes as it does, let's see how you did!</div>
+<div class="header">
+	<div class="instructions">The news comes as it does, let's see how you did!</div>
 
-<div class="your-goal">You were trying to keep a <span class="status"></span> stance on this event.</div>
-
-	{{!-- {{{jsonPrint this}}} --}}
+	<div class="your-goal">You were trying to keep a <span class="status {{goal.status}}">{{goal.stance}}</span> stance on this event.</div>
+</div>
 
 <div id="round-feed">
 
@@ -22,13 +22,19 @@
 
 			</div>
 
-			<div class="comment-stats">This article took a <span class="status">{{this.status}}</span> stance on this event.</div>
+			<div class="comment-stats">This article took a <span class="status {{this.status}}">{{this.status}}</span> stance on this event.</div>
 
 		</div>
 
 	{{/each}}
 
-	<button class="btn submit" data-event="game:newEvent" data-package='{"code": "TEST", "name": "player"}' id="game-newEvent">again, again!</button>
+</div>
+
+<div class="round-modal" style="display:none">
+
+	<div class="your-followers">You gained/lost <span class="following"></span> followers!</div>
+
+	<button class="btn submit" data-event="game:newRound" data-package='{"code": "TEST", "name": "player"}' id="game-newRound">again, again!</button>
 
 </div>
 

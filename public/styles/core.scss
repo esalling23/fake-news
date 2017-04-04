@@ -81,6 +81,20 @@ html, body, .page-wrapper {
 			top: 0px;
 		}
 
+		.status {
+			&.Positive {
+				color: green;
+			}
+
+			&.Negative {
+				color: red;
+			}
+
+			&.Neutral {
+				color: yellow;
+			}
+		}
+
 		// Round event
 		.event {
 			font-size: 20px;
@@ -173,10 +187,22 @@ html, body, .page-wrapper {
 
 		// End of round review
 		.round {
+
+			.header {
+				z-index: 1000;
+				background-color:black;
+				position:relative;
+				font-size: 20px;
+				height: 100px;
+			}
+
+			#round-feed {
+				z-index: 1;
+			}
 			.comment {
 				background-color:white;
 				color: black;
-				position: absolute;
+				position: relative;
 				display:block;
 				width: 425px;
 				margin: 0 auto;
@@ -185,6 +211,13 @@ html, body, .page-wrapper {
 				z-index:1;
 				border: 3px gray solid;
 
+			}
+
+			.thumbnail {
+				float: left;
+				img {
+					height: 40px;
+				}
 			}
 		} // .round
 

@@ -49,9 +49,9 @@ var Common = function (nsp, socket) {
 
         },
 
-        'game:next_round': function(package) {
+        'game:newRound': function(package) {
 
-            Session.Get(package.gameId).
+            Session.Get(package).
             AdvanceRound(currentSpace);
 
         },

@@ -32,6 +32,7 @@ $(document).ready(function() {
 	'game:newEvent',
 	'game:comments', 
 	'game:update',
+	'game:newRound',
 
 	'event:score',
 
@@ -153,6 +154,18 @@ $(document).ready(function() {
 
 	});
 
+	// Start the game
+	$(document).on('click', 'button#game-newRound', function(evt) {
+					    
+	    var event = $(this).data().event;
+	    var pkg = getFormData($(this));
+
+	    console.log(pkg, " form submitted packge");
+
+	    socket.emit('game:newRound', 'TEST');
+
+	});
+
 	// On Window Resize
 
 
@@ -249,6 +262,23 @@ $(document).ready(function() {
 	        	$('#twisted-number').html(data.points);
 
 	        	$('#round-score').show();
+
+	        	setTimeout(function () {
+
+	        		var height = $('#round-feed').height();
+	        		$('#round-feed').css('position', 'absolute');
+
+								$('#round-feed').animate({ 
+									top: '-' + height + 'px'
+								}, 2000, 'linear', function(){
+
+									$('.round-modal').show();
+
+									console.log("animation finished");
+
+								});
+
+					  }, 1000);
 
 		        break;
 
