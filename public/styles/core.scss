@@ -103,6 +103,24 @@ html, body, .page-wrapper {
 			}
 		}
 
+		.followers-bar {
+			width: 100%;
+			height: 80px;
+			font-size: 20px;
+			position: absolute;
+			background-color: white;
+			color: black;
+			z-index: 1000;
+			bottom: 0px;
+		}
+
+		.screen {
+			img {
+				max-width: 300px;
+				margin: 0 auto;
+			}
+		}
+
 		// Round event
 		.event {
 			font-size: 20px;
@@ -241,7 +259,7 @@ html, body, .page-wrapper {
 				background-color:black;
 				position:relative;
 				font-size: 20px;
-				height: 100px;
+				height: 120px;
 			}
 
 			#round-feed {
@@ -254,7 +272,7 @@ html, body, .page-wrapper {
 				display:block;
 				width: 425px;
 				margin: 0 auto;
-				height: 150px;
+				height: 120px;
 				font-size: 14px;
 				z-index:1;
 				border: 3px gray solid;

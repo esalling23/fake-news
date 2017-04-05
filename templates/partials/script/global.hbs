@@ -219,12 +219,12 @@ $(document).ready(function() {
 
 			        					$(item).fadeOut();
 
-			        				}, 5000);
+			        				}, 10000);
 		        				}
 		        				
 		        			});
 
-	      				}, 6000 * index);
+	      				},11000 * index);
 
 	      		});
 
@@ -296,8 +296,6 @@ $(document).ready(function() {
 
 		        for(var i = 0; i < count; i++){
 
-		        	console.log("dick");
-
 		        	var div = document.createElement('div');
 		        	$(div).appendTo($(commentId));
 
@@ -312,7 +310,20 @@ $(document).ready(function() {
 		        }
 
 		        var reaction = $(commentId + ' .reaction');
-		        console.log(reaction);
+
+		        // Start that timer!
+	        	$({ countNum: $('.followers-bar').text() })
+					  .animate({ countNum: eventData.followers },
+					  { 
+					    duration: 2000,
+					    easing:'linear',
+					    step: function() {
+					      $('.followers-bar').text(Math.floor(this.countNum));
+					    },
+					    complete: function() {
+					      $('.followers-bar').text(this.countNum);
+					    }
+					  });
 
 		        _.each(reaction, function(icn, index) {
 
@@ -324,11 +335,13 @@ $(document).ready(function() {
 
 		        	// Fade those suckers in one at a time
 		        	setTimeout(function(){
-		        		$(icn).fadeIn();
-		        		$(icn).on('click', function() {
-		        			socket.emit('comment:reaction', { gameId: gameId, reaction: eventData.reaction });
-			        		$(this).hide();
-			        	});
+		        		$(icn).fadeIn(function(){
+		        			$(this).click(function() {
+			        			socket.emit('comment:reaction', { gameId: gameId, reaction: eventData.reaction });
+				        		$(this).hide();
+				        	});
+		        		});
+		        		
 
 		        	}, 2000 * index);
 	        		
@@ -361,13 +374,13 @@ $(document).ready(function() {
 
 									$('#round-feed').hide();
 
-									$('.round-modal').fadeIn();
+									$('.next-round').fadeIn();
 
 									console.log("animation finished");
 
 								});
 
-					  }, 10000);
+					  }, 15000);
 
 		        break;
 
