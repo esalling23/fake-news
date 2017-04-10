@@ -24,24 +24,29 @@ $(document).ready(function() {
 
 	// All possible socket event IDs
 	var eventIds = [
-	
-	'connect',
-	'disconnect',
+		
+		'connect',
+		'disconnect',
 
-	'game:start', 
-	'game:rules',
-	'game:end',
+		'game:start', 
+		'game:rules',
+		'game:newRound',
 
-	'game:newEvent',
-	'game:comments', 
-	'game:update',
-	'game:newRound',
+		'profile:complete',
+		'profile:fail',
+		'game:end',
 
-	'event:score',
+		'game:newProfile',
+		'game:newFeed',
+		'game:comments', 
+		'game:update',
+		'game:newRound',
 
-	'comments:end', 
-	'comment:update',
-	'comment:reaction'
+		'event:score',
+
+		'comments:end', 
+		'comment:update',
+		'comment:reaction'
 
 	];
 
@@ -117,7 +122,7 @@ $(document).ready(function() {
 
 
 	// Start the game
-	$(document).on('click', '.form .submit', function(evt) {
+	$(document).on('click', '.form .submit#game-start', function(evt) {
 					    
 	    var event = $(this).data().event;
 	    var pkg = getFormData($(this));
@@ -154,14 +159,14 @@ $(document).ready(function() {
   }, 3000);
 
 	// Start the game
-	$(document).on('click', 'button#game-newEvent', function(evt) {
+	$(document).on('click', 'button#game-newProfile', function(evt) {
 					    
 	    var event = $(this).data().event;
 	    var pkg = getFormData($(this));
 
 	    console.log(pkg, " form submitted packge");
 
-	    socket.emit('game:newEvent', 'TEST');
+	    socket.emit('game:newProfile', 'TEST');
 
 	});
 
@@ -179,7 +184,7 @@ $(document).ready(function() {
 
 
 
-	// On Window Resize
+		// On Window Resize
 
 
 
@@ -219,64 +224,72 @@ $(document).ready(function() {
 
 			        					$(item).fadeOut();
 
-			        				}, 10000);
+			        				}, 15000);
 		        				}
 		        				
 		        			});
 
-	      				},11000 * index);
+	      				}, 18000 * index);
 
 	      		});
 
 		        break;
 
-		      case 'game:newEvent': 
+		      case 'game:newProfile': 
 
-		      	score = 0;
+		      	var gameId = '{{gameId}}';
+
+		      	data = eventData.data;
+
+		      	$('.pre').hide();
+
+		      	$("#current-profile").html(eventData.html).fadeIn();
+
+		      	$('#start-round').click(function() {
+
+		      		socket.emit('game:newFeed', 'TEST');
+		      		
+		      	});
+
+		      	break;
+
+		      case 'game:newFeed': 
 
 			      var gameId = '{{gameId}}';
 
 		      	data = eventData.data;
 
-	        	console.log("DATA: ", data)
+	        	console.log("DATA: ", data);
 
-	        	$('.pre').hide();
-
-	        	$("#event").html(eventData.html).fadeIn(function(){
-	        		// Start that timer!
-		        	$({ countNum: $('.header .counter').text() })
-						  .animate({ countNum: 0 },
-						  { 
-						    duration: 15000,
-						    easing:'linear',
-						    step: function() {
-						      $('.counter').text(Math.floor(this.countNum));
-						    },
-						    complete: function() {
-						      $('.counter').fadeOut();
-						    }
-						  });
-
+	        	$('.profile').animate({
+	        		left: '100%'
+	        	}, 1000, 'linear', function(){
+	        		// $(this).hide();
 	        	});
 
-		      	// Show the event and goal for 7 seconds, then animate tiny
-		      	setTimeout(function () {
+	        	$("#feed").html(eventData.html).fadeIn(function(){
+	        		$('.fb-footer').show();
+	        	});
 
-		      		$('.details').fadeOut();
+	        	$('#profile-btn').click(function(){
+							$('.profile').animate({
+		        		left: '40px'
+		        	}, 1000, 'linear', function(){
+		        		
+		        	});
+	        	});
 
-								$('#new-event').animate({ 
-									height: '200px'
-								}, 2000, 'linear', function(){
+	        	$('#feed-btn').click(function(){
+							$('.profile').animate({
+		        		left: '100%'
+		        	}, 1000, 'linear', function(){
+		        		$(this).hide();
+		        	});
+	        	});
 
-									$('.feed-wrap').show();
+	        	{{> script/falling_logic}}
 
-									$(document).trigger("event:comments");					
-
-								});
-
-					  }, 15000);
-
-					  {{> script/falling_logic}}
+	        	$(document).trigger('event:comments');
 
 		      	break;
 

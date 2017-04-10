@@ -27,9 +27,8 @@
 
  GameConfig.add({
 
-     name: {
-         type: String
-     }
+    name: { type: String }, 
+    rounds: { type: Number, label: 'Round Cap'}
      
 });
 

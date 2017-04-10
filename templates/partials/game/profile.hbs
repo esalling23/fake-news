@@ -1,0 +1,27 @@
+<div class="profile-wrapper">
+	<div class="profile-header" style="background-image:url('{{{cloudinaryUrl currentProfile.cover height="200"}}}')">
+
+		<div class="profile-image">
+
+			<img src="{{{cloudinaryUrl currentProfile.image width="100" height="100"}}}"><h3>{{currentProfile.name}}</h3>
+
+		</div>
+
+	</div>
+
+	<div class="about">
+
+		{{{currentProfile.bio.html}}}
+
+		<h3>Traits</h3>
+
+		{{#each currentProfile.traits}}
+
+		<h4>{{this.name}}</h4>
+
+		{{/each}}
+
+	</div>
+</div>
+
+<a id="start-round">start</a>

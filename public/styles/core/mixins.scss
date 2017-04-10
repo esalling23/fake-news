@@ -5,7 +5,17 @@ $mq-tablet-landscape	: 1024px !default;
 $mq-desktop				: 1382px !default;
 
 // Animation
-
+// Profile
+@keyframes minimize {
+  from {
+    height: 100%;
+    width: 100%;
+  }
+  to {
+    height: 20%;
+    width: 100%;
+  }
+}
 // Comment falling
 @keyframes comment-fall {
   from {

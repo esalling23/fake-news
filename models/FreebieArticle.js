@@ -1,9 +1,9 @@
 /**
  * (Site name here) 
  * 
- * CurrentEvent page Model
- * @module CurrentEvent
- * @class CurrentEvent
+ * FreebieArticle page Model
+ * @module FreebieArticle
+ * @class FreebieArticle
  * @author Johnny Richardson
  * 
  * For field docs: http://keystonejs.com/docs/database/
@@ -15,38 +15,29 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * CurrentEvent model
+ * FreebieArticle model
  * @constructor
  * See: http://keystonejs.com/docs/database/#lists-options
  */
-var CurrentEvent = new keystone.List('CurrentEvent', 
+var FreebieArticle = new keystone.List('FreebieArticle', 
 	{
-		label: 'Current Events',
-		singular: 'Current Event',
+		label: 'Freebie Articles',
+		singular: 'Freebie Article',
 		track: true,
 		autokey: { path: 'key', from: 'name', unique: true },
 	});
 
 /**
  * Model Fields
- * @main CurrentEvent
+ * @main FreebieArticle
  */
-CurrentEvent.add({
+FreebieArticle.add({
 
-	name: { type: String, label: 'Current Event Name', required: true, initial: true },
-	text: { type: Types.Markdown, label: 'Short Description', required: true, initial: true },
-	thumbnail: { 
-		type: Types.CloudinaryImage, 
-		label: 'Thumbnail Image'
-	},
-	articles: { 
-		type: Types.Relationship, 
-		label: 'Event Articles', 
-		ref: 'EventArticle', 
-		many: true
-	},
+	name: { type: String, label: 'Freebie Article Name', required: true, initial: true },
+	user: { type: String, label: 'Username', note: 'This could be a fake username, a real individual\'s name, or a company/brand/group', required: true, initial: true },
+	thumbnail: { type: Types.CloudinaryImage, label: 'Thumbnail Image' },
+	comments: { type: Types.TextArray, label:'Potential Comments'},
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
-
 }, 'Audience', {
 
 	neutrals: { 
@@ -73,6 +64,6 @@ CurrentEvent.add({
 /**
  * Model Registration
  */
-CurrentEvent.defaultSort = '-createdAt';
-CurrentEvent.defaultColumns = 'name, updatedAt';
-CurrentEvent.register();
+FreebieArticle.defaultSort = '-createdAt';
+FreebieArticle.defaultColumns = 'name, updatedAt';
+FreebieArticle.register();

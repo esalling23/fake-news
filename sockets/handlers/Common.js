@@ -35,10 +35,24 @@ var Common = function (nsp, socket) {
 
         },
 
-        'game:newEvent': function(package) {
+        'game:newRound': function(package) {
 
             Session.Get(package).
-            NewEvent(currentSpace);
+            AdvanceRound(currentSpace);
+
+        },
+
+        'game:newProfile': function(package) {
+
+            Session.Get(package).
+            NewProfile(currentSpace);
+
+        },
+
+        'game:newFeed': function(package) {
+
+            Session.Get(package).
+            NewFeed(currentSpace);
 
         },
 
@@ -49,13 +63,6 @@ var Common = function (nsp, socket) {
 
         },
 
-        'game:newRound': function(package) {
-
-            Session.Get(package).
-            AdvanceRound(currentSpace);
-
-        },
-
         'comment:reaction': function(package) {
 
             Session.Get(package.gameId).
@@ -63,10 +70,10 @@ var Common = function (nsp, socket) {
 
         },
 
-        'comment:share': function(package) {
+        'post:share': function(package) {
 
             Session.Get(package.gameId).
-            CheckComment(currentSpace, package.comment);
+            CheckPost(currentSpace, package.comment);
 
         },
 

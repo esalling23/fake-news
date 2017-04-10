@@ -1,1 +1,246 @@
-@keyframes comment-fall{from{top:0px;display:none}to{top:100%;display:block}}.hidden{visibility:hidden}html,body,.page-wrapper{height:100%;width:100%;overflow:hidden}.body{background-color:#000;color:#fff;font-family:"HalisLight"}@media (max-width: 480px){.desktop-only{display:none}}@media only screen and (min-width: 1025px){.mobile-only{display:none}}.buffer{margin-top:5%}.option.active{outline:3px yellow solid}.home{text-align:center}.home #new-game{height:80px;width:160px;border:black 3px solid}#gameContent{width:425px;height:100%;margin:0 auto}#gameContent .game,#gameContent .event,#gameContent .round{height:100%}#gameContent .pre .screen{display:none}#gameContent .game{text-align:center}#gameContent .game .modal{height:100%;width:100%;background-color:black;color:white;margin:0 auto;z-index:1000;position:absolute;top:0px}#gameContent .game .status.Positive{color:green}#gameContent .game .status.Negative{color:red}#gameContent .game .status.Neutral{color:yellow}#gameContent .game .followers-bar{width:100%;height:80px;font-size:20px;position:absolute;background-color:white;color:black;z-index:1000;bottom:0px}#gameContent .game .screen img{max-width:300px;margin:0 auto}#gameContent .game .event{font-size:20px}#gameContent .game .event .header{background-color:black;color:white;z-index:1000;top:0px}#gameContent .game .event #new-event{height:100%;width:425px;position:absolute;z-index:1000;background-color:white;color:black;text-align:center}#gameContent .game .event .counter{margin:60px auto;font-size:34px;line-height:100px;height:100px;width:100px;border:2px black solid;border-radius:50px}#gameContent .game .event .instructions{margin-bottom:20px;font-weight:bold;padding:0px 20px}#gameContent .game .event .feed-wrap{height:calc(100% - 20px);margin-top:80px;overflow:hidden;position:relative}#gameContent .game .event #comment-feed{display:none;overflow:scroll;position:absolute;background:white;height:100%;width:425px;bottom:400px;padding-top:10px;vertical-align:bottom}#gameContent .game .event .comment{background-color:white;color:black;position:absolute;display:block;width:425px;margin:0 auto;height:200px;font-size:20px;overflow:hidden;z-index:1;border:3px gray solid}#gameContent .game .event .comment .reaction{height:60px;width:60px;border-radius:30px;background-repeat:no-repeat;background-size:contain;position:absolute;z-index:2000;background-color:white}#gameContent .game .event .comment .angry{background-image:url("https://res.cloudinary.com/esalling/image/upload/v1491283826/angry-face.gif")}#gameContent .game .event .comment .likes{background-image:url("https://res.cloudinary.com/esalling/image/upload/v1491283825/like.gif")}#gameContent .game .event .comment .share-btn{position:absolute;bottom:0px;z-index:1000;left:20px;bottom:5px}#gameContent .game .event .comment .share-btn:disabled{background-color:black}#gameContent .game .event .thumbnail{float:left;height:150px;width:150px}#gameContent .game .event .thumbnail img{height:100%;width:100%}#gameContent .game .event #article-slide{height:80%}#gameContent .game .event .buttons{position:absolute;bottom:0;left:50%}#gameContent .game .event .buttons input{background-color:white;color:black}#gameContent .game .round .header{z-index:1000;background-color:black;position:relative;font-size:20px;height:120px}#gameContent .game .round #round-feed{z-index:1}#gameContent .game .round .comment{background-color:white;color:black;position:relative;display:block;width:425px;margin:0 auto;height:120px;font-size:14px;z-index:1;border:3px gray solid}#gameContent .game .round .thumbnail{float:left;height:100px;width:100px}
+@keyframes minimize {
+  from {
+    height: 100%;
+    width: 100%; }
+  to {
+    height: 20%;
+    width: 100%; } }
+
+@keyframes comment-fall {
+  from {
+    top: 0px;
+    display: none; }
+  to {
+    top: 100%;
+    display: block; } }
+
+.hidden {
+  visibility: hidden; }
+
+html, body, .page-wrapper {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; }
+
+.body {
+  background-color: #f6f7f9;
+  color: #4b4f4c;
+  font-family: "HalisLight"; }
+
+@media (max-width: 480px) {
+  .desktop-only {
+    display: none; } }
+
+@media only screen and (min-width: 1025px) {
+  .mobile-only {
+    display: none; } }
+
+.buffer {
+  margin-top: 5%; }
+
+.option.active {
+  outline: 3px yellow solid; }
+
+.home {
+  text-align: center; }
+  .home #new-game {
+    height: 80px;
+    width: 160px;
+    border: black 3px solid; }
+
+.nav {
+  background-color: #365899;
+  color: white;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto; }
+
+#gameContent {
+  width: 320px;
+  height: 100%;
+  overflow: hidden;
+  margin: 0 auto; }
+  #gameContent .game, #gameContent .profile, #gameContent .feed, #gameContent .event, #gameContent .round {
+    height: 100%;
+    max-width: 320px;
+    width: 100%;
+    position: absolute; }
+  #gameContent .pre .screen {
+    display: none; }
+  #gameContent .game {
+    text-align: center; }
+    #gameContent .game .modal {
+      height: 100%;
+      width: 100%;
+      background-color: white;
+      color: #4b4f4c;
+      margin: 0 auto;
+      z-index: 1000;
+      position: absolute;
+      top: 0px; }
+    #gameContent .game .status.Positive {
+      color: green; }
+    #gameContent .game .status.Negative {
+      color: red; }
+    #gameContent .game .status.Neutral {
+      color: yellow; }
+    #gameContent .game .screen img {
+      max-width: 300px;
+      margin: 0 auto; }
+    #gameContent .game .profile {
+      background: white; }
+      #gameContent .game .profile .profile-header {
+        background-repeat: no-repeat;
+        background-size: 100% 200px;
+        background-position: top center;
+        height: 300px;
+        width: 100%;
+        padding: 25% 0px; }
+        #gameContent .game .profile .profile-header img {
+          display: inline-block; }
+      #gameContent .game .profile .loading {
+        height: 150px;
+        width: 100%;
+        background-image: url("https://res.cloudinary.com/esalling/image/upload/v1491786762/fbloader.gif");
+        background-position: center;
+        background-size: 100%; }
+      #gameContent .game .profile .profile-wrapper {
+        position: absolute;
+        left: 0px;
+        top: 0px; }
+        #gameContent .game .profile .profile-wrapper.minimized {
+          animation-name: minimize;
+          animation-duration: 1s;
+          animation-fill-mode: forwards; }
+      #gameContent .game .profile #start-round {
+        position: absolute;
+        bottom: 60px;
+        left: 0px;
+        width: 100%; }
+    #gameContent .game .feed {
+      font-size: 20px; }
+      #gameContent .game .feed .fb-footer {
+        display: none;
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        max-width: 320px; }
+        #gameContent .game .feed .fb-footer a {
+          height: 60px;
+          width: 30%; }
+          #gameContent .game .feed .fb-footer a#feed-btn {
+            background: url(""); }
+      #gameContent .game .feed .header {
+        background-color: white;
+        color: #365899;
+        z-index: 1000;
+        top: 0px; }
+      #gameContent .game .feed #new-event {
+        height: 100%;
+        width: 425px;
+        position: absolute;
+        z-index: 1000;
+        background-color: white;
+        color: black;
+        text-align: center; }
+      #gameContent .game .feed .post-feed {
+        height: 100%; }
+      #gameContent .game .feed .counter {
+        margin: 60px auto;
+        font-size: 34px;
+        line-height: 100px;
+        height: 100px;
+        width: 100px;
+        border: 2px black solid;
+        border-radius: 50px; }
+      #gameContent .game .feed .instructions {
+        margin-bottom: 20px;
+        font-weight: bold;
+        padding: 0px 20px; }
+      #gameContent .game .feed .event-wrap {
+        height: calc(100% - 20px);
+        margin-top: 0px;
+        overflow: hidden;
+        position: relative; }
+      #gameContent .game .feed #event-feed {
+        display: none;
+        overflow: scroll;
+        position: absolute;
+        background: white;
+        height: 100%;
+        width: 425px;
+        bottom: 400px;
+        padding-top: 10px;
+        vertical-align: bottom; }
+      #gameContent .game .feed .post {
+        background-color: white;
+        color: black;
+        position: absolute;
+        display: block;
+        width: 320px;
+        margin: 0 auto;
+        height: 300px;
+        font-size: 20px;
+        overflow: hidden;
+        z-index: 1;
+        border: 3px gray solid; }
+        #gameContent .game .feed .post .reaction {
+          height: 60px;
+          width: 60px;
+          border-radius: 30px;
+          background-repeat: no-repeat;
+          background-size: contain;
+          position: absolute;
+          z-index: 2000;
+          background-color: white; }
+        #gameContent .game .feed .post .angry {
+          background-image: url("https://res.cloudinary.com/esalling/image/upload/v1491283826/angry-face.gif"); }
+        #gameContent .game .feed .post .likes {
+          background-image: url("https://res.cloudinary.com/esalling/image/upload/v1491283825/like.gif"); }
+        #gameContent .game .feed .post .share-btn {
+          position: absolute;
+          bottom: 0px;
+          z-index: 1000;
+          left: 20px;
+          bottom: 5px; }
+          #gameContent .game .feed .post .share-btn:disabled {
+            background-color: black; }
+      #gameContent .game .feed .thumbnail {
+        float: left;
+        height: 150px;
+        width: 150px; }
+        #gameContent .game .feed .thumbnail img {
+          height: 100%;
+          width: 100%; }
+      #gameContent .game .feed #article-slide {
+        height: 80%; }
+      #gameContent .game .feed .buttons {
+        position: absolute;
+        bottom: 0;
+        left: 50%; }
+        #gameContent .game .feed .buttons input {
+          background-color: white;
+          color: black; }
+    #gameContent .game .round .header {
+      z-index: 1000;
+      background-color: black;
+      position: relative;
+      font-size: 20px;
+      height: 120px; }
+    #gameContent .game .round #round-feed {
+      z-index: 1; }
+    #gameContent .game .round .comment {
+      background-color: white;
+      color: black;
+      position: relative;
+      display: block;
+      width: 425px;
+      margin: 0 auto;
+      height: 120px;
+      font-size: 14px;
+      z-index: 1;
+      border: 3px gray solid; }
+    #gameContent .game .round .thumbnail {
+      float: left;
+      height: 100px;
+      width: 100px; }

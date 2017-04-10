@@ -15,7 +15,7 @@
 	{{!-- <h1 style="color:white">{{gameId}}</h1> --}}
 
 	<div class="pre">
-
+{{!-- 
 		<div class="screen">
 			<div class="bubble">
 				<h3>Hey, Hey, look who's a famous social media star! You've got a decent following of around 200,000 followers, but the work's not over yet!</h3>
@@ -55,7 +55,7 @@
 			<img src="https://res.cloudinary.com/esalling/image/upload/v1491289962/bitmoji-20161025192034_gzktjm.png"/>
 
 		</div>
-
+ --}}
 
 		<div class="screen last">
 
@@ -64,20 +64,23 @@
 			<h4>Whenever you're ready, we can start...</h4>
 			<img src="https://res.cloudinary.com/esalling/image/upload/v1491284587/bitmoji-20161013184418_gtz1ye.png"/>
 
-			<button class="btn submit" data-event="game:newEvent" data-package='{"code": "TEST", "name": "player"}' id="game-newEvent">Let's Go!</button>
+			<button class="btn submit" data-event="game:newProfile" data-package='{"code": "TEST", "name": "player"}' id="game-newProfile">Let's Go!</button>
 			
 		</div>
 
 	</div>
 
-		<div class="event" data-stage="game:newEvent" id="event">
-		</div> <!-- .create -->
+	<div class="profile" data-stage="game:newProfile" id="current-profile">
+	</div> <!-- .profile -->
 
-		<div class="round" data-stage="game:round" style="display:none;" id="round">
-		</div> <!-- .share -->
+	<div class="feed" data-stage="game:newFeed" id="feed" style="display:none">
+	</div> <!-- .feed -->
 
-		<div class="game-over" data-stage="game:end" style="display:none;" id="game-over">
-		</div> <!-- .share -->
+	<div class="round-end" data-stage="game:round-end" style="display:none;" id="round-end">
+	</div> <!-- .round-end -->
+
+	<div class="game-over" data-stage="game:end" style="display:none;" id="game-over">
+	</div> <!-- .game-over -->
 
 </div> <!-- .game -->
 

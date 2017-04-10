@@ -21,7 +21,7 @@ var keystone = require('keystone'),
     GameSession = keystone.list('GameSession'),
     GameConfig = keystone.list('GameConfig'),
     CurrentEvent = keystone.list('CurrentEvent'),
-    Comment = keystone.list('Comment'),
+    EventArticle = keystone.list('EventArticle'),
     _ = require('underscore');
 
 var GameManager = require(appRoot + '/lib/GameManager'),
@@ -41,28 +41,16 @@ exports = module.exports = function(req, res) {
 // 
     view.on('init', function(next) {
 
-         var queryGame = GameConfig.model.findOne({
-                                    'enabled':true
-                                    // 'gameType':new RegExp('^'+locals.whichGame+'$', "i")
-                                    });
-         // var queryCurrentEvents = CurrentEvent.model.find({}, {}, {}).populate('articles');
+         var queryGame = GameConfig.model.findOne({ 'enabled':true });
+  
+        queryGame.exec(function (err, game) {
+            
+            locals.game = game;
+            
+            next(err);
+            
+        });
 
-         var queryComments = Comment.model.find({}, {}, {});
-
-        // Get game config and CurrentEvents
-        // queryCurrentEvents.exec(function (err, CurrentEvents) { 
-
-        //     locals.CurrentEvents = CurrentEvents;
-
-
-            queryGame.exec(function (err, game) {
-                
-                locals.game = game;
-                
-                next(err);
-            });
-
-        // });
 
     });
 

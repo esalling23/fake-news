@@ -46,6 +46,7 @@ module.exports = function(frameworkDir, shared) {
 	var keystoneInst = require('keystone');	
 	keystoneInst.set('module root', appRootPath);
 	keystoneInst.set('wysiwyg additional buttons', 'blockquote');
+	
 
 	return { 
 

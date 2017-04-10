@@ -1,15 +1,15 @@
-<div class="feed-wrap" style="display:none">
-	<div id="comment-feed">
+<div class="event-wrap">
+	<div id="event-feed" style="display:none">
 
-		{{#each articles}}
+		{{#each this.articles}}
 
-			<div class="comment" id="{{this.key}}">
+			<div class="post" id="{{this.key}}">
 
 				<div class="profile-image thumbnail">
 					<img src="{{this.thumbnail.url}}"/>
 				</div>
 
-				<div class="comment-body ">
+				<div class="post-body ">
 
 					<div class="profile-name">{{this.newspaper}}</div>
 
@@ -22,6 +22,8 @@
 			</div>
 
 		{{/each}}
+
+		<div class="loading"></div>
 
 	</div>
 </div>

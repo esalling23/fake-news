@@ -16,8 +16,8 @@ html, body, .page-wrapper {
 
 // Body
 .body {
-  background-color: #000;
-  color: #fff;
+  background-color: $fb-grey;
+  color: $fb-darkgrey;
   font-family: "HalisLight";
 }
 
@@ -57,15 +57,30 @@ html, body, .page-wrapper {
 
 }
 
+.nav {
+	background-color: $fb-blue;
+	color: white;
+	width: 100%;
+	max-width: 320px;
+	margin: 0 auto;
+}
+
+
+
 #gameContent {
 
-	width: 425px;
+	width: 320px;
 	height:100%;
+	overflow:hidden;
 	margin: 0 auto;
 
-	.game, .event, .round {
+	.game, .profile, .feed, .event, .round {
 		height: 100%;
+		max-width: 320px;
+		width:100%;
+		position: absolute;
 	}
+
 
 	.pre {
 
@@ -81,8 +96,8 @@ html, body, .page-wrapper {
 		.modal {
 			height: 100%;
 			width:100%;
-			background-color:black;
-			color: white;
+			background-color:white;
+			color: $fb-darkgrey;
 			margin: 0 auto;
 			z-index: 1000;
 			position: absolute;
@@ -103,17 +118,6 @@ html, body, .page-wrapper {
 			}
 		}
 
-		.followers-bar {
-			width: 100%;
-			height: 80px;
-			font-size: 20px;
-			position: absolute;
-			background-color: white;
-			color: black;
-			z-index: 1000;
-			bottom: 0px;
-		}
-
 		.screen {
 			img {
 				max-width: 300px;
@@ -121,13 +125,76 @@ html, body, .page-wrapper {
 			}
 		}
 
+		// Profile 
+		.profile {
+
+			background: white;
+
+			.profile-header {
+			    background-repeat: no-repeat;
+			    background-size: 100% 200px;
+			    background-position: top center;
+			    height: 300px;
+			    width: 100%;
+			    padding: 25% 0px;
+				img {
+					display: inline-block;
+				}
+
+			}
+
+			.loading {
+				height: 150px;
+				width: 100%;
+				background-image: url('https://res.cloudinary.com/esalling/image/upload/v1491786762/fbloader.gif');
+				background-position: center;
+				background-size: 100%;
+			}
+
+			.profile-wrapper {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+
+				&.minimized {
+					animation-name: minimize;
+					animation-duration: 1s;
+					animation-fill-mode: forwards;
+				}
+			}
+
+			#start-round {
+				position:absolute; 
+				bottom: 60px;
+			    left: 0px;
+				width: 100%;
+			}
+
+		} // .profile
+
 		// Round event
-		.event {
+		.feed {
 			font-size: 20px;
 
+			.fb-footer {
+				display: none;
+				position: absolute;
+				bottom: 0px;
+				width: 100%;
+				max-width: 320px;
+
+				a {
+					height:60px;
+					width: 30%;
+					&#feed-btn {
+						background: url('')
+					}
+				}
+			}
+
 			.header {
-				background-color: black;
-				color: white;
+				background-color: white;
+				color: $fb-blue;
 				z-index: 1000;
 				top: 0px;
 			}
@@ -140,6 +207,10 @@ html, body, .page-wrapper {
 				background-color:white;
 				color: black;
 				text-align:center;
+			}
+
+			.post-feed {
+				height: 100%;
 			}
 
 			.counter {
@@ -155,36 +226,36 @@ html, body, .page-wrapper {
 			.instructions {
 				margin-bottom: 20px;
 				font-weight: bold;
-		    padding: 0px 20px;
+			    padding: 0px 20px;
 			}
 
-			.feed-wrap {
+			.event-wrap {
 				height: calc(100% - 20px);
-				margin-top: 80px;
+				margin-top: 0px;
 				overflow: hidden;
 				position:relative;
 			}
 
-			#comment-feed {
+			#event-feed {
 				display:none;
 				overflow: scroll;
 				position: absolute;
 				background: white;
-		    height: 100%;
-		    width: 425px;
-		    bottom: 400px;
-		    padding-top: 10px;
+			    height: 100%;
+			    width: 425px;
+			    bottom: 400px;
+			    padding-top: 10px;
 				vertical-align: bottom;
 			}
 
-			.comment {
+			.post {
 				background-color:white;
 				color: black;
 				position: absolute;
 				display:block;
-				width: 425px;
+				width: 320px;
 				margin: 0 auto;
-				height: 200px;
+				height: 300px;
 				font-size: 20px;
 				overflow: hidden;
 				z-index:1;
