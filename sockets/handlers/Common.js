@@ -38,7 +38,7 @@ var Common = function (nsp, socket) {
         'game:newRound': function(package) {
 
             Session.Get(package).
-            AdvanceRound(currentSpace);
+            StartRound(currentSpace);
 
         },
 
@@ -63,24 +63,24 @@ var Common = function (nsp, socket) {
 
         },
 
-        'comment:reaction': function(package) {
+        'post:reaction': function(package) {
 
             Session.Get(package.gameId).
-            CommentReaction(currentSpace, package.reaction);
+            PostReaction(currentSpace, package.reaction);
 
         },
 
         'post:share': function(package) {
 
             Session.Get(package.gameId).
-            CheckPost(currentSpace, package.comment);
+            CheckPost(currentSpace, package.data);
 
         },
 
         'comments:end': function(package) {
 
             Session.Get(package.gameId).
-            EventScore(currentSpace);
+            ProfileScore(currentSpace);
 
         },
 

@@ -37,7 +37,8 @@ EventArticle.add({
 
 	name: { type: String, label: 'Headline', required: true, initial: true },
 	user: { type: String, label: 'Username', note: 'This could be a fake username, a real individual\'s name, or a company/brand/group', required: true, initial: true },
-	thumbnail: { type: Types.CloudinaryImage, label: 'Thumbnail Image' },
+	thumbnail: { type: Types.CloudinaryImage, label: 'User Thumbnail Image' },
+	cover: { type: Types.CloudinaryImage, label: 'Post Cover Photo'},
 	comments: { type: Types.TextArray, label:'Potential Comments' },
 	status: { type: Types.Select, label: 'Event Article Stance', options: 'nuetrals, lovers, haters' },
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }

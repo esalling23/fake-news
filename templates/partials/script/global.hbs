@@ -34,6 +34,7 @@ $(document).ready(function() {
 
 		'profile:complete',
 		'profile:fail',
+		'game:base',
 		'game:end',
 
 		'game:newProfile',
@@ -42,11 +43,11 @@ $(document).ready(function() {
 		'game:update',
 		'game:newRound',
 
-		'event:score',
+		'profile:score',
 
-		'comments:end', 
-		'comment:update',
-		'comment:reaction'
+		'feed:end', 
+		'post:update',
+		'post:reaction'
 
 	];
 
@@ -209,11 +210,41 @@ $(document).ready(function() {
 
 		        console.log('connected');
 
-		       	_.each($('.screen'), function(item, index) {
+		       	
+		        break;
 
-	      			$(item).attr('id', 'screen-' + index);
+		    case 'game:base':
 
-	      			setTimeout(function () {
+		    	console.log(eventData, " wow look at this");
+
+			    	$('.base').fadeIn(function() {
+		    			console.log('kick ass');
+		    		});
+
+		    	// $('.ACTIVE').fadeOut(function(){
+		    	// 	$(this).removeClass('ACTIVE');
+		    		
+		    	// });
+
+
+		    	break;
+
+		    case 'game:rules':
+
+		    	$('.ACTIVE').fadeOut(function(){
+		    		$(this).removeClass('ACTIVE');
+		    		$('.rules').addClass('ACTIVE').fadeIn();
+		    	});
+
+		    	$('.base').fadeOut();
+
+		    	$('.rules').fadeIn(function(){
+
+		    		_.each($('.screen'), function(item, index) {
+
+		      			$(item).attr('id', 'screen-' + index);
+
+		      			setTimeout(function () {
 
 		        			$(item).fadeIn(function(){
 
@@ -231,11 +262,14 @@ $(document).ready(function() {
 
 	      				}, 18000 * index);
 
-	      		});
+		      		});
+		    	});
 
-		        break;
+			    
 
-		      case 'game:newProfile': 
+		    	break;
+
+		    case 'game:newProfile': 
 
 		      	var gameId = '{{gameId}}';
 
@@ -253,9 +287,9 @@ $(document).ready(function() {
 
 		      	break;
 
-		      case 'game:newFeed': 
+		    case 'game:newFeed': 
 
-			      var gameId = '{{gameId}}';
+			    var gameId = '{{gameId}}';
 
 		      	data = eventData.data;
 
@@ -267,12 +301,12 @@ $(document).ready(function() {
 	        		// $(this).hide();
 	        	});
 
-	        	$("#feed").html(eventData.html).fadeIn(function(){
+	        	$("#feed").html(eventData.html).addClass('ACTIVE').fadeIn(function(){
 	        		$('.fb-footer').show();
 	        	});
 
 	        	$('#profile-btn').click(function(){
-							$('.profile').animate({
+					$('.profile').animate({
 		        		left: '40px'
 		        	}, 1000, 'linear', function(){
 		        		
@@ -280,7 +314,7 @@ $(document).ready(function() {
 	        	});
 
 	        	$('#feed-btn').click(function(){
-							$('.profile').animate({
+					$('.profile').animate({
 		        		left: '100%'
 		        	}, 1000, 'linear', function(){
 		        		$(this).hide();
@@ -299,44 +333,59 @@ $(document).ready(function() {
 
 		        break;
 
-		      case 'game:update':
+		    case 'game:update':
 
-		      var gameId = '{{gameId}}'; 
+			    var gameId = '{{gameId}}'; 
 
 		        var commentId = '#' + eventData.article;
 
-		        var count = (Math.random() * 5) + 2;
+		        var likesCount, 
+		        	angryCount;	
 
-		        for(var i = 0; i < count; i++){
+		        // Check for type of response
+		        if (eventData.reaction == 'likes') {
+		        	console.log("liked!")
+		        	likesCount = (Math.random() * 5) + 2;
+		        } else if (eventData.reaction == 'angry') {
+		        	console.log("not liked!")
+			        angryCount = (Math.random() * 5) + 2;
+		        } else {
+		        	console.log("neutral!");
+			        likesCount = (Math.random() * 3) + 2;
+			        angryCount = (Math.random() * 2) + 1;
+		        }
 
+		        // Generate angry reactions
+		        for(var i = 0; i < angryCount; i++){
 		        	var div = document.createElement('div');
 		        	$(div).appendTo($(commentId));
+		        	$(div).addClass('reaction angry');
+		        }
 
-			        if (eventData.reaction == 'likes') {
-			        	console.log("liked!")
-			        	$(div).addClass('reaction likes');
-			        } else if (eventData.reaction == 'angry') {
-			        	console.log("not liked!")
-				        $(div).addClass('reaction angry');
-			        }		        	
-		        	
+		        // Generate likes
+		        for(var i = 0; i < likesCount; i++){
+		        	var div = document.createElement('div');
+		        	$(div).appendTo($(commentId));
+		        	$(div).addClass('reaction likes');
 		        }
 
 		        var reaction = $(commentId + ' .reaction');
 
-		        // Start that timer!
-	        	$({ countNum: $('.followers-bar').text() })
-					  .animate({ countNum: eventData.followers },
-					  { 
-					    duration: 2000,
-					    easing:'linear',
-					    step: function() {
-					      $('.followers-bar').text(Math.floor(this.countNum));
-					    },
-					    complete: function() {
-					      $('.followers-bar').text(this.countNum);
-					    }
-					  });
+		  //       // Start that timer!
+	   //      	$({ countNum: $('.likes, .shares').text() })
+				// .animate({ countNum: 1000 },
+				// { 
+				//     duration: 8000,
+				//     easing:'linear',
+				//     step: function() {
+				//       $('.post-footer .likes, .post-footer .shares').text(Math.floor(this.countNum));
+				//     },
+				//     complete: function() {
+				//       $('.post-footer .likes, .post-footer .shares').text(this.countNum);
+				//     }
+				// });
+
+				$('.identity-bar div').width = (10*eventData.identityGrip) + 'px';
 
 		        _.each(reaction, function(icn, index) {
 
@@ -348,29 +397,37 @@ $(document).ready(function() {
 
 		        	// Fade those suckers in one at a time
 		        	setTimeout(function(){
+
 		        		$(icn).fadeIn(function(){
-		        			$(this).click(function() {
-			        			socket.emit('comment:reaction', { gameId: gameId, reaction: eventData.reaction });
+
+		        			$(this).animate({
+				        		top: '120%'
+				        	}, 3000, 'linear', function(){
 				        		$(this).hide();
 				        	});
-		        		});
-		        		
 
-		        	}, 2000 * index);
+		        			$(this).click(function() {
+			        			socket.emit('post:reaction', { gameId: gameId, reaction: eventData.reaction });
+				        		$(this).hide();
+				        	});
+
+		        		});
+
+		        	}, 700 * index);
 	        		
 		        });
 
 		        break;
 
-					case 'event:score':
+			case 'profile:score':
 
 	        	data = eventData;
 
 	        	console.log("DATA: ", data);
 
-	        	$('#event').hide();
+	        	$('#feed').hide();
 
-	        	$("#round").html(eventData.html).show();
+	        	$("#round-end").html(eventData.html).show();
 
 	        	$('#twisted-number').html(data.points);
 
@@ -381,25 +438,25 @@ $(document).ready(function() {
 	        		var height = $('#round-feed').height();
 	        		$('#round-feed').css('position', 'absolute');
 
-								$('#round-feed').animate({ 
-									top: '-' + height + 'px'
-								}, 2000, 'linear', function(){
+					$('#round-feed').animate({ 
+						top: '-' + height + 'px'
+					}, 2000, 'linear', function(){
 
-									$('#round-feed').hide();
+						$('#round-feed').hide();
 
-									$('.next-round').fadeIn();
+						$('.next').fadeIn();
 
-									console.log("animation finished");
+						console.log("animation finished");
 
-								});
+					});
 
-					  }, 15000);
+				}, 15000);
 
 		        break;
 
-		      case 'game:end':
+		    case 'game:end':
 
-			      $('#round').hide();
+			    $('#round-end').hide();
 
 		      	$("#game-over").html(eventData.html).show();
 
@@ -409,9 +466,10 @@ $(document).ready(function() {
 
 	        default:
 
-	          console.warn('No handler found for event "' + eventId + '" in socketEvents.');
+	            console.warn('No handler found for event "' + eventId + '" in socketEvents.');
 
-	          break;
+	            break;
+
 		  }
 
 		};

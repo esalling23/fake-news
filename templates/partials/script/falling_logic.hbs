@@ -19,8 +19,8 @@ var commentFalling;
 
 $(document).on('event:comments', function() {
 
-	$('#event-feed').css('bottom', $('.event-wrap').height);
-	$('#event-feed').css('height', $('.post').length*300 + 'px');
+	$('#post-feed').css('bottom', $('.feed-wrap').height);
+	$('#post-feed').css('height', $('.post').length*300 + 'px');
 
 	var bottom = 0;
 
@@ -40,13 +40,13 @@ var StartCommentFeed = function(){
 
 	console.log("startnig events");
 
-	$('#event-feed').show();
+	$('#post-feed').show();
     // To do : dymanic bottom size 
 
-	var $items = $("#event-feed .comment");
-	$('#event-feed').animate({
+	var $items = $("#post-feed .post");
+	$('#post-feed').animate({
 	    bottom: '-1800px'
-	}, 60000, 'linear', function() {
+	}, 50000, 'linear', function() {
 
 	  	console.log("round over");
 
@@ -66,12 +66,17 @@ $('.post .share-btn').on('click', function(){
 
 	} else {
 
-		$(this).parent().addClass('shared');
+		$(this).closest('.post').addClass('shared');
 		$(this).prop("disabled",true);
 
-		var data = $(this).parent().attr('id');
+		var data = {
+			post: $(this).closest('.post').attr('id'), 
+			event: $(this).closest('.feed-wrap').attr('id')
+		};
+
+		console.log(data);
 		
-		socket.emit('post:share', { gameId: gameId, comment: data });
+		socket.emit('post:share', { gameId: gameId, data: data });
 		
 	}
 	

@@ -1,23 +1,30 @@
-<div class="event-wrap">
-	<div id="event-feed" style="display:none">
+<div class="feed-wrap" id="{{this.key}}">
+	<div id="post-feed" style="display:none">
 
 		{{#each this.articles}}
 
 			<div class="post" id="{{this.key}}">
 
-				<div class="profile-image thumbnail">
-					<img src="{{this.thumbnail.url}}"/>
-				</div>
+				<div class="user">
 
-				<div class="post-body ">
-
-					<div class="profile-name">{{this.newspaper}}</div>
-
-					<div class="comment-text">{{this.name}}</div>
+					<img class="profile-image" src="{{cloudinaryUrl this.cover.url height="50" width="50"}}">
+					<div class="profile-name">{{this.user}}</div>
 
 				</div>
 
-				<button class="btn submit share-btn">SHARE</button>
+				<div class="comment-text">{{this.comment}}</div>
+
+				<div class="post-body" style="background-image:url("{{this.thumbnail.url}}");">
+
+					<div class="headline">{{this.name}}</div>
+
+				</div>
+
+				<div class="post-footer">
+					<div class="btn likes"></div>
+					<div class="btn comments"></div>
+					<button class="btn submit share-btn">SHARE</button>
+				</div>
 
 			</div>
 

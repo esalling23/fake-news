@@ -34,7 +34,7 @@ var Trait = new keystone.List('Trait',
 Trait.add({
 
 	name: { type: String, label: 'Trait Name', hidden: true },
-	image: { type: Types.CloudinaryImage, label: 'Trait icon' },
+	opposite: { type: Types.CloudinaryImage, label: 'Trait icon' },
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 
 });
