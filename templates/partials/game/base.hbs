@@ -1,0 +1,29 @@
+<div class="base" >
+
+	<div class="badges">
+
+		<h3>Badges</h3>
+
+		{{#if badges}}
+
+			{{#each badges}}
+
+			<div class="badge">
+
+				<h4>{{this.name}}</h4>
+
+			</div>
+
+			{{/each}}
+
+		{{else}}
+
+			<h4>No Badges yet! You'll be starting at the very beginning!<h4>
+
+		{{/if}}
+
+	</div>
+
+	<button class="btn submit" data-event="game:newRound" data-package='{"code": "TEST", "name": "player"}' id="game-newRound">Let's Go!</button>
+
+</div>
