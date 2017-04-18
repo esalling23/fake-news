@@ -1,5 +1,9 @@
 <div class="base" >
 
+{{{jsonPrint this}}}
+
+<h3>Welcome, {{player.name}}!</h3>
+
 	<div class="badges">
 
 		<h3>Badges</h3>
@@ -23,6 +27,8 @@
 		{{/if}}
 
 	</div>
+
+	<button class="btn submit" data-event="game:start" data-package='{"code": "TEST", "name": "player"}' id="game-newRound">Let's Go!</button>
 
 	<button class="btn submit" data-event="game:newRound" data-package='{"code": "TEST", "name": "player"}' id="game-newRound">Let's Go!</button>
 

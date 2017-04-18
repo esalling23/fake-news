@@ -185,8 +185,51 @@ $(document).ready(function() {
 
 
 
-		// On Window Resize
+		// Player login
+		$('#btn_login').click(function(evt) {
+			var data = {};
+			data.name = $('#name_input').val();
+			data.password = $('#password_input').val();
+			console.log(data);
 
+			if (!data.password || !data.name) {
+				console.log ("empty fields");
+				  
+			} else {
+				console.log("checking login info");
+
+				$.get("/api/login/", data, function(data){
+					console.log(data, " login data");
+					window.location = data;
+				})
+				.fail(function() {
+				    alert( "error" );
+				});
+			}
+
+		});
+		$('#btn_signup').click(function(evt) {
+			var data = {};
+			data.name= $('#name_input').val();
+			data.password = $('#password_input').val();
+			console.log(data, " signup data");
+
+			if (!data.password || !data.name) {
+				console.log ("empty fields");
+				  
+			} else {
+				console.log("checking signup info");
+
+				$.get("/api/signup/", data, function(data){
+					console.log(data, " signup data");
+					window.location = data;
+				})
+				.fail(function(err) {
+				    alert( "error" + err );
+				});
+			}
+
+		});
 
 
 

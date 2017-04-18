@@ -16,6 +16,7 @@
 var keystone = require('keystone'),
     appRoot = require('app-root-path'),
     Index = keystone.list('Index'),
+    Player = keystone.list('Player'),
     Category = keystone.list('Category'),
     randomstring = require('randomstring'),
     GameSession = keystone.list('GameSession'),
@@ -35,15 +36,17 @@ exports = module.exports = function(req, res) {
     locals.gameId = 'TEST';
 
     // locals.viewType = 'group';
-    locals.section = 'game';
+    locals.section = 'player';
 // 
     view.on('init', function(next) {
 
-         var queryGame = GameConfig.model.findOne({ 'enabled':true });
-  
-        queryGame.exec(function (err, game) {
+        var queryPlayer = Player.model.findOne({ 'id': req.params.id }, {}, {});
+
+        queryPlayer.exec(function (err, player) {
+
+
             
-            locals.game = game;
+            locals.player = player;
             
             next(err);
             

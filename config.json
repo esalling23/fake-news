@@ -3,7 +3,7 @@
 	"database": "fake-news",
 	"admin_nav": { 
 									"Home Page": ["Index"], 
-									"Game Content": ["Profile", "Trait", "CurrentEvent", "EventArticle", "FreebieArticle" ], 
+									"Game Content": ["Profile", "Trait", "Article"], 
 									"Game Config": ["GameConfig"]
 								}
 }

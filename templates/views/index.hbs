@@ -22,7 +22,14 @@
 	</div>
 
 	<div class="form" style="display:none">
-		<input class="btn submit" type="submit" value="start" data-event="game:start" data-package='{"code": "TEST", "name": "player"}' id="game-start"></input>
+
+		<input class="hidden-el" type="text" id="name_input" placeholder="name" tabindex="1"> <br />
+	    <input class="hidden-el" type="text" id="password_input" placeholder="password" tabindex="2"> <br />
+	    <div class="error">Error!</div>
+	    <input id="btn_login" data-event="game:entry" data-package='{"email": "#email_input", "pass": "#password_input"}' class="btn btn-default desktop-only game_login hidden-el" type="submit" name="submit" value="login">
+	    <input id="btn_signup" data-event="game:entry" data-package='{"email": "#email_input", "pass": "#password_input"}' class="btn btn-default desktop-only game_login hidden-el" type="submit" name="submit" value="signup">
+
 	</div>
+
 
 </div> <!-- .container-fluid -->
