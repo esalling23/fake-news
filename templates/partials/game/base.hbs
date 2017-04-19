@@ -1,30 +1,45 @@
-<div class="base" >
+<div class="base">
 
-{{{jsonPrint this}}}
+<h3>Welcome, {{player.username}}!</h3>
 
-<h3>Welcome, {{player.name}}!</h3>
+	<div class="profiles">
 
-	<div class="badges">
+		<div class="profile-group level-one">
+			<h3>Level One</h3>
+			{{#each profile}}
+				{{#ifeq this.level 1}}
+				<div class="profile">
 
-		<h3>Badges</h3>
+					<h4>{{this.name}}</h4>
 
-		{{#if badges}}
-
-			{{#each badges}}
-
-			<div class="badge">
-
-				<h4>{{this.name}}</h4>
-
-			</div>
-
+				</div>
+				{{/ifeq}}
 			{{/each}}
+		</div>
+		<div class="profile-group level-two">
+			<h3>Level Two</h3>
+			{{#each profile}}
+				{{#ifeq this.level 2}}
+				<div class="profile">
 
-		{{else}}
+					<h4>{{this.name}}</h4>
 
-			<h4>No Badges yet! You'll be starting at the very beginning!<h4>
+				</div>
+				{{/ifeq}}
+			{{/each}}
+		</div>
+		<div class="profile-group level-three">
+			<h3>Level Three</h3>
+			{{#each profile}}
+				{{#ifeq this.level 3}}
+				<div class="profile">
 
-		{{/if}}
+					<h4>{{this.name}}</h4>
+
+				</div>
+				{{/ifeq}}
+			{{/each}}
+		</div>
 
 	</div>
 

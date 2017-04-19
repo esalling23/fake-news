@@ -45,7 +45,7 @@ Profile.add({
 	 	many: true
 	},
 	alienMessage: { type: Types.Markdown, label: 'Message from the Aliens about understanding of this human' },
-	level: { type: Number, label: 'The level this profile might appear on', note: 'Every level includes three profiles chosen at random using this number to categorize'},
+	level: { type: Number, label: 'The level this profile might appear on' },
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 
 });

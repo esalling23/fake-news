@@ -21,7 +21,7 @@ Player.add({
 	badges: {
 		type: Types.Relationship, 
 		ref: 'Profile',
-		label: 'Profile Badges',
+		label: 'Profile Badges (Completed Profiles)',
 		many: true, 
 		noedit: true
 	}

@@ -56,8 +56,8 @@ exports = module.exports = function(app) {
     app.post('/api/create', keystone.middleware.api, routes.api.gamesession.create);
 
     // Signup/Login
-    app.get('/api/login', keystone.middleware.api, routes.api.player.get);
-    app.get('/api/signup', keystone.middleware.api, routes.api.player.create);
+    app.get('/api/login', keystone.middleware.api, routes.api.login.get);
+    app.get('/api/signup', keystone.middleware.api, routes.api.login.create);
 
 
     

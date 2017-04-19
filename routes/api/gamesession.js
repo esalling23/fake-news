@@ -29,11 +29,10 @@ var Game = require(appRoot + '/lib/GameManager'),
 exports.create = function(req, res) {
 
     var data;
-    var session;
 
     data = req.body;
 
-    session = new GameSession.model();
+    var session = new GameSession.model();
 
     // Save this session to memory for faster retrieval (deleted when game ends)
     Session.Create('TEST', new Game(session));

@@ -15,7 +15,7 @@
  */
 var keystone = require('keystone'),
     appRoot = require('app-root-path'),
-    Index = keystone.list('Index'),
+    Profile = keystone.list('Profile'),
     Player = keystone.list('Player'),
     Category = keystone.list('Category'),
     randomstring = require('randomstring'),
@@ -23,7 +23,7 @@ var keystone = require('keystone'),
     GameConfig = keystone.list('GameConfig'),
     _ = require('underscore');
 
-var GameManager = require(appRoot + '/lib/GameManager'),
+var Game = require(appRoot + '/lib/GameManager'),
     Session = require(appRoot + '/lib/SessionManager');
 
 
@@ -37,15 +37,18 @@ exports = module.exports = function(req, res) {
 
     // locals.viewType = 'group';
     locals.section = 'player';
-// 
+
     view.on('init', function(next) {
 
-        var queryPlayer = Player.model.findOne({ 'id': req.params.id }, {}, {});
+        var queryPlayer = Player.model.findOne({ '_id': req.params.id }, {}, {});
+
+        var session = new GameSession.model();
+
+        // Save this session to memory for faster retrieval (deleted when game ends)
+        Session.Create('TEST', new Game(session));
 
         queryPlayer.exec(function (err, player) {
 
-
-            
             locals.player = player;
             
             next(err);
