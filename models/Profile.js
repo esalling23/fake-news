@@ -50,6 +50,35 @@ Profile.add({
 
 });
 
+Profile.schema.statics.removeResourceRef = function(resourceId, callback) {
+
+    Profile.model.update({
+            $or: [{
+                'traits': resourceId
+            }]
+        },
+
+        {
+            $pull: {
+                'traits': resourceId
+            }
+        },
+
+        {
+            multi: true
+        },
+
+        function(err, result) {
+
+            callback(err, result);
+
+            if (err)
+                console.error(err);
+        }
+    );
+
+};
+
 /**
  * Model Registration
  */

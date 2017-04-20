@@ -12,9 +12,14 @@
  * ==========
  */
 var keystone = require('keystone'),
+    appRoot = require('app-root-path'),
     Index = keystone.list('Index'),
     Category = keystone.list('Category'),
+    GameSession = keystone.list('GameSession'),
     _ = require('underscore');
+
+var Game = require(appRoot + '/lib/GameManager'),
+    Session = require(appRoot + '/lib/SessionManager');
 
 exports = module.exports = function(req, res) {
 
@@ -23,6 +28,11 @@ exports = module.exports = function(req, res) {
 
     // Init locals
     locals.section = 'index';
+
+    var session = new GameSession.model();
+
+    // Save this session to memory for faster retrieval (deleted when game ends)
+    Session.Create('TEST', new Game(session));
 
     view.on('init', function(next) {
 

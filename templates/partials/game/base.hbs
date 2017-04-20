@@ -1,50 +1,9 @@
 <div class="base">
 
-<h3>Welcome, {{player.username}}!</h3>
+	<h3>Welcome, {{player.username}}!</h3>
 
-	<div class="profiles">
+	<div id="levels-wrapper"></div>
 
-		<div class="profile-group level-one">
-			<h3>Level One</h3>
-			{{#each profile}}
-				{{#ifeq this.level 1}}
-				<div class="profile">
-
-					<h4>{{this.name}}</h4>
-
-				</div>
-				{{/ifeq}}
-			{{/each}}
-		</div>
-		<div class="profile-group level-two">
-			<h3>Level Two</h3>
-			{{#each profile}}
-				{{#ifeq this.level 2}}
-				<div class="profile">
-
-					<h4>{{this.name}}</h4>
-
-				</div>
-				{{/ifeq}}
-			{{/each}}
-		</div>
-		<div class="profile-group level-three">
-			<h3>Level Three</h3>
-			{{#each profile}}
-				{{#ifeq this.level 3}}
-				<div class="profile">
-
-					<h4>{{this.name}}</h4>
-
-				</div>
-				{{/ifeq}}
-			{{/each}}
-		</div>
-
-	</div>
-
-	<button class="btn submit" data-event="game:start" data-package='{"code": "TEST", "name": "player"}' id="game-newRound">Let's Go!</button>
-
-	<button class="btn submit" data-event="game:newRound" data-package='{"code": "TEST", "name": "player"}' id="game-newRound">Let's Go!</button>
+	<button class="btn submit" data-event="game:newRound" id="game-newRound">Let's Go!</button>
 
 </div>

@@ -63,6 +63,39 @@ Article.add({
 
 });
 
+Article.schema.statics.removeResourceRef = function(resourceId, callback) {
+
+    Article.model.update({
+            $or: [{
+                'lovers': resourceId, 
+                'haters': resourceId, 
+                'neutrals': resourceId 
+            }]
+        },
+
+        {
+            $pull: {
+                'haters': resourceId,
+                'lovers': resourceId, 
+                'neutrals': resourceId
+            }
+        },
+
+        {
+            multi: true
+        },
+
+        function(err, result) {
+
+            callback(err, result);
+
+            if (err)
+                console.error(err);
+        }
+    );
+
+};
+
 /**
  * Model Registration
  */

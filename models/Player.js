@@ -27,7 +27,34 @@ Player.add({
 	}
 });
 
+Player.schema.statics.removeResourceRef = function(resourceId, callback) {
 
+    Player.model.update({
+            $or: [{
+                'badges': resourceId
+            }]
+        },
+
+        {
+            $pull: {
+                'badges': resourceId
+            }
+        },
+
+        {
+            multi: true
+        },
+
+        function(err, result) {
+
+            callback(err, result);
+
+            if (err)
+                console.error(err);
+        }
+    );
+
+};
 
 
 /**

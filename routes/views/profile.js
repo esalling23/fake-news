@@ -26,7 +26,6 @@ var keystone = require('keystone'),
 var Game = require(appRoot + '/lib/GameManager'),
     Session = require(appRoot + '/lib/SessionManager');
 
-
 exports = module.exports = function(req, res) {
 
     var view = new keystone.View(req, res),
@@ -38,14 +37,14 @@ exports = module.exports = function(req, res) {
     // locals.viewType = 'group';
     locals.section = 'player';
 
+    var session = new GameSession.model();
+
+    // Save this session to memory for faster retrieval (deleted when game ends)
+    Session.Create('TEST', new Game(session));
+
     view.on('init', function(next) {
 
         var queryPlayer = Player.model.findOne({ '_id': req.params.id }, {}, {});
-
-        var session = new GameSession.model();
-
-        // Save this session to memory for faster retrieval (deleted when game ends)
-        Session.Create('TEST', new Game(session));
 
         queryPlayer.exec(function (err, player) {
 

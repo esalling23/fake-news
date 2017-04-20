@@ -87,6 +87,12 @@ html, body, .page-wrapper {
     #gameContent .game .screen img {
       max-width: 300px;
       margin: 0 auto; }
+    #gameContent .game .profile-select {
+      height: 160px;
+      width: 100px;
+      display: inline-block; }
+      #gameContent .game .profile-select.selected {
+        border: 2px black solid; }
     #gameContent .game .profile {
       background: white; }
       #gameContent .game .profile .profile-header {

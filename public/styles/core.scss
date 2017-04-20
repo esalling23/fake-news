@@ -129,6 +129,15 @@ html, body, .page-wrapper {
 			}
 		}
 
+		.profile-select {
+			height: 160px;
+			width: 100px;
+			display: inline-block;
+			&.selected {
+				border: 2px black solid;
+			}
+		}
+
 		// Profile 
 		.profile {
 

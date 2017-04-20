@@ -37,8 +37,8 @@ var Common = function (nsp, socket) {
 
         'game:newRound': function(package) {
 
-            Session.Get(package).
-            StartRound(currentSpace);
+            Session.Get(package.gameId).
+            StartRound(currentSpace, package.profile);
 
         },
 
