@@ -37,6 +37,8 @@ var Common = function (nsp, socket) {
 
         'game:newRound': function(package) {
 
+            console.log(package, " is hte fucking PACKAGE")
+
             Session.Get(package.gameId).
             StartRound(currentSpace, package.profile);
 

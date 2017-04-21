@@ -309,10 +309,14 @@ $(document).ready(function() {
 		      	var gameId = '{{gameId}}';
 
 		      	data = eventData.data;
+		      	console.log(data);
 
 		      	$('.pre').hide();
 
 		      	$("#current-profile").html(eventData.html).fadeIn();
+
+		      	// Turn those followers into bars
+		      	
 
 		      	$('#start-round').click(function() {
 

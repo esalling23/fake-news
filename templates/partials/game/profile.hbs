@@ -15,9 +15,9 @@
 
 		<h3>Traits</h3>
 
-		{{#each currentProfile.traits}}
+		{{#each followers}}
 
-		<h4>{{this.name}}</h4>
+		<div class="follower-bucket-bar" id="{{this.trait.key}}"></div>
 
 		{{/each}}
 
