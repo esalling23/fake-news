@@ -17,7 +17,13 @@
 
 		{{#each followers}}
 
-		<div class="follower-bucket-bar" id="{{this.trait.key}}"></div>
+		{{!-- {{{jsonPrint this}}} --}}
+		<div class="follower-bucket-bar" id="{{trait.key}}:{{opposite.key}}">
+			<div class="followers" style="width:{{splitRatio ratio true}}%" id="{{trait.key}}">
+			{{trait.name}}: {{splitRatio ratio true}}%</div>
+			<div class="followers" style="width:{{splitRatio ratio false}}%" id="{{opposite.key}}">
+			{{opposite.name}}: {{splitRatio ratio false}}%</div>
+		</div>
 
 		{{/each}}
 

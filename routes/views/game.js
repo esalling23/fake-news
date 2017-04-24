@@ -39,7 +39,7 @@ exports = module.exports = function(req, res) {
 // 
     view.on('init', function(next) {
 
-         var queryGame = GameConfig.model.findOne({ 'enabled':true });
+        var queryGame = GameConfig.model.findOne({ 'enabled':true });
   
         queryGame.exec(function (err, game) {
             

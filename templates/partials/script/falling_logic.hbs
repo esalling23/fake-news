@@ -70,8 +70,9 @@ $('.post .share-btn').on('click', function(){
 		$(this).prop("disabled",true);
 
 		var data = {
-			post: $(this).closest('.post').attr('id'), 
-			event: $(this).closest('.feed-wrap').attr('id')
+			post: $(this).closest('.post').attr('id'),
+			articles: eventData.data.articles, 
+			profile: eventData.data.currentProfile
 		};
 
 		console.log(data);

@@ -45,16 +45,14 @@ Profile.add({
 		type: Types.Relationship,
 	 	label: 'Trait for follower bucket 1',
 	 	ref: 'Trait', 
-	 	many: false, 
-	 	note: 'Honestly do you really need more than three'
+	 	many: false
 	},
 	opposite1: { 
 		type: Types.Relationship,
 	 	label: 'Trait for follower bucket 1',
 	 	ref: 'Trait', 
-	 	many: false, 
-	 	note: 'Honestly do you really need more than three'
-	},
+	 	many: false
+		},
 	ratio1: { type: String, label: 'Ratio', note: 'Should be in 30:70 format so that the numbers add up to 100'}
 
 }, 'Follower Bucket 2', {
@@ -62,15 +60,13 @@ Profile.add({
 		type: Types.Relationship,
 	 	label: 'Trait for follower bucket 1',
 	 	ref: 'Trait', 
-	 	many: false, 
-	 	note: 'Honestly do you really need more than three'
+	 	many: false
 	},
 	opposite2: { 
 		type: Types.Relationship,
 	 	label: 'Trait for follower bucket 1',
 	 	ref: 'Trait', 
-	 	many: false, 
-	 	note: 'Honestly do you really need more than three'
+	 	many: false
 	},
 	ratio2: { type: String, label: 'Ratio', note: 'Should be in 30:70 format so that the numbers add up to 100'}
 
@@ -79,15 +75,13 @@ Profile.add({
 		type: Types.Relationship,
 	 	label: 'Trait for follower bucket 1',
 	 	ref: 'Trait', 
-	 	many: false, 
-	 	note: 'Honestly do you really need more than three'
+	 	many: false
 	},
 	opposite3: { 
 		type: Types.Relationship,
 	 	label: 'Trait for follower bucket 1',
 	 	ref: 'Trait', 
-	 	many: false, 
-	 	note: 'Honestly do you really need more than three'
+	 	many: false
 	},
 	ratio3: { type: String, label: 'Ratio', note: 'Should be in 30:70 format so that the numbers add up to 100'}
 

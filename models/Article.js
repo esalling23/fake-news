@@ -41,12 +41,6 @@ Article.add({
 	cover: { type: Types.CloudinaryImage, label: 'Post Cover Photo'},
 	comments: { type: Types.TextArray, label:'Potential Comments' },
 	fake: { type: Boolean, label: 'Fake News?'},
-	neutrals: { 
-		type: Types.Relationship, 
-		label: 'Neutrals' ,
-		ref: 'Trait', 
-		many: true
-	}, 
 	lovers: { 
 		type: Types.Relationship, 
 		label: 'Lovers', 

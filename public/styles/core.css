@@ -104,6 +104,20 @@ html, body, .page-wrapper {
         padding: 25% 0px; }
         #gameContent .game .profile .profile-header img {
           display: inline-block; }
+      #gameContent .game .profile .follower-bucket-bar {
+        height: 80px;
+        width: 300px;
+        margin: 0 auto;
+        display: table; }
+        #gameContent .game .profile .follower-bucket-bar .followers {
+          height: 100%;
+          display: table-cell;
+          float: left;
+          color: white; }
+          #gameContent .game .profile .follower-bucket-bar .followers:nth-child(1) {
+            background: blue; }
+          #gameContent .game .profile .follower-bucket-bar .followers:nth-child(2) {
+            background: red; }
       #gameContent .game .profile .loading {
         height: 150px;
         width: 100%;
@@ -131,6 +145,7 @@ html, body, .page-wrapper {
         bottom: 0px;
         width: 100%;
         max-width: 320px;
+        height: 80px;
         z-index: 1000;
         background-color: #f6f7f9; }
         #gameContent .game .feed .fb-footer a {
@@ -138,6 +153,12 @@ html, body, .page-wrapper {
           width: 30%; }
           #gameContent .game .feed .fb-footer a#feed-btn {
             background: url(""); }
+        #gameContent .game .feed .fb-footer .followers-bar {
+          width: 100%;
+          height: 20px;
+          background: grey; }
+          #gameContent .game .feed .fb-footer .followers-bar div {
+            background: blue; }
       #gameContent .game .feed .identity-bar {
         background: #f6f7f9;
         height: 40px;

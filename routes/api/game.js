@@ -12,7 +12,10 @@ exports.update = function(req, res) {
     Player.model.findOne({ '_id': req.query.id }).exec(function(err, player) {
         if (err) throw err;
 
-        player.badges = 
+        player.badges.push({
+        	'profile':profile,
+        	'score': score
+    	});
 
         player.save();
 

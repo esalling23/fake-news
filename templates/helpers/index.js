@@ -10,6 +10,15 @@ module.exports = function() {
      * Local HBS Helpers
      * ===================
      */
+     // run a function
+    _helpers.splitRatio = function(ratio, first) {
+
+        if (first)
+        	return ratio.split(':')[0];
+        else 
+        	return ratio.split(':')[1];
+        
+    };
 
 
    
