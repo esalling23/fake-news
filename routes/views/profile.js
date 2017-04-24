@@ -31,16 +31,10 @@ exports = module.exports = function(req, res) {
     var view = new keystone.View(req, res),
         locals = res.locals;
 
-    // Init locals
-    locals.gameId = 'TEST';
-
     // locals.viewType = 'group';
     locals.section = 'player';
 
-    var session = new GameSession.model();
-
-    // Save this session to memory for faster retrieval (deleted when game ends)
-    Session.Create('TEST', new Game(session));
+    locals.gameId = req.params.id;
 
     view.on('init', function(next) {
 
@@ -49,8 +43,16 @@ exports = module.exports = function(req, res) {
         queryPlayer.exec(function (err, player) {
 
             locals.player = player;
-            
-            next(err);
+
+            var queryProfiles = Profile.model.find({}, {}, {});
+
+            queryProfiles.exec(function (err, profile) {
+
+                locals.profile = profile;
+                
+                next(err);
+                
+            });
             
         });
 

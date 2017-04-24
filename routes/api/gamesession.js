@@ -32,11 +32,13 @@ exports.create = function(req, res) {
 
     data = req.body;
 
+    console.log('creating the game')
+
     var session = new GameSession.model();
 
     // Save this session to memory for faster retrieval (deleted when game ends)
     Session.Create('TEST', new Game(session));
 
-    res.send('/game');
+    res.send('created');
         
 };

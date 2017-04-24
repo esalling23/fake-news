@@ -50,7 +50,6 @@ exports = module.exports = function(app) {
 
     // Game
     app.get('/profile/:id', routes.views.profile);
-    app.get('/game', routes.views.game);
 
     // Create Game
     app.post('/api/create', keystone.middleware.api, routes.api.gamesession.create);

@@ -2,7 +2,9 @@
 
 	<h3>Welcome, {{player.username}}!</h3>
 
-	<div id="levels-wrapper"></div>
+	<div id="levels-wrapper">
+	{{>game/levels}}
+	</div>
 
 	<button class="btn submit" data-event="game:newRound" id="game-newRound">Let's Go!</button>
 

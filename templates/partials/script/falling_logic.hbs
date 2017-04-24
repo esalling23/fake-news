@@ -71,13 +71,14 @@ $('.post .share-btn').on('click', function(){
 
 		var data = {
 			post: $(this).closest('.post').attr('id'),
-			articles: eventData.data.articles, 
+			// lovers: eventData.data.articles, 
 			profile: eventData.data.currentProfile
+
 		};
 
 		console.log(data);
 		
-		socket.emit('post:share', { gameId: gameId, data: data });
+		socket.emit('post:share', { gameId: 'TEST', data: data });
 		
 	}
 	

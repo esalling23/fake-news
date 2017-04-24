@@ -52,13 +52,7 @@ $(document).ready(function() {
 
 	];
 
-	// Open Socket connection
-	socket = io('//{{host}}', {
-	 	path: '/fake-news', 
-	 	reconnection: true,
-	 	'reconnectionDelay': 500,
-	 	'maxReconnectionAttempts':Infinity
-	 });
+	
 
 
 	/* 
@@ -131,7 +125,7 @@ $(document).ready(function() {
 	    var event = $(this).data().event;
 	    var pkg = getFormData($(this));
 
-    	$.post( 
+    	$.get( 
 	  	"/api/create/",
 			pkg,
 			function( data ) {
@@ -147,9 +141,9 @@ $(document).ready(function() {
 					return;
 				}
 			  window.location = data;
-			  socket.emit("game:start", 'TEST');
+			  // socket.emit("game:start", 'TEST');
 
-			});
+		});
 
 	});
 
@@ -208,8 +202,14 @@ $(document).ready(function() {
 
 
 
-
-
+	{{#ifeq section 'player'}}
+    // Open Socket connection
+	socket = io('//{{host}}', {
+	 	path: '/fake-news', 
+	 	reconnection: true,
+	 	'reconnectionDelay': 500,
+	 	'maxReconnectionAttempts':Infinity
+	 });
 		
 
     registerEvents();
@@ -220,51 +220,48 @@ $(document).ready(function() {
 
 	        case 'connect':
 
+		        localStorage.debug = '*';
+
 		        console.log('connected');
 
-		       	socket.emit("game:start", 'TEST');
-
-		        break;
-
-		    case 'game:base':
-
-		    	console.log(eventData, " wow look at this");
-
 		    	$('.base').fadeIn(function() {
-	    			$(this).html(eventData.html)
+
+		    		$("#level-slider").glide({
+				        type: "carousel", 
+				        autoplay: false, 
+				        startAt: 1
+				    });
+
+				    $('.glide__slide.active .profile-select').click(function(){
+				    	$(this).toggleClass('selected');
+				    });
+
+					// Start a profile
+					$(document).on('click', 'button#game-newRound', function(evt) {
+									    
+					    var event = $(this).data().event;
+					    var pkg = getFormData($(this));
+
+				    	$.post( 
+					  	"/api/create/",
+							pkg,
+							function( data ) {
+								console.log(data)
+
+								if(data.error_code !== undefined) {
+
+									$('#session-create .error').text(data.msg).fadeIn();
+									
+									return;
+								}
+							  var profile = $('.glide__slide.active .profile-select.selected').attr('id');
+							  socket.emit('game:start', { gameId: 'TEST', profile: profile });
+
+						});
+					});
 	    		});
 
-		    	break;
-
-		    case 'game:levels':
-
-		    	console.log(eventData, " wow look at this");
-
-		    	$('#levels-wrapper').html(eventData.html);
-
-	    		$("#level-slider").glide({
-			        type: "carousel", 
-			        autoplay: false, 
-			        startAt: 1
-			    });
-
-			    $('.glide__slide.active .profile-select').click(function(){
-			    	$(this).toggleClass('selected');
-			    });
-
-				// Start a profile
-				$(document).on('click', 'button#game-newRound', function(evt) {
-								    
-				    var event = $(this).data().event;
-				    var pkg = getFormData($(this));
-
-				    var profile = $('.glide__slide.active .profile-select.selected').attr('id');
-
-				    socket.emit('game:newRound', { gameId: 'TEST', profile: profile });
-
-				});
-
-		    	break;
+		        break;
 
 		    case 'game:rules':
 
@@ -309,7 +306,6 @@ $(document).ready(function() {
 		      	var gameId = '{{gameId}}';
 
 		      	data = eventData.data;
-		      	console.log(data);
 
 		      	$('.pre').hide();
 
@@ -389,7 +385,7 @@ $(document).ready(function() {
 		        	console.log("not liked!")
 			        angryCount = (Math.random() * 5) + 2;
 		        } else {
-		        	console.log("neutral!");
+		        	console.log("mixed!");
 			        likesCount = (Math.random() * 3) + 2;
 			        angryCount = (Math.random() * 2) + 1;
 		        }
@@ -409,20 +405,6 @@ $(document).ready(function() {
 		        }
 
 		        var reaction = $(commentId + ' .reaction');
-
-		  //       // Start that timer!
-	   //      	$({ countNum: $('.likes, .shares').text() })
-				// .animate({ countNum: 1000 },
-				// { 
-				//     duration: 8000,
-				//     easing:'linear',
-				//     step: function() {
-				//       $('.post-footer .likes, .post-footer .shares').text(Math.floor(this.countNum));
-				//     },
-				//     complete: function() {
-				//       $('.post-footer .likes, .post-footer .shares').text(this.countNum);
-				//     }
-				// });
 
 				$('.identity-bar div').width = (10*eventData.identityGrip) + 'px';
 
@@ -446,7 +428,7 @@ $(document).ready(function() {
 				        	});
 
 		        			$(this).click(function() {
-			        			socket.emit('post:reaction', { gameId: gameId, reaction: eventData.reaction });
+			        			socket.emit('post:reaction', { gameId: 'TEST', reaction: eventData.reaction });
 				        		$(this).hide();
 				        	});
 
@@ -512,6 +494,8 @@ $(document).ready(function() {
 		  }
 
 		};
+
+	{{/ifeq}}
 
 		
 
