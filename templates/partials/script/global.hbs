@@ -303,11 +303,17 @@ $(document).ready(function() {
 
 		    case 'game:newProfile': 
 
-		      	var gameId = '{{gameId}}';
+		    	data = eventData.data;
 
-		      	data = eventData.data;
+		    	console.log(data, " new profile")
 
-		      	$('.pre').hide();
+		      	var startingFollowers = 10000*parseInt(data.currentProfile.level);
+
+		      	console.log(startingFollowers, " FOLLOW ME")
+
+		      	var bar;
+
+		      	$('.pre').hide();		      	
 
 		      	$("#current-profile").html(eventData.html).fadeIn(function(){
 
@@ -328,8 +334,6 @@ $(document).ready(function() {
 		      	break;
 
 		    case 'game:newFeed': 
-
-			    var gameId = '{{gameId}}';
 
 		      	data = eventData.data;
 
@@ -375,15 +379,36 @@ $(document).ready(function() {
 
 		    case 'game:update':
 
-			    var gameId = '{{gameId}}'; 
+		    	// Double the starting number to get to 100%
+		    	// Divide that by current followers to get %
+			    bar = 100 * (eventData.followers/($('.followers-bar').data('start')*2));
+			    console.log($('.followers-bar').data('start'), eventData.followers)
+				bar = bar.toString();
+				console.log(bar);
 
 		        var commentId = '#' + eventData.article;
-		        var change = eventData.followersChange;
 
 		        var likesCount = 0, 
 		        	angryCount = 0;	
 
-		        $('.identity-bar div').width = parseInt($('.identity-bar div').width) + '%';
+		        $({ countNum: $('.followers-bar div').text() })
+				.animate({ countNum: eventData.followers },
+				{ 
+				    duration: 500,
+				    easing:'linear',
+				    step: function() {
+				      $('.followers-bar div').text(Math.floor(this.countNum));
+				    },
+				    complete: function() {
+				      $('.followers-bar div').text(this.countNum);
+				    }
+				});
+
+		        $('.followers-bar div').animate({
+		        	width: bar + '%'
+		        }, 500, function() {
+		        	console.log('moved to ' + bar)
+		        });
 
 		        if (eventData.reactions) {
 		        	 // Check for type of response
@@ -414,6 +439,7 @@ $(document).ready(function() {
 					        	var div = document.createElement('div');
 					        	$(div).appendTo($(commentId));
 					        	$(div).addClass('reaction angry');
+					        	socket.emit('post:reaction', { gameId: 'TEST', reaction: 'angry-react' });
 					        }
 					    }
 

@@ -13,7 +13,7 @@
 
 		{{{currentProfile.bio.html}}}
 
-		I am {{#each followers}}{{#if @last}} and {{trait.name}}{{else}} {{trait.name}},{{/if}}{{/each}}.
+		I am {{#each buckets}}{{#if @last}} and {{trait.name}}{{else}} {{trait.name}},{{/if}}{{/each}}.
 
 	</div>
 
@@ -21,9 +21,9 @@
 
 		<p><strong>Psst...we've done a little analysis based on the things {{currentProfile.name}} says about himself, and how that corresponds with his follower-base.</strong></p>
 
-		<p>These are {{currentProfile.name}}'s followers, broken down for you:<p>
+		<p>These are {{currentProfile.name}}'s <strong>{{followerCount}}</strong> followers, broken down for you:<p>
 
-		{{#each followers}}
+		{{#each buckets}}
 
 		<div class="follower-bucket-bar" id="{{trait.key}}:{{opposite.key}}">
 			<div class="followers trait {{#ifeq neutral false}}focus{{/ifeq}}" style="width:{{splitRatio ratio true}}%" id="{{trait.key}}">
