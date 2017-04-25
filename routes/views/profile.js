@@ -44,6 +44,13 @@ exports = module.exports = function(req, res) {
 
             locals.player = player;
 
+            // Check if new player, then set to false since they are now logging in
+            // Front-end will still think the player is 'new' and show them the rules
+            if (player.new == true){
+                player.new = false;
+                player.save();
+            }
+            
             var queryProfiles = Profile.model.find({}, {}, {});
 
             queryProfiles.exec(function (err, profile) {

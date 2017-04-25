@@ -35,9 +35,13 @@ Profile.add({
 
 	name: { type: String, label: 'Profile Name', hidden: true },
 	cover: { type: Types.CloudinaryImage, label: 'Cover Photo' },
-	image: { type: Types.CloudinaryImage, label: 'Icon' },
-	bio: { type: Types.Markdown, label: 'About Bio'},
-	alienMessage: { type: Types.Markdown, label: 'Message from the Aliens about understanding of this human' },
+	image: { type: Types.CloudinaryImage, label: 'Profile Image' },
+	bio: { type: Types.Markdown, label: 'Profile About Bio'},
+	alienMessage: { type: Types.Markdown, label: 'Initial message from the Aliens about understanding of this human' },
+	alienGood: { type: Types.TextArray, label: 'Alien esponses to players doing well', note: 'Should be in increasingly dramatic tone, up to 3 messages'},
+	alienBad: { type: Types.TextArray, label: 'Alien esponses to players doing poorly', note: 'Should be in increasingly dramatic tone, up to 3 messages'},
+	commentsGood: { type: Types.TextArray, label: 'Follower responses to players doing well', note: 'Should be in increasingly dramatic tone, up to 3 messages'},
+	commentsBad: { type: Types.TextArray, label: 'Follower responses to players doing poorly', note: 'Should be in increasingly dramatic tone, up to 3 messages'},
 	level: { type: Number, label: 'The level this profile might appear on' },
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 }, 'Follower Bucket 1', {
@@ -52,38 +56,73 @@ Profile.add({
 	 	label: 'Trait for follower bucket 1',
 	 	ref: 'Trait', 
 	 	many: false
-		},
-	ratio1: { type: String, label: 'Ratio', note: 'Should be in 30:70 format so that the numbers add up to 100'}
+	},
+	neutral1: { type: Boolean, label: 'Neutral?' },
+	ratio1: { type: String, label: 'Ratio', note: 'Should be in 40:20 format, adding up to 100 or less. If less, leftover is nuetral parties.'}
 
 }, 'Follower Bucket 2', {
 	trait2: { 
 		type: Types.Relationship,
-	 	label: 'Trait for follower bucket 1',
+	 	label: 'Trait for follower bucket 2',
 	 	ref: 'Trait', 
 	 	many: false
 	},
 	opposite2: { 
 		type: Types.Relationship,
-	 	label: 'Trait for follower bucket 1',
+	 	label: 'Trait for follower bucket 2',
 	 	ref: 'Trait', 
 	 	many: false
 	},
-	ratio2: { type: String, label: 'Ratio', note: 'Should be in 30:70 format so that the numbers add up to 100'}
+	neutral2: { type: Boolean, label: 'Neutral?' },
+	ratio2: { type: String, label: 'Ratio', note: 'Should be in 40:20 format, adding up to 100 or less. If less, leftover is nuetral parties.'}
 
 }, 'Follower Bucket 3', {
 	trait3: { 
 		type: Types.Relationship,
-	 	label: 'Trait for follower bucket 1',
+	 	label: 'Trait for follower bucket 3',
 	 	ref: 'Trait', 
 	 	many: false
 	},
 	opposite3: { 
 		type: Types.Relationship,
-	 	label: 'Trait for follower bucket 1',
+	 	label: 'Trait for follower bucket 3',
 	 	ref: 'Trait', 
 	 	many: false
 	},
-	ratio3: { type: String, label: 'Ratio', note: 'Should be in 30:70 format so that the numbers add up to 100'}
+	neutral3: { type: Boolean, label: 'Neutral?' },
+	ratio3: { type: String, label: 'Ratio', note: 'Should be in 40:20 format, adding up to 100 or less. If less, leftover is nuetral parties.'}
+
+}, 'Follower Bucket 4', {
+	trait4: { 
+		type: Types.Relationship,
+	 	label: 'Trait for follower bucket 4',
+	 	ref: 'Trait', 
+	 	many: false
+	},
+	opposite4: { 
+		type: Types.Relationship,
+	 	label: 'Trait for follower bucket 4',
+	 	ref: 'Trait', 
+	 	many: false
+	},
+	neutral4: { type: Boolean, label: 'Neutral?' },
+	ratio4: { type: String, label: 'Ratio', note: 'Should be in 40:20 format, adding up to 100 or less. If less, leftover is nuetral parties.'}
+
+}, 'Follower Bucket 5', {
+	trait5: { 
+		type: Types.Relationship,
+	 	label: 'Trait for follower bucket 5',
+	 	ref: 'Trait', 
+	 	many: false
+	},
+	opposite5: { 
+		type: Types.Relationship,
+	 	label: 'Trait for follower bucket 5',
+	 	ref: 'Trait', 
+	 	many: false
+	},
+	neutral5: { type: Boolean, label: 'Neutral?' },
+	ratio5: { type: String, label: 'Ratio', note: 'Should be in 40:20 format, adding up to 100 or less. If less, leftover is nuetral parties.'}
 
 });
 

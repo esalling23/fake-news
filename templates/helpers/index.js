@@ -20,8 +20,13 @@ module.exports = function() {
         
     };
 
+    _helpers.splitRatioExtra = function(ratio) {
 
-   
+        var total = parseInt(ratio.split(':')[0]) + parseInt(ratio.split(':')[1]);
+
+        return (100 - total);
+        
+    };
 
     return _helpers;
 

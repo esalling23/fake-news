@@ -50,31 +50,25 @@ var StartCommentFeed = function(){
 
 	  	console.log("round over");
 
-	  	socket.emit('comments:end', { gameId: gameId, data: data });
+	  	socket.emit('comments:end', { gameId: 'TEST', data: data });
 
 	});
 
 }
 
 // Comment Logic
-
 $('.post .share-btn').on('click', function(){
 
-	if ($(this).parent().hasClass('shared')){
+	if ($(this).parent('.post').hasClass('shared')){
 
 		return;
 
 	} else {
 
 		$(this).closest('.post').addClass('shared');
-		$(this).prop("disabled",true);
+		$(this).prop("disabled", true);
 
-		var data = {
-			post: $(this).closest('.post').attr('id'),
-			// lovers: eventData.data.articles, 
-			profile: eventData.data.currentProfile
-
-		};
+		var data = $(this).closest('.post').attr('id');
 
 		console.log(data);
 		

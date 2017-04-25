@@ -33,7 +33,7 @@ var Trait = new keystone.List('Trait',
  */
 Trait.add({
 
-	name: { type: String, label: 'Trait Name', hidden: true },
+	name: { type: String, label: 'Trait Name', note: 'Make sure it sounds good: \'I am a ___\''},
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 
 });

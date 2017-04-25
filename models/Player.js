@@ -18,6 +18,9 @@ Player.add({
 	username: { type: String, required: true, index: true },
 	password: { type: Types.Password, initial: true, required: true }
 }, 'Player Data', {
+    new: { type: Boolean, label: 'New Player', noedit:true, default: true},
+    lvl2: { type: Boolean, label: 'Level 2 Access', noedit:true, default: false},
+    lvl3: { type: Boolean, label: 'Level 3 Access', noedit:true, default: false},
 	badges: {
 		type: Types.Relationship, 
 		ref: 'Profile',

@@ -220,7 +220,7 @@ $(document).ready(function() {
 
 	        case 'connect':
 
-		        localStorage.debug = '*';
+		        // localStorage.debug = '*';
 
 		        console.log('connected');
 
@@ -309,15 +309,20 @@ $(document).ready(function() {
 
 		      	$('.pre').hide();
 
-		      	$("#current-profile").html(eventData.html).fadeIn();
+		      	$("#current-profile").html(eventData.html).fadeIn(function(){
 
-		      	// Turn those followers into bars
-		      	
+		      		setTimeout(function () {
 
-		      	$('#start-round').click(function() {
+					    $('#analysis').fadeIn();
 
-		      		socket.emit('game:newFeed', 'TEST');
-		      		
+					}, 2000);
+
+					$('#start-round').on('click', function() {
+
+			      		socket.emit('game:newFeed', 'TEST');
+			      		
+			      	});
+
 		      	});
 
 		      	break;
@@ -373,70 +378,88 @@ $(document).ready(function() {
 			    var gameId = '{{gameId}}'; 
 
 		        var commentId = '#' + eventData.article;
+		        var change = eventData.followersChange;
 
-		        var likesCount, 
-		        	angryCount;	
+		        var likesCount = 0, 
+		        	angryCount = 0;	
 
-		        // Check for type of response
-		        if (eventData.reaction == 'likes') {
-		        	console.log("liked!")
-		        	likesCount = (Math.random() * 5) + 2;
-		        } else if (eventData.reaction == 'angry') {
-		        	console.log("not liked!")
-			        angryCount = (Math.random() * 5) + 2;
-		        } else {
-		        	console.log("mixed!");
-			        likesCount = (Math.random() * 3) + 2;
-			        angryCount = (Math.random() * 2) + 1;
+		        $('.identity-bar div').width = parseInt($('.identity-bar div').width) + '%';
+
+		        if (eventData.reactions) {
+		        	 // Check for type of response
+		        	_.each(eventData.reactions, function(reaction, index){
+		        		console.log(reaction, index)
+		        		if (reaction == 'likes') {
+				        	console.log("liked!")
+				        	likesCount = Math.round((Math.random() * 2) + 1);
+				        } else if (reaction == 'angry') {
+				        	console.log("not liked!")
+					        angryCount = Math.round((Math.random() * 2) + 1);
+				        } else if (reaction == 'comment') {
+				        	console.log("comment sending!")
+				        } else {
+				        	console.log("mixed!");
+					        likesCount = Math.round((Math.random() * 1) + 1);
+					        // There's a chance that a mixed review is still bad...
+					        let chance = Math.round((Math.random() * 10) + 1);
+					        if (chance%2 == 0)
+						        angryCount = Math.round((Math.random() * 1) + 1);
+				        }
+
+				        console.log(likesCount, angryCount, reaction)
+
+				        if (angryCount){
+					        // Generate angry reactions
+					        for(var i = 0; i < angryCount; i++){
+					        	var div = document.createElement('div');
+					        	$(div).appendTo($(commentId));
+					        	$(div).addClass('reaction angry');
+					        }
+					    }
+
+				        // Generate likes
+				        for(var i = 0; i < likesCount; i++){
+				        	console.log(i);
+				        	var div = document.createElement('div');
+				        	$(div).appendTo($(commentId));
+				        	$(div).addClass('reaction likes');
+				        }
+
+						var reaction = $(commentId + ' .reaction');
+
+				        _.each(reaction, function(icn, index) {
+
+				        	// Give each reaction a random position
+				        	var left = (Math.random() * 330) + 10;
+				        	var top = (Math.random() * 120) + 60;
+				        	$(icn).css('top', top + 'px');
+				        	$(icn).css('left', left + 'px');
+
+				        	// Fade those suckers in one at a time
+				        	setTimeout(function(){
+
+				        		$(icn).fadeIn(function(){
+
+				        			$(this).animate({
+						        		top: '120%'
+						        	}, 3000, 'linear', function(){
+						        		$(this).hide();
+						        	});
+
+				        			$(this).on('click', function() {
+					        			socket.emit('post:reaction', { gameId: 'TEST', reaction: eventData.reaction });
+						        		$(this).hide();
+						        	});
+
+				        		});
+
+				        	}, 500 * index);
+			        		
+				        });
+		        	});
+			        
 		        }
-
-		        // Generate angry reactions
-		        for(var i = 0; i < angryCount; i++){
-		        	var div = document.createElement('div');
-		        	$(div).appendTo($(commentId));
-		        	$(div).addClass('reaction angry');
-		        }
-
-		        // Generate likes
-		        for(var i = 0; i < likesCount; i++){
-		        	var div = document.createElement('div');
-		        	$(div).appendTo($(commentId));
-		        	$(div).addClass('reaction likes');
-		        }
-
-		        var reaction = $(commentId + ' .reaction');
-
-				$('.identity-bar div').width = (10*eventData.identityGrip) + 'px';
-
-		        _.each(reaction, function(icn, index) {
-
-		        	// Give each reaction a random position
-		        	var left = (Math.random() * 330) + 10;
-		        	var top = (Math.random() * 120) + 10;
-		        	$(icn).css('top', top + 'px');
-		        	$(icn).css('left', left + 'px');
-
-		        	// Fade those suckers in one at a time
-		        	setTimeout(function(){
-
-		        		$(icn).fadeIn(function(){
-
-		        			$(this).animate({
-				        		top: '120%'
-				        	}, 3000, 'linear', function(){
-				        		$(this).hide();
-				        	});
-
-		        			$(this).click(function() {
-			        			socket.emit('post:reaction', { gameId: 'TEST', reaction: eventData.reaction });
-				        		$(this).hide();
-				        	});
-
-		        		});
-
-		        	}, 700 * index);
-	        		
-		        });
+		       
 
 		        break;
 
@@ -449,8 +472,6 @@ $(document).ready(function() {
 	        	$('#feed').hide();
 
 	        	$("#round-end").html(eventData.html).show();
-
-	        	$('#twisted-number').html(data.points);
 
 	        	$('#round-score').show();
 
@@ -482,6 +503,12 @@ $(document).ready(function() {
 		      	$("#game-over").html(eventData.html).show();
 
 		      	$('.final-followers').text(eventData.data);
+
+		      	$('#return-base').on('click', function(){
+
+		      		// Call to update player, return to base
+
+		      	});
 
 		      	break;
 
