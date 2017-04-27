@@ -258,6 +258,17 @@ html, body {
         bottom: 400px;
         padding-top: 10px;
         vertical-align: bottom; }
+      #gameContent .game .feed .post-body {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 180px; }
+        #gameContent .game .feed .post-body .headline {
+          position: absolute;
+          width: 200px;
+          right: 0px;
+          bottom: 0px;
+          background-color: white; }
       #gameContent .game .feed .post {
         background-color: white;
         color: black;

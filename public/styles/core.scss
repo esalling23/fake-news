@@ -381,6 +381,20 @@ html, body{
 				vertical-align: bottom;
 			}
 
+			.post-body {
+				background-size: contain;
+				background-repeat:no-repeat;
+				background-position: center;
+				height: 180px;
+				.headline {
+					position: absolute;
+					width: 200px;
+					right: 0px;
+					bottom: 0px;
+					background-color: white;
+				}
+			}
+
 			.post {
 				background-color:white;
 				color: black;
