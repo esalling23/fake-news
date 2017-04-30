@@ -36,7 +36,7 @@ var Article = new keystone.List('Article',
 Article.add({
 
 	name: { type: String, label: 'Headline', required: true, initial: true },
-	user: { type: String, label: 'Username', note: 'This could be a fake username, a real individual\'s name, or a company/brand/group', required: true, initial: true },
+	user: { type: String, label: 'Username', note: 'This could be a fake username, a real individual\'s name, or a company/brand/group'},
 	thumbnail: { type: Types.CloudinaryImage, label: 'User Thumbnail Image' },
 	cover: { type: Types.CloudinaryImage, label: 'Post Cover Photo'},
 	comments: { type: Types.TextArray, label:'Potential Comments' },
@@ -62,16 +62,14 @@ Article.schema.statics.removeResourceRef = function(resourceId, callback) {
     Article.model.update({
             $or: [{
                 'lovers': resourceId, 
-                'haters': resourceId, 
-                'neutrals': resourceId 
+                'haters': resourceId
             }]
         },
 
         {
             $pull: {
                 'haters': resourceId,
-                'lovers': resourceId, 
-                'neutrals': resourceId
+                'lovers': resourceId
             }
         },
 

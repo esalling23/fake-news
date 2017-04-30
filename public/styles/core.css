@@ -55,6 +55,21 @@ html, body {
   max-width: 320px;
   margin: 0 auto; }
 
+.reaction {
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  z-index: 2000;
+  background-color: white;
+  display: none; }
+  .reaction.angry {
+    background-image: url("https://res.cloudinary.com/esalling/image/upload/v1491283826/angry-face.gif"); }
+  .reaction.likes {
+    background-image: url("https://res.cloudinary.com/esalling/image/upload/v1491283825/like.gif"); }
+
 .page-wrapper {
   max-width: 320px;
   max-height: 460px;
@@ -281,20 +296,6 @@ html, body {
         overflow: hidden;
         z-index: 1;
         border: 3px gray solid; }
-        #gameContent .game .feed .post .reaction {
-          height: 60px;
-          width: 60px;
-          border-radius: 30px;
-          background-repeat: no-repeat;
-          background-size: contain;
-          position: absolute;
-          z-index: 2000;
-          background-color: white;
-          display: none; }
-        #gameContent .game .feed .post .angry {
-          background-image: url("https://res.cloudinary.com/esalling/image/upload/v1491283826/angry-face.gif"); }
-        #gameContent .game .feed .post .likes {
-          background-image: url("https://res.cloudinary.com/esalling/image/upload/v1491283825/like.gif"); }
         #gameContent .game .feed .post .share-btn {
           position: absolute;
           bottom: 0px;

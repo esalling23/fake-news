@@ -17,65 +17,97 @@ var bottom;
 var commentStack;
 var commentFalling;
 
-$(document).on('event:comments', function() {
+$(document).on('event:feed', function() {
+
+	var article = parseInt($('#post-feed').find('.post').css('height'));
 
 	$('#post-feed').css('bottom', $('.feed-wrap').height);
-	$('#post-feed').css('height', $('.post').length*300 + 'px');
+	$('#post-feed').css('height', (($('.post').length * article) + 200) + 'px');
 
-	var bottom = 0;
+	var bottom = 200;
 
 	_.each($('.post'), function(post){
 
 		$(post).css('bottom', bottom);
-		bottom += 310;
+		bottom += article;
 
 	});
 
 	// Call comments animation logic	
-	StartCommentFeed();	
+	StartCommentFeed(article);	
 
 });
 
-var StartCommentFeed = function(){
+var StartCommentFeed = function(article){
 
 	console.log("startnig events");
-	var length = '-' + $('.post').length*300 + 'px';
+	var length = '-' + $('.post').length * article + 'px';
 
 	$('#post-feed').show();
-    // To do : dymanic bottom size 
 
-	var $items = $("#post-feed .post");
+	var postSteps = [];
+	_.each($('#post-feed .post'), function(post) {
+		postSteps.push(-(parseInt($(post).css('bottom')) + 40));
+		
+	});
+	console.log(postSteps)
+	var postPastId;
 	$('#post-feed').animate({
 	    bottom: length
-	}, 50000, 'linear', function() {
+	}, {
+		easing: 'linear',
+		duration: 100000,
+	  	step: function( now, fx ) {
+	  		// console.log(Math.round(now).toString() + 'px')
+		    if( postSteps[0] == Math.round(now) ){
+		    	console.log(Math.round(now), postSteps[0])
+			    postSteps.shift();
+			    console.log(postSteps);
 
-	  	console.log("round over");
+			    postPastId = $(this).find('.post:not(.past)').first().attr('id');
+			    $('#' + postPastId).addClass('past');
 
-	  	socket.emit('comments:end', { gameId: 'TEST', data: data });
+			    if (!$('#' + postPastId).hasClass('shared')){
+			    	var data = {
+			    		post: $(this).find('.post.past').first().attr('id'),
+			    		shared: false
+			    	};
+				    socket.emit('feed:skip', { gameId: 'TEST', data: data });
+			    }
+		    }
+		}, 
+	  	complete: function() {
+		  	console.log("round over");
+
+		  	socket.emit('feed:end', { gameId: 'TEST', data: data });
+	  	}
+	});
+
+	// Comment Logic
+	$('.post .share-btn').on('click', function(){
+
+		if ($(this).parent('.post').hasClass('shared')){
+
+			return;
+
+		} else {
+
+			$(this).closest('.post').addClass('shared');
+			$(this).prop("disabled", true);
+
+			var data = {
+				post: $(this).closest('.post').attr('id'), 
+				shared: true
+			};
+
+			console.log(data);
+			
+			socket.emit('feed:share', { gameId: 'TEST', data: data });
+			
+		}
+		
 
 	});
 
 }
 
-// Comment Logic
-$('.post .share-btn').on('click', function(){
-
-	if ($(this).parent('.post').hasClass('shared')){
-
-		return;
-
-	} else {
-
-		$(this).closest('.post').addClass('shared');
-		$(this).prop("disabled", true);
-
-		var data = $(this).closest('.post').attr('id');
-
-		console.log(data);
-		
-		socket.emit('post:share', { gameId: 'TEST', data: data });
-		
-	}
-	
-
-});

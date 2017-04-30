@@ -27,7 +27,6 @@ var Common = function (nsp, socket) {
             
         },
 
-
         'game:start': function(package) {
 
             Session.Get(package.gameId).
@@ -36,8 +35,6 @@ var Common = function (nsp, socket) {
         },
 
         'game:newRound': function(package) {
-
-            console.log(package, " is hte fucking PACKAGE")
 
             Session.Get(package.gameId).
             StartRound(currentSpace, package.profile);
@@ -58,39 +55,38 @@ var Common = function (nsp, socket) {
 
         },
 
-        'game:comments': function(package) {
-
-            Session.Get(package).
-            Comments(currentSpace);
-
-        },
-
-        'post:reaction': function(package) {
+        'feed:reaction': function(package) {
 
             Session.Get(package.gameId).
             PostReaction(currentSpace, package.reaction);
 
         },
 
-        'post:share': function(package) {
+        // 'feed:skip': function(package) {
+
+        //     Session.Get(package.gameId).
+        //     CheckPost(currentSpace, package.data);
+
+        // },
+
+        'feed:skip': function(package) {
 
             Session.Get(package.gameId).
             CheckPost(currentSpace, package.data);
 
         },
 
-        'comments:end': function(package) {
+        'feed:share': function(package) {
 
             Session.Get(package.gameId).
-            ProfileScore(currentSpace);
+            CheckPost(currentSpace, package.data);
 
         },
 
-        /* Pauses all game cooldowns (debugging only) */
-        'debug:pause': function(package) {
+        'feed:end': function(package) {
 
             Session.Get(package.gameId).
-            PauseResumeCooldown();
+            ProfileScore(currentSpace);
 
         }
     

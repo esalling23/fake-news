@@ -65,6 +65,29 @@ html, body{
 	margin: 0 auto;
 }
 
+// Move this once finalized placement
+.reaction {
+	height: 60px;
+	width: 60px;
+	border-radius: 30px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	position: absolute;
+	z-index: 2000;
+	background-color: white;
+	display: none;
+
+
+	&.angry {
+		background-image: url("https://res.cloudinary.com/esalling/image/upload/v1491283826/angry-face.gif");
+	}
+
+	&.likes {
+		background-image: url("https://res.cloudinary.com/esalling/image/upload/v1491283825/like.gif");
+	}
+}
+
+
 .page-wrapper {
 	max-width: 320px;
 	max-height:460px;
@@ -408,25 +431,7 @@ html, body{
 				z-index:1;
 				border: 3px gray solid;
 
-				.reaction {
-					height: 60px;
-					width: 60px;
-					border-radius: 30px;
-					background-repeat: no-repeat;
-					background-size: contain;
-					position: absolute;
-					z-index: 2000;
-					background-color: white;
-					display: none;
-				}
-
-				.angry {
-					background-image: url("https://res.cloudinary.com/esalling/image/upload/v1491283826/angry-face.gif");
-				}
-
-				.likes {
-					background-image: url("https://res.cloudinary.com/esalling/image/upload/v1491283825/like.gif");
-				}
+				
 				.share-btn {
 					position: absolute;
 					bottom:0px;
