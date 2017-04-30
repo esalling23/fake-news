@@ -40,13 +40,14 @@ $(document).ready(function() {
 
 		'game:newProfile',
 		'game:newFeed',
-		'game:update',
+		
 		'game:newRound',
 
 		'profile:score',
 
 		'feed:end', 
-		'feed:reaction'
+		'feed:update',
+		'feed:response'
 
 	];
 
@@ -375,7 +376,7 @@ $(document).ready(function() {
 
 		        break;
 
-		    case 'game:update':
+		    case 'feed:update':
 
 		    	// Double the starting number to get to 100%
 		    	// Divide that by current points to get %
@@ -418,7 +419,8 @@ $(document).ready(function() {
 				        	console.log("not liked!")
 					        angryCount = Math.round((Math.random() * 1) + 1);
 				        } else if (reaction == 'right') {
-				        	console.log("comment sending!")
+				        	console.log("comment sending!");
+
 				        } else if (reaction == 'wrong') {
 
 				        }
