@@ -5,14 +5,11 @@
 
 			<div class="post" id="{{this.key}}">
 
-				<div class="user">
-
-					<img class="profile-image" src="{{cloudinaryUrl /v1492992566/Fake-news/genericfriendicon.png height="50" width="50"}}">
-					<div class="profile-name">{{this.user}}</div>
-
+				<div class="post-header">
+					{{!-- <div class="btn likes"></div>
+					<div class="btn comments"></div> --}}
+					<button class="btn submit share-btn">SHARE</button>
 				</div>
-
-				<div class="comment-text">{{this.comment}}</div>
 
 				<div class="post-body" style="background-image:url('{{this.cover.secure_url}}');">
 
@@ -20,11 +17,14 @@
 
 				</div>
 
-				<div class="post-footer">
-					<div class="btn likes"></div>
-					<div class="btn comments"></div>
-					<button class="btn submit share-btn">SHARE</button>
+				<div class="user">
+
+					<img class="profile-image" src="{{cloudinaryUrl /v1492992566/Fake-news/genericfriendicon.png height="50" width="50"}}">
+					<div class="profile-name">{{this.user}}</div>
+
 				</div>
+				<div class="comment-text">{{this.comment}}</div>
+
 
 			</div>
 

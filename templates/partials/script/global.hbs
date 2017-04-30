@@ -305,9 +305,9 @@ $(document).ready(function() {
 
 		    	console.log(data, " new profile")
 
-		      	var startingFollowers = 10000*parseInt(data.currentProfile.level);
+		      	var startingpoints = 10000*parseInt(data.currentProfile.level);
 
-		      	console.log(startingFollowers, " FOLLOW ME")
+		      	console.log(startingpoints, " FOLLOW ME")
 
 		      	var bar;
 
@@ -378,9 +378,9 @@ $(document).ready(function() {
 		    case 'game:update':
 
 		    	// Double the starting number to get to 100%
-		    	// Divide that by current followers to get %
-			    bar = 100 * (eventData.followers/($('.followers-bar').data('start')*2));
-			    console.log($('.followers-bar').data('start'), eventData.followers)
+		    	// Divide that by current points to get %
+			    bar = 100 * (eventData.points/($('.points-bar').data('start')*2));
+			    console.log($('.points-bar').data('start'), eventData.points)
 				bar = bar.toString();
 
 		        var feed = $('.post-feed');
@@ -388,20 +388,20 @@ $(document).ready(function() {
 		        var likesCount = 0, 
 		        	angryCount = 0;	
 
-		        $({ countNum: $('.followers-bar div').text() })
-				.animate({ countNum: eventData.followers },
+		        $({ countNum: $('.points-bar div').text() })
+				.animate({ countNum: eventData.points },
 				{ 
 				    duration: 500,
 				    easing:'linear',
 				    step: function() {
-				      $('.followers-bar div').text(Math.floor(this.countNum));
+				      $('.points-bar div').text(Math.floor(this.countNum));
 				    },
 				    complete: function() {
-				      $('.followers-bar div').text(this.countNum);
+				      $('.points-bar div').text(this.countNum);
 				    }
 				});
 
-		        $('.followers-bar div').animate({
+		        $('.points-bar div').animate({
 		        	width: bar + '%'
 		        }, 500, function() {
 		        	console.log('moved to ' + bar)
@@ -417,8 +417,10 @@ $(document).ready(function() {
 				        } else if (reaction == 'angry') {
 				        	console.log("not liked!")
 					        angryCount = Math.round((Math.random() * 1) + 1);
-				        } else if (reaction == 'comment') {
+				        } else if (reaction == 'right') {
 				        	console.log("comment sending!")
+				        } else if (reaction == 'wrong') {
+
 				        }
 
 				        console.log(likesCount, angryCount, reaction)
@@ -464,7 +466,11 @@ $(document).ready(function() {
 
 						        	var destroy = function() {
 						        		console.log("hiding")
-						        		$(icn).remove();
+						        		setTimeout(function(){
+						        			$(icn).fadeOut(function(){
+						        				$(this).remove();
+						        			});
+						        		}, 1000);
 						        	}
 
 				        			TweenLite.to($(this), 5, {
@@ -525,7 +531,7 @@ $(document).ready(function() {
 
 		      	$("#game-over").html(eventData.html).show();
 
-		      	$('.final-followers').text(eventData.data);
+		      	$('.final-points').text(eventData.data);
 
 		      	$('#return-base').on('click', function(){
 
