@@ -192,7 +192,7 @@ html, body{
 
 		// Profile 
 		.profile {
-
+			z-index: 2000;
 			background: white;
 			line-height: 1;
 
@@ -215,7 +215,7 @@ html, body{
 			.analysis {
 				z-index: 1000;
 			    position: absolute;
-			    bottom: 0px;   
+			    bottom: 20px;   
 			}
 
 			.follower-bucket-bar {
@@ -263,11 +263,15 @@ html, body{
 				top: 0px;
 				height: 100%;
 				max-height: 460px;
+				z-index: 2000;
 
-				&.minimized {
-					animation-name: minimize;
-					animation-duration: 1s;
-					animation-fill-mode: forwards;
+				.profile-btn {
+					position: absolute;
+					bottom: 0px;
+				}
+
+				&.closed {
+					visibility: none;
 				}
 			}
 
@@ -281,13 +285,33 @@ html, body{
 		.feed {
 			font-size: 20px;
 
+			.direct-message {
+				position: absolute;
+				bottom: 80px;
+				left: 10px;
+				height: 60px;
+				width: 220px;
+				color: $fb-darkgrey;
+				
+				background: $fb-grey;
+				z-index: 1000;
+
+				&.follower {
+					border: 3px solid $fb-blue;
+				}
+
+				&.alien {
+					border: 3px solid $fb-darkgrey;
+				}
+			}
+
 			.fb-footer {
 				display: none;
 				position: absolute;
 				bottom: 0px;
 				width: 100%;
 				max-width: 320px;
-				height: 80px;
+				height: 50px;
 				z-index: 1000;
 				background-color: $fb-grey;
 
@@ -353,16 +377,6 @@ html, body{
 					height: 60px;
 					display: inline-block;
 				}
-
-				.likes {
-					
-				}
-				.comments {
-
-				}
-				.share-btn {
-
-				}
 			}
 
 			.post-feed {
@@ -407,7 +421,7 @@ html, body{
 			.post-body {
 				background-size: contain;
 				background-repeat:no-repeat;
-				background-position: center bottom;
+				background-position: center top;
 			    height: 260px;
 				.headline {
 					position: absolute;
@@ -436,7 +450,7 @@ html, body{
 					bottom:0px;
 					z-index: 1000;
 					left: 20px;
-					bottom: 5px;
+					top: 5px;
 
 					&:disabled {
 						background-color: black;

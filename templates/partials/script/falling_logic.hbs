@@ -24,7 +24,7 @@ $(document).on('event:feed', function() {
 	$('#post-feed').css('bottom', $('.feed-wrap').height);
 	$('#post-feed').css('height', (($('.post').length * article) + 200) + 'px');
 
-	var bottom = 200;
+	var bottom = 0;
 
 	_.each($('.post'), function(post){
 
@@ -47,29 +47,29 @@ var StartCommentFeed = function(article){
 
 	var postSteps = [];
 	_.each($('#post-feed .post'), function(post) {
-		postSteps.push(-(parseInt($(post).css('bottom')) + 40));
-		
+		postSteps.push(-(parseInt($(post).css('bottom')) + 300));
 	});
-	console.log(postSteps)
+
 	var postPastId;
+
 	$('#post-feed').animate({
 	    bottom: length
 	}, {
 		easing: 'linear',
 		duration: 100000,
+		start: function(){
+			$('.fb-footer .profile-btn, .profile-wrapper .profile-btn').addClass('animating');
+		},
 	  	step: function( now, fx ) {
-	  		// console.log(Math.round(now).toString() + 'px')
-		    if( postSteps[0] == Math.round(now) ){
-		    	console.log(Math.round(now), postSteps[0])
-			    postSteps.shift();
-			    console.log(postSteps);
 
+		    if( postSteps[0] == Math.round(now) ){
+			    postSteps.shift();
 			    postPastId = $(this).find('.post:not(.past)').first().attr('id');
 			    $('#' + postPastId).addClass('past');
 
 			    if (!$('#' + postPastId).hasClass('shared')){
 			    	var data = {
-			    		post: $(this).find('.post.past').first().attr('id'),
+			    		post: $(this).find('.post.past').last().attr('id'),
 			    		shared: false
 			    	};
 				    socket.emit('feed:skip', { gameId: 'TEST', data: data });
@@ -81,6 +81,19 @@ var StartCommentFeed = function(article){
 
 		  	socket.emit('feed:end', { gameId: 'TEST', data: data });
 	  	}
+	});
+
+	// pause/resume feed
+	$(".profile-btn").on('click', function() {
+
+		if ($(this).hasClass('animating')) {
+			$(".profile-btn").toggleClass('stopped').toggleClass('animating');
+			$("#post-feed").pause();
+		} else if ($(this).hasClass('stopped')) {
+			$(".profile-btn").toggleClass('stopped').toggleClass('animating');
+			$("#post-feed").resume();
+		} 
+	    
 	});
 
 	// Comment Logic

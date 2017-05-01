@@ -11,6 +11,19 @@ module.exports = function() {
      * ===================
      */
      // run a function
+
+     _helpers.arrayLen = function(array) {
+
+        return array.length;
+        
+    };
+
+    _helpers.randomPick = function(array) {
+
+        return _.shuffle(array)[0];
+        
+    };
+
     _helpers.splitRatio = function(ratio, first) {
 
         if (first)

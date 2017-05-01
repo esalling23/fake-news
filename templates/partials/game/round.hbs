@@ -1,33 +1,12 @@
 <div class="header">
 	<div class="instructions">The news comes as it does, let's see how you did!</div>
 
-	<div class="your-goal">You were trying to keep a <span class="status {{goal.status}}">{{goal.stance}}</span> stance on this event.</div>
-
 </div>
 
 <div id="round-feed">
 
-	{{#each articles}}
-
-		<div class="comment" id="{{this.key}}">
-
-			<div class="profile-image col-sm-3 thumbnail">
-				<img src="{{this.thumbnail.url}}"/>
-			</div>
-
-			<div class="comment-body col-sm-9">
-
-				<div class="profile-name">{{this.username}}</div>
-
-				<div class="comment-text">{{this.name}}</div>
-
-			</div>
-
-			<div class="comment-stats">This article took a <span class="status {{this.status}}">{{this.status}}</span> stance on this event.</div>
-
-		</div>
-
-	{{/each}}
+	<div class="round-score">You maintained your identity for {{score}} articles!</div>
+	<div class="round-fake">You shared {{fake}} fake articles</div>
 
 </div>
 

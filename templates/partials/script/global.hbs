@@ -42,6 +42,7 @@ $(document).ready(function() {
 		'game:newFeed',
 		
 		'game:newRound',
+		'game:playerData',
 
 		'profile:score',
 
@@ -148,9 +149,9 @@ $(document).ready(function() {
 
 	setTimeout(function () {
 
-    $('.home .form').fadeIn();
+	    $('.home .form').fadeIn();
 
-  }, 2000);
+	}, 2000);
 
 
 		// Player login
@@ -260,56 +261,56 @@ $(document).ready(function() {
 					});
 	    		});
 
+	    		$('#rules-btn').on('click', function(){
+
+	    			$('.ACTIVE').fadeOut(function(){
+			    		$(this).removeClass('ACTIVE');
+			    		$('.rules').addClass('ACTIVE').fadeIn();
+			    	});
+
+			    	$('.base').fadeOut();
+
+			    	$('.rules').fadeIn(function(){
+
+			    		_.each($('.screen'), function(item, index) {
+
+			      			$(item).attr('id', 'screen-' + index);
+
+			      			setTimeout(function () {
+
+			        			$(item).fadeIn(function(){
+
+			        				if ($(item).hasClass('last')){
+			        					console.log("last screen")
+			        					$('#game-base').on('click', function(){
+			        						$('.rules').fadeOut(function(){
+			        							$('.base').fadeIn();
+			        						});
+			        					});
+			        				} else  {
+			        					setTimeout(function(){
+
+				        					$(item).fadeOut();
+
+				        				}, 10000);
+			        				}
+			        				
+			        			});
+
+		      				}, 12000 * index);
+
+			      		});
+			    	});
+	    		});
+
 		        break;
-
-		    case 'game:rules':
-
-		    	$('.ACTIVE').fadeOut(function(){
-		    		$(this).removeClass('ACTIVE');
-		    		$('.rules').addClass('ACTIVE').fadeIn();
-		    	});
-
-		    	$('.base').fadeOut();
-
-		    	$('.rules').fadeIn(function(){
-
-		    		_.each($('.screen'), function(item, index) {
-
-		      			$(item).attr('id', 'screen-' + index);
-
-		      			setTimeout(function () {
-
-		        			$(item).fadeIn(function(){
-
-		        				if ($(item).hasClass('last')){
-		        					console.log("last screen")
-		        				} else  {
-		        					setTimeout(function(){
-
-			        					$(item).fadeOut();
-
-			        				}, 15000);
-		        				}
-		        				
-		        			});
-
-	      				}, 18000 * index);
-
-		      		});
-		    	});
-
-		    	break;
 
 		    case 'game:newProfile': 
 
 		    	data = eventData.data;
-
 		    	console.log(data, " new profile")
 
 		      	var startingpoints = 10000*parseInt(data.currentProfile.level);
-
-		      	console.log(startingpoints, " FOLLOW ME")
-
 		      	var bar;
 
 		      	$('.pre').hide();		      	
@@ -324,6 +325,10 @@ $(document).ready(function() {
 
 					$('#start-round').on('click', function() {
 
+						$(this).fadeOut(function(){
+							$('.profile-wrapper .profile-btn').fadeIn();
+						});
+
 			      		socket.emit('game:newFeed', 'TEST');
 			      		
 			      	});
@@ -335,24 +340,29 @@ $(document).ready(function() {
 		    case 'game:newFeed': 
 
 		      	data = eventData.data;
-
 	        	console.log("DATA: ", data);
 
 	        	$('.profile').animate({
-	        		left: '100%'
+	        		top: '100%'
 	        	}, 1000, 'linear', function(){
-	        		// $(this).hide();
+	        		$(this).addClass('closed');
 	        	});
 
 	        	$("#feed").html(eventData.html).addClass('ACTIVE').fadeIn(function(){
 	        		$('.fb-footer').show();
 	        	});
 
-	        	$('#profile-btn').click(function(){
-					$('.profile').animate({
-		        		left: '40px'
+	        	// close/open profile
+	        	$('.profile-btn').click(function(){
+					$('.profile.closed').animate({
+		        		top: '0%'
 		        	}, 1000, 'linear', function(){
-		        		
+		        		$('.profile').toggleClass('closed').toggleClass('open');
+		        	});
+		        	$('.profile.open').animate({
+		        		top: '100%'
+		        	}, 1000, 'linear', function(){
+		        		$('.profile').toggleClass('open').toggleClass('closed');
 		        	});
 	        	});
 
@@ -408,9 +418,24 @@ $(document).ready(function() {
 		        	console.log('moved to ' + bar)
 		        });
 
+		        if (bar <= 20) {
+		        	$('.points-bar div').animate({
+			        	background: '#fa3e3e'
+			        }, 500, function() {
+			        	console.log('bar color hcange')
+			        });
+		        } else if (bar <= 40) {
+		        	$('.points-bar div').animate({
+			        	background: '#f8a058'
+			        }, 500, function() {
+			        	console.log('bar color change')
+			        });
+		        }
+
 		        if (eventData.reactions) {
 		        	 // Check for type of response
 		        	_.each(eventData.reactions, function(reaction, index){
+
 		        		console.log(reaction, index)
 		        		if (reaction == 'likes') {
 				        	console.log("liked!")
@@ -445,12 +470,15 @@ $(document).ready(function() {
 				        	$(div).addClass('reaction likes');
 				        }
 
-						var reaction = $('.post-feed .reaction:not(.animating)');
+						
+			    	});
+
+			    	var reaction = $('.post-feed .reaction:not(.animating)');
 
 				        _.each(reaction, function(icn, index) {
 
 				        	// Give each reaction a random position
-				        	var left = (Math.random * 40);
+				        	var left = (Math.random() * 40);
 				        	$(icn).css('top', '100%');
 				        	$(icn).css('left', left + 'px');
 
@@ -461,21 +489,16 @@ $(document).ready(function() {
 
 				        			$(this).addClass('animating');
 
-						        	$(this).on('click', function() {
-					        			socket.emit('feed:reaction', { gameId: 'TEST', reaction: eventData.reaction });
-						        		$(this).remove();
-						        	});
-
-						        	var destroy = function() {
+				        			var destroy = function() {
 						        		console.log("hiding")
 						        		setTimeout(function(){
 						        			$(icn).fadeOut(function(){
 						        				$(this).remove();
 						        			});
 						        		}, 1000);
-						        	}
+						        	};
 
-				        			TweenLite.to($(this), 5, {
+				        			TweenLite.to($(this), 7, {
 						        		top: '0%', 
 						        		ease: Bounce.easeOut,
 						        		onComplete: destroy
@@ -487,12 +510,67 @@ $(document).ready(function() {
 				        	}, 800 * index);
 			        		
 				        });
-		        	});
+
+				        $('.reaction').on('click', function() {
+			        		console.log("click")
+			        		if ($(this).hasClass('angry')) {
+
+			        			var chance = (Math.round(Math.random() * 10))%2;			        			
+			        			if (chance == 0) {
+			        				console.log('we can just remove it');
+				        			socket.emit('feed:reaction', { gameId: 'TEST', reaction: eventData.reaction });
+					        		$(this).remove();
+					        	} else {
+					        		console.log("extra angry")
+					        		socket.emit('feed:reaction', { gameId: 'TEST', reaction: 'extra-angry' });
+					        		var div = document.createElement('div');
+						        	$(div).appendTo($(feed));
+						        	$(div).addClass('reaction angry');
+						        	$(div).fadeIn(function(){
+						        		$(this).addClass('animating')
+						        		$(this).on('click', function(){
+						        			$(this).remove();
+						        		});
+						        	});
+
+						        	var destroy = function() {
+						        		console.log("hiding")
+						        		setTimeout(function(){
+						        			$(div).fadeOut(function(){
+						        				$(this).remove();
+						        			});
+						        		}, 1000);
+						        	};
+
+						        	TweenLite.to($(div), 7, {
+						        		top: '0%', 
+						        		ease: Bounce.easeOut,
+						        		onComplete: destroy
+						        	});
+					        	}
+					        	
+			        		}
+		        			
+			        	});
 			        
 		        }
 		       
 
 		        break;
+
+		    case 'feed:response':
+		    console.log(eventData, " repsonse")
+
+		    	// Player got a message, let's show them
+			    var message = $('.direct-message.' + eventData.comment);
+		    	message.find('.body').text(eventData.msg);
+		    	message.fadeIn(function(){
+		    		setTimeout(function(){
+		    			message.fadeOut();
+		    		}, 5000);
+		    	}); 
+
+		    	break;
 
 			case 'profile:score':
 
@@ -508,22 +586,9 @@ $(document).ready(function() {
 
 	        	setTimeout(function () {
 
-	        		var height = $('#round-feed').height();
-	        		$('#round-feed').css('position', 'absolute');
+	        		$('.next').fadeIn();
 
-					$('#round-feed').animate({ 
-						top: '-' + height + 'px'
-					}, 2000, 'linear', function(){
-
-						$('#round-feed').hide();
-
-						$('.next').fadeIn();
-
-						console.log("animation finished");
-
-					});
-
-				}, 15000);
+				}, 5000);
 
 		        break;
 

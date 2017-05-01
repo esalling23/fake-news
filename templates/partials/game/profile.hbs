@@ -12,8 +12,8 @@
 	<div class="about">
 
 		{{{currentProfile.bio.html}}}
-
-		I am {{#each buckets}}{{#if @last}} and {{trait.name}}{{else}} {{trait.name}},{{/if}}{{/each}}.
+{{!-- 
+		I am {{#each buckets}}{{#if @last}} and {{trait.name}}{{else}} {{trait.name}},{{/if}}{{/each}}. --}}
 
 	</div>
 
@@ -39,5 +39,7 @@
 		<a id="start-round">start</a>
 
 	</div>
+	<a class="profile-btn" style="display:none;">Profile</a>
+
 </div>
 

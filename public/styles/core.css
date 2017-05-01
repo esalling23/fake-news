@@ -132,6 +132,7 @@ html, body {
         line-height: 1;
         text-align: left; }
     #gameContent .game .profile {
+      z-index: 2000;
       background: white;
       line-height: 1; }
       #gameContent .game .profile .profile-header {
@@ -148,7 +149,7 @@ html, body {
       #gameContent .game .profile .analysis {
         z-index: 1000;
         position: absolute;
-        bottom: 0px; }
+        bottom: 20px; }
       #gameContent .game .profile .follower-bucket-bar {
         height: 30px;
         width: 300px;
@@ -181,22 +182,34 @@ html, body {
         left: 0px;
         top: 0px;
         height: 100%;
-        max-height: 460px; }
-        #gameContent .game .profile .profile-wrapper.minimized {
-          animation-name: minimize;
-          animation-duration: 1s;
-          animation-fill-mode: forwards; }
+        max-height: 460px;
+        z-index: 2000; }
+        #gameContent .game .profile .profile-wrapper .profile-btn {
+          position: absolute;
+          bottom: 0px; }
+        #gameContent .game .profile .profile-wrapper.closed {
+          visibility: none; }
       #gameContent .game .profile #start-round {
         width: 100%; }
     #gameContent .game .feed {
       font-size: 20px; }
+      #gameContent .game .feed .direct-message {
+        position: absolute;
+        bottom: 80px;
+        left: 10px;
+        height: 60px;
+        width: 220px;
+        color: #4b4f4c;
+        border: 3px solid #365899;
+        background: #f6f7f9;
+        z-index: 1000; }
       #gameContent .game .feed .fb-footer {
         display: none;
         position: absolute;
         bottom: 0px;
         width: 100%;
         max-width: 320px;
-        height: 80px;
+        height: 50px;
         z-index: 1000;
         background-color: #f6f7f9; }
         #gameContent .game .feed .fb-footer a {
@@ -265,7 +278,7 @@ html, body {
       #gameContent .game .feed .post-body {
         background-size: contain;
         background-repeat: no-repeat;
-        background-position: center bottom;
+        background-position: center top;
         height: 260px; }
         #gameContent .game .feed .post-body .headline {
           position: absolute;
@@ -289,7 +302,7 @@ html, body {
           bottom: 0px;
           z-index: 1000;
           left: 20px;
-          bottom: 5px; }
+          top: 5px; }
           #gameContent .game .feed .post .share-btn:disabled {
             background-color: black; }
       #gameContent .game .feed .thumbnail {
