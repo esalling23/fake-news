@@ -48,6 +48,7 @@ Profile.add({
 	trait1: { 
 		type: Types.Relationship,
 	 	label: 'Trait for follower bucket 1',
+	 	note: 'This one will be static - it will ALWAYS show up',
 	 	ref: 'Trait', 
 	 	many: false
 	},
@@ -64,6 +65,7 @@ Profile.add({
 	trait2: { 
 		type: Types.Relationship,
 	 	label: 'Trait for follower bucket 2',
+	 	note: 'This one will be randomized - it MIGHT show up',
 	 	ref: 'Trait', 
 	 	many: false
 	},
@@ -80,6 +82,7 @@ Profile.add({
 	trait3: { 
 		type: Types.Relationship,
 	 	label: 'Trait for follower bucket 3',
+	 	note: 'This one will be randomized - it MIGHT show up',
 	 	ref: 'Trait', 
 	 	many: false
 	},
@@ -96,6 +99,7 @@ Profile.add({
 	trait4: { 
 		type: Types.Relationship,
 	 	label: 'Trait for follower bucket 4',
+	 	note: 'This one will be randomized - it MIGHT show up',
 	 	ref: 'Trait', 
 	 	many: false
 	},
@@ -112,6 +116,7 @@ Profile.add({
 	trait5: { 
 		type: Types.Relationship,
 	 	label: 'Trait for follower bucket 5',
+	 	note: 'This one will be randomized - it MIGHT show up',
 	 	ref: 'Trait', 
 	 	many: false
 	},
@@ -133,9 +138,13 @@ Profile.schema.statics.removeResourceRef = function(resourceId, callback) {
                 'trait1': resourceId, 
                 'trait2': resourceId,
                 'trait3': resourceId,
+                'trait4': resourceId,
+                'trait5': resourceId,
                 'opposite1': resourceId,
                 'opposite2': resourceId,
-                'opposite3': resourceId
+                'opposite3': resourceId,
+                'opposite4': resourceId,
+                'opposite5': resourceId
             }]
         },
 
@@ -144,9 +153,13 @@ Profile.schema.statics.removeResourceRef = function(resourceId, callback) {
                 'trait1': resourceId, 
                 'trait2': resourceId,
                 'trait3': resourceId,
+                'trait4': resourceId,
+                'trait5': resourceId,
                 'opposite1': resourceId,
                 'opposite2': resourceId,
-                'opposite3': resourceId
+                'opposite3': resourceId,
+                'opposite4': resourceId,
+                'opposite5': resourceId
             }
         },
 

@@ -562,11 +562,14 @@ $(document).ready(function() {
 		    console.log(eventData, " repsonse")
 
 		    	// Player got a message, let's show them
-			    var message = $('.direct-message.' + eventData.comment);
+			    var message = $('.direct-message');
+			    message.addClass(eventData.comment);
 		    	message.find('.body').text(eventData.msg);
 		    	message.fadeIn(function(){
 		    		setTimeout(function(){
-		    			message.fadeOut();
+		    			message.fadeOut(function(){
+		    				message.removeClass(eventData.comment);
+		    			});
 		    		}, 5000);
 		    	}); 
 

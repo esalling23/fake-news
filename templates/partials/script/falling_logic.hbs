@@ -50,13 +50,15 @@ var StartCommentFeed = function(article){
 		postSteps.push(-(parseInt($(post).css('bottom')) + 300));
 	});
 
+	var time = postSteps.length * 7000;
+
 	var postPastId;
 
 	$('#post-feed').animate({
 	    bottom: length
 	}, {
 		easing: 'linear',
-		duration: 100000,
+		duration: time,
 		start: function(){
 			$('.fb-footer .profile-btn, .profile-wrapper .profile-btn').addClass('animating');
 		},
@@ -78,7 +80,6 @@ var StartCommentFeed = function(article){
 		}, 
 	  	complete: function() {
 		  	console.log("round over");
-
 		  	socket.emit('feed:end', { gameId: 'TEST', data: data });
 	  	}
 	});

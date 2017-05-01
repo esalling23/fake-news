@@ -200,9 +200,13 @@ html, body {
         height: 60px;
         width: 220px;
         color: #4b4f4c;
-        border: 3px solid #365899;
+        font-size: 12px;
         background: #f6f7f9;
         z-index: 1000; }
+        #gameContent .game .feed .direct-message.follower {
+          border: 3px solid #365899; }
+        #gameContent .game .feed .direct-message.alien {
+          border: 3px solid #4b4f4c; }
       #gameContent .game .feed .fb-footer {
         display: none;
         position: absolute;
