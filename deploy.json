@@ -18,7 +18,7 @@
       "ref": "origin/master",
       "path": "/srv/fake-news",
       "pre-deploy-local" : "echo 'NPM linking repo-name and restarting app.';",
-      "post-deploy" : "npm i ; cd /srv/fake-news/ ; grunt compile --sites=fake-news --env production ; NODE_ENV=production pm2 restart server.js -- fake-news --env production", 
+      "post-deploy" : "npm i ; cd /srv/el-web-sdk/ ; grunt compile --sites=fake-news --env production ; NODE_ENV=production pm2 restart server -- fake-news --env production", 
       "env": {
         "NODE_ENV": "production"
       }
