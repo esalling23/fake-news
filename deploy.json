@@ -16,7 +16,7 @@
       "host": "174.138.71.140",
       "repo": "https://github.com/esalling23/fake-news.git",
       "ref": "origin/master",
-      "path": "/srv/fake-news",
+      "path": "/srv/el-web-sdk",
       "pre-deploy-local" : "echo 'NPM linking repo-name and restarting app.';",
       "post-deploy" : "npm i ; cd /srv/el-web-sdk/ ; grunt compile --sites=fake-news --env production ; NODE_ENV=production pm2 restart server -- fake-news --env production", 
       "env": {
